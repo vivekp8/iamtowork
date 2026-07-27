@@ -1,0 +1,235 @@
+.page {
+  padding-top: 120px;
+  padding-bottom: 6rem;
+}
+
+.header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 5rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  background-color: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 0.3rem 0.875rem;
+  border-radius: 9999px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.sub {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.heroCta {
+  display: inline-flex;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 0.9375rem 2.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color var(--transition-fast);
+}
+
+.heroCta:hover {
+  background-color: var(--primary-hover);
+  color: #fff;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 1.75rem;
+}
+
+/* Types */
+.typesSection {
+  margin-bottom: 5rem;
+}
+
+.typesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .typesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .typesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.typeCard {
+  padding: 1.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-normal);
+}
+
+.typeCard:hover {
+  border-color: var(--border-hover);
+}
+
+.typeLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.375rem;
+}
+
+.typeDesc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Deliverables + Process */
+.deliverablesSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 5rem;
+  padding: 3rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 1024px) {
+  .deliverablesSection {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.delDesc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.delList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.delItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.checkIcon {
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+
+.processList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.processItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.processStep {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  background-color: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.processTitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-main);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.processDesc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.ctaTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.875rem;
+}
+
+.ctaDesc {
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 0.9375rem 2.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color var(--transition-fast);
+}
+
+.ctaBtn:hover {
+  background-color: var(--primary-hover);
+  color: #fff;
+}
