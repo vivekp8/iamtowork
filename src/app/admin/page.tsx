@@ -1,9 +1,15 @@
 export const dynamic = 'force-dynamic';
 
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/server';
+import { logout } from '@/app/actions/auth';
 import styles from './page.module.css';
 
 export default async function AdminDashboard() {
+  const supabase = await createClient();
+
+  // We are guaranteed to have a user because middleware redirects if not
+  const { data: { user } } = await supabase.auth.getUser();
+
   const { data: contacts, error } = await supabase
     .from('contacts')
     .select('*')
@@ -13,8 +19,18 @@ export default async function AdminDashboard() {
     return (
       <div className={styles.page}>
         <div className="container">
-          <h1 className={styles.title}>Admin Dashboard</h1>
-          <div className={styles.error}>
+          <header className={styles.header}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
+                <h1 className={styles.title}>Admin Dashboard</h1>
+                <p className={styles.sub}>Logged in as {user?.email}</p>
+              </div>
+              <form action={logout}>
+                <button type="submit" style={{ padding: '0.5rem 1rem', background: '#333', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Sign Out</button>
+              </form>
+            </div>
+          </header>
+          <div className={styles.error} style={{ marginTop: '2rem' }}>
             Failed to load contacts. Ensure your Supabase connection is set up and the contacts table exists.
             <br />
             <br />
@@ -29,8 +45,16 @@ export default async function AdminDashboard() {
     <div className={styles.page}>
       <div className="container">
         <header className={styles.header}>
-          <h1 className={styles.title}>Client Submissions</h1>
-          <p className={styles.sub}>Manage and view your project enquiries.</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <h1 className={styles.title}>Client Submissions</h1>
+              <p className={styles.sub}>Manage and view your project enquiries.</p>
+              <p className={styles.sub} style={{ marginTop: '0.25rem', fontSize: '0.75rem' }}>Logged in as {user?.email}</p>
+            </div>
+            <form action={logout}>
+              <button type="submit" style={{ padding: '0.5rem 1rem', background: '#333', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Sign Out</button>
+            </form>
+          </div>
         </header>
 
         {(!contacts || contacts.length === 0) ? (
