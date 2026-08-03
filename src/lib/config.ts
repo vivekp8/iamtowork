@@ -11,9 +11,10 @@ export const SITE = {
 };
 
 export const CONTACT = {
-  email: '', // fill when ready
+  email: 'vivekp@iamtowork.com',
   whatsapp: '', // fill when ready
-  linkedin: '', // fill when ready
+  companyLinkedin: 'https://www.linkedin.com/company/143035530/',
+  personalLinkedin: 'https://www.linkedin.com/in/vivek-potnuru-302677200/',
   bookingUrl: '', // fill when ready (e.g., Calendly)
 };
 

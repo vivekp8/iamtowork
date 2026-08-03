@@ -3,13 +3,28 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import styles from './page.module.css';
 
+import { submitContactForm } from '@/app/actions/contact';
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [contactPref, setContactPref] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire up to form service
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMsg('');
+    
+    const formData = new FormData(e.currentTarget);
+    const result = await submitContactForm(formData);
+    
+    if (result.success) {
+      setSubmitted(true);
+    } else {
+      setErrorMsg(result.error || 'Something went wrong.');
+    }
+    setLoading(false);
   }
 
   return (
@@ -37,20 +52,55 @@ export default function ContactPage() {
                 <input id="name" name="name" type="text" required className={styles.input} placeholder="Your full name" />
               </div>
               <div className={styles.field}>
-                <label htmlFor="email" className={styles.label}>Email <span aria-hidden>*</span></label>
-                <input id="email" name="email" type="email" required className={styles.input} placeholder="your@email.com" />
+                <label htmlFor="company" className={styles.label}>Company / Business</label>
+                <input id="company" name="company" type="text" className={styles.input} placeholder="Your business name" />
               </div>
             </div>
 
             <div className={styles.row}>
               <div className={styles.field}>
-                <label htmlFor="phone" className={styles.label}>Phone / WhatsApp</label>
-                <input id="phone" name="phone" type="tel" className={styles.input} placeholder="+1 234 567 890" />
+                <label htmlFor="contact-pref" className={styles.label}>Preferred Contact Method <span aria-hidden>*</span></label>
+                <select 
+                  id="contact-pref" 
+                  name="contactPreference" 
+                  className={styles.select}
+                  value={contactPref}
+                  onChange={(e) => setContactPref(e.target.value)}
+                  required
+                >
+                  <option value="">Select preference</option>
+                  <option value="email">Email</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="call">Phone Call</option>
+                </select>
               </div>
-              <div className={styles.field}>
-                <label htmlFor="company" className={styles.label}>Company / Business</label>
-                <input id="company" name="company" type="text" className={styles.input} placeholder="Your business name" />
-              </div>
+
+              {contactPref === 'email' && (
+                <div className={styles.field}>
+                  <label htmlFor="email" className={styles.label}>Email Address <span aria-hidden>*</span></label>
+                  <input id="email" name="email" type="email" required className={styles.input} placeholder="your@email.com" />
+                </div>
+              )}
+
+              {contactPref === 'whatsapp' && (
+                <div className={styles.field}>
+                  <label htmlFor="whatsapp" className={styles.label}>WhatsApp Number <span aria-hidden>*</span></label>
+                  <input id="whatsapp" name="whatsapp" type="tel" required className={styles.input} placeholder="+1 234 567 890" />
+                </div>
+              )}
+
+              {contactPref === 'call' && (
+                <div className={styles.field}>
+                  <label htmlFor="phone" className={styles.label}>Phone Number <span aria-hidden>*</span></label>
+                  <input id="phone" name="phone" type="tel" required className={styles.input} placeholder="+1 234 567 890" />
+                </div>
+              )}
+
+              {!contactPref && (
+                <div className={styles.field}>
+                  {/* Empty placeholder to keep grid layout intact if needed, or simply let the other fields stretch. In CSS grid, 1 element will span 1 col, which is fine, but to force a 2nd column gap we can use a hidden placeholder or just let it be. Let's just omit it. */}
+                </div>
+              )}
             </div>
 
             <div className={styles.field}>
@@ -107,18 +157,14 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className={styles.field}>
-              <label htmlFor="contact-pref" className={styles.label}>Preferred Contact Method</label>
-              <select id="contact-pref" name="contactPreference" className={styles.select}>
-                <option value="">Select preference</option>
-                <option value="email">Email</option>
-                <option value="whatsapp">WhatsApp</option>
-                <option value="call">Phone Call</option>
-              </select>
-            </div>
+            {errorMsg && (
+              <div style={{ color: 'var(--destructive, #ef4444)', fontSize: '0.875rem', marginTop: '0.5rem' }}>
+                {errorMsg}
+              </div>
+            )}
 
-            <button type="submit" className={styles.submit}>
-              Send Enquiry
+            <button type="submit" className={styles.submit} disabled={loading}>
+              {loading ? 'Sending...' : 'Send Enquiry'}
             </button>
           </form>
         )}

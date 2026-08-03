@@ -146,6 +146,28 @@
   color: var(--secondary);
 }
 
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.socialLink:hover {
+  color: var(--text-main);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .badgeDot {
     animation: none;

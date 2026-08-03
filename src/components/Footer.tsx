@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CONTACT } from '@/lib/config';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -32,6 +33,13 @@ export default function Footer() {
             <h4 className={styles.columnTitle}>Legal</h4>
             <Link href="/privacy" className={styles.link}>Privacy</Link>
             <Link href="/terms" className={styles.link}>Terms</Link>
+          </div>
+
+          <div className={styles.column}>
+            <h4 className={styles.columnTitle}>Connect</h4>
+            <a href={`mailto:${CONTACT.email}`} className={styles.link}>Email Us</a>
+            <a href={CONTACT.companyLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Company LinkedIn</a>
+            <a href={CONTACT.personalLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Founder LinkedIn</a>
           </div>
         </div>
       </div>

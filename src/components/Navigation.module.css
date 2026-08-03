@@ -96,6 +96,19 @@
   color: var(--primary);
 }
 
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+  padding: 0.25rem;
+}
+
+.socialLink:hover {
+  color: var(--primary);
+}
+
 .actionPrimary {
   background-color: var(--primary);
   color: white;
