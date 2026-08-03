@@ -1,6 +1,8 @@
 'use server';
 
 import { supabase } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/server';
+import { revalidatePath } from 'next/cache';
 
 export async function submitContactForm(formData: FormData) {
   try {
@@ -32,4 +34,36 @@ export async function submitContactForm(formData: FormData) {
     console.error('Action error:', error);
     return { success: false, error: 'An unexpected error occurred.' };
   }
+}
+
+export async function updateContactStatus(id: string, status: string) {
+  const supabaseServer = await createClient();
+  const { error } = await supabaseServer
+    .from('contacts')
+    .update({ status })
+    .eq('id', id);
+
+  if (error) {
+    console.error('Failed to update status:', error);
+    return { success: false, error: error.message };
+  }
+  
+  revalidatePath('/admin');
+  return { success: true };
+}
+
+export async function deleteContact(id: string) {
+  const supabaseServer = await createClient();
+  const { error } = await supabaseServer
+    .from('contacts')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    console.error('Failed to delete contact:', error);
+    return { success: false, error: error.message };
+  }
+  
+  revalidatePath('/admin');
+  return { success: true };
 }

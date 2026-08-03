@@ -3,17 +3,31 @@ export const dynamic = 'force-dynamic';
 import { createClient } from '@/utils/supabase/server';
 import { logout } from '@/app/actions/auth';
 import styles from './page.module.css';
+import AdminControls from '@/components/AdminControls';
+import Link from 'next/link';
 
-export default async function AdminDashboard() {
+export default async function AdminDashboard({
+  searchParams,
+}: {
+  searchParams: { status?: string };
+}) {
   const supabase = await createClient();
 
   // We are guaranteed to have a user because middleware redirects if not
   const { data: { user } } = await supabase.auth.getUser();
 
-  const { data: contacts, error } = await supabase
-    .from('contacts')
-    .select('*')
-    .order('created_at', { ascending: false });
+  const currentStatus = searchParams.status || 'active'; // 'active' means new or in_progress
+
+  let query = supabase.from('contacts').select('*').order('created_at', { ascending: false });
+
+  if (currentStatus === 'archived') {
+    query = query.eq('status', 'archived');
+  } else if (currentStatus === 'active') {
+    // Show 'new', 'in_progress', or null (for older rows without a status)
+    query = query.neq('status', 'archived');
+  }
+
+  const { data: contacts, error } = await query;
 
   if (error) {
     return (
@@ -57,9 +71,24 @@ export default async function AdminDashboard() {
           </div>
         </header>
 
+        <div className={styles.tabs}>
+          <Link 
+            href="/admin?status=active" 
+            className={`${styles.tab} ${currentStatus === 'active' ? styles.activeTab : ''}`}
+          >
+            Active
+          </Link>
+          <Link 
+            href="/admin?status=archived" 
+            className={`${styles.tab} ${currentStatus === 'archived' ? styles.activeTab : ''}`}
+          >
+            Archived
+          </Link>
+        </div>
+
         {(!contacts || contacts.length === 0) ? (
           <div className={styles.empty}>
-            <p>No client submissions found yet.</p>
+            <p>No client submissions found in this category.</p>
           </div>
         ) : (
           <div className={styles.grid}>
@@ -67,9 +96,14 @@ export default async function AdminDashboard() {
               <div key={contact.id} className={styles.card}>
                 <div className={styles.cardHeader}>
                   <h3 className={styles.name}>{contact.name}</h3>
-                  <span className={styles.date}>
-                    {new Date(contact.created_at).toLocaleDateString()}
-                  </span>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
+                    <span className={styles.date}>
+                      {new Date(contact.created_at).toLocaleDateString()}
+                    </span>
+                    <span className={styles.statusBadge} data-status={contact.status || 'new'}>
+                      {(contact.status || 'new').replace('_', ' ').toUpperCase()}
+                    </span>
+                  </div>
                 </div>
                 
                 <div className={styles.details}>
@@ -118,6 +152,8 @@ export default async function AdminDashboard() {
                     </a>
                   </div>
                 )}
+
+                <AdminControls id={contact.id} currentStatus={contact.status || 'new'} />
               </div>
             ))}
           </div>
