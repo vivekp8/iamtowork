@@ -67,3 +67,19 @@ export async function deleteContact(id: string) {
   revalidatePath('/admin');
   return { success: true };
 }
+
+export async function updateAdminNotes(id: string, notes: string) {
+  const supabaseServer = await createClient();
+  const { error } = await supabaseServer
+    .from('contacts')
+    .update({ admin_notes: notes })
+    .eq('id', id);
+
+  if (error) {
+    console.error('Failed to update notes:', error);
+    return { success: false, error: error.message };
+  }
+  
+  revalidatePath('/admin');
+  return { success: true };
+}

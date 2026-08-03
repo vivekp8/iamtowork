@@ -4,35 +4,28 @@ import { createClient } from '@/utils/supabase/server';
 import { logout } from '@/app/actions/auth';
 import styles from './page.module.css';
 import AdminControls from '@/components/AdminControls';
+import AnalyticsCards from '@/components/AnalyticsCards';
+import SearchFilter from '@/components/SearchFilter';
 import Link from 'next/link';
 
 export default async function AdminDashboard(
   props: {
-    searchParams: Promise<{ status?: string }>;
+    searchParams: Promise<{ status?: string, search?: string }>;
   }
 ) {
   const searchParams = await props.searchParams;
   const supabase = await createClient();
 
-  // We are guaranteed to have a user because middleware redirects if not
   const { data: { user } } = await supabase.auth.getUser();
 
-  const currentStatus = searchParams.status || 'active'; // 'active', 'closed', 'archived'
+  const currentStatus = searchParams.status || 'active';
+  const searchTerm = searchParams.search?.toLowerCase() || '';
 
-  let query = supabase.from('contacts').select('*').order('created_at', { ascending: false });
-
-  if (currentStatus === 'archived') {
-    query = query.in('status', ['archived', 'spam']);
-  } else if (currentStatus === 'closed') {
-    query = query.in('status', ['won', 'lost']);
-  } else {
-    // Active (default)
-    // We show 'new', 'contacted', 'in_discussion', 'proposal_sent', or null
-    // We achieve this by filtering out the other categories
-    query = query.not('status', 'in', '("archived","spam","won","lost")');
-  }
-
-  const { data: contacts, error } = await query;
+  // Fetch all contacts to calculate global analytics
+  const { data: allContacts, error } = await supabase
+    .from('contacts')
+    .select('*')
+    .order('created_at', { ascending: false });
 
   if (error) {
     return (
@@ -51,13 +44,34 @@ export default async function AdminDashboard(
           </header>
           <div className={styles.error} style={{ marginTop: '2rem' }}>
             Failed to load contacts. Ensure your Supabase connection is set up and the contacts table exists.
-            <br />
-            <br />
+            <br /><br />
             Error details: {error.message}
           </div>
         </div>
       </div>
     );
+  }
+
+  // In-memory filtering based on tabs and search
+  let filteredContacts = allContacts || [];
+
+  // 1. Filter by Search Term
+  if (searchTerm) {
+    filteredContacts = filteredContacts.filter(c => 
+      c.name?.toLowerCase().includes(searchTerm) || 
+      c.email?.toLowerCase().includes(searchTerm) ||
+      c.company?.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  // 2. Filter by Tab Status
+  if (currentStatus === 'archived') {
+    filteredContacts = filteredContacts.filter(c => ['archived', 'spam'].includes(c.status));
+  } else if (currentStatus === 'closed') {
+    filteredContacts = filteredContacts.filter(c => ['won', 'lost'].includes(c.status));
+  } else {
+    // Active
+    filteredContacts = filteredContacts.filter(c => !['archived', 'spam', 'won', 'lost'].includes(c.status));
   }
 
   return (
@@ -76,34 +90,40 @@ export default async function AdminDashboard(
           </div>
         </header>
 
-        <div className={styles.tabs}>
-          <Link 
-            href="/admin?status=active" 
-            className={`${styles.tab} ${currentStatus === 'active' ? styles.activeTab : ''}`}
-          >
-            Active
-          </Link>
-          <Link 
-            href="/admin?status=closed" 
-            className={`${styles.tab} ${currentStatus === 'closed' ? styles.activeTab : ''}`}
-          >
-            Closed
-          </Link>
-          <Link 
-            href="/admin?status=archived" 
-            className={`${styles.tab} ${currentStatus === 'archived' ? styles.activeTab : ''}`}
-          >
-            Archived
-          </Link>
+        <AnalyticsCards contacts={allContacts || []} />
+
+        <div className={styles.toolbar}>
+          <div className={styles.tabs}>
+            <Link 
+              href={`/admin?status=active${searchTerm ? `&search=${searchTerm}` : ''}`} 
+              className={`${styles.tab} ${currentStatus === 'active' ? styles.activeTab : ''}`}
+            >
+              Active
+            </Link>
+            <Link 
+              href={`/admin?status=closed${searchTerm ? `&search=${searchTerm}` : ''}`}
+              className={`${styles.tab} ${currentStatus === 'closed' ? styles.activeTab : ''}`}
+            >
+              Closed
+            </Link>
+            <Link 
+              href={`/admin?status=archived${searchTerm ? `&search=${searchTerm}` : ''}`}
+              className={`${styles.tab} ${currentStatus === 'archived' ? styles.activeTab : ''}`}
+            >
+              Archived
+            </Link>
+          </div>
+          
+          <SearchFilter />
         </div>
 
-        {(!contacts || contacts.length === 0) ? (
+        {(!filteredContacts || filteredContacts.length === 0) ? (
           <div className={styles.empty}>
             <p>No client submissions found in this category.</p>
           </div>
         ) : (
           <div className={styles.grid}>
-            {contacts.map((contact) => (
+            {filteredContacts.map((contact) => (
               <div key={contact.id} className={styles.card}>
                 <div className={styles.cardHeader}>
                   <h3 className={styles.name}>{contact.name}</h3>
@@ -164,7 +184,7 @@ export default async function AdminDashboard(
                   </div>
                 )}
 
-                <AdminControls id={contact.id} currentStatus={contact.status || 'new'} />
+                <AdminControls id={contact.id} currentStatus={contact.status || 'new'} initialNotes={contact.admin_notes} />
               </div>
             ))}
           </div>
