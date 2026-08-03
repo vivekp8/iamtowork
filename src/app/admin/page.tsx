@@ -6,11 +6,12 @@ import styles from './page.module.css';
 import AdminControls from '@/components/AdminControls';
 import Link from 'next/link';
 
-export default async function AdminDashboard({
-  searchParams,
-}: {
-  searchParams: { status?: string };
-}) {
+export default async function AdminDashboard(
+  props: {
+    searchParams: Promise<{ status?: string }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const supabase = await createClient();
 
   // We are guaranteed to have a user because middleware redirects if not
