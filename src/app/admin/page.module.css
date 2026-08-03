@@ -188,14 +188,44 @@
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-.statusBadge[data-status="in_progress"] {
-  background-color: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+.statusBadge[data-status="contacted"] {
+  background-color: rgba(6, 182, 212, 0.15);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.statusBadge[data-status="in_discussion"] {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.statusBadge[data-status="proposal_sent"] {
+  background-color: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.statusBadge[data-status="won"] {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.statusBadge[data-status="lost"] {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .statusBadge[data-status="archived"] {
   background-color: rgba(156, 163, 175, 0.15);
   color: #9ca3af;
   border: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+.statusBadge[data-status="spam"] {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ef4444;
+  border: 1px dashed rgba(239, 68, 68, 0.5);
 }

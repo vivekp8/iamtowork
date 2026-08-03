@@ -55,9 +55,20 @@ export default function AdminControls({
           fontSize: '0.85rem'
         }}
       >
-        <option value="new">🆕 New</option>
-        <option value="in_progress">⏳ In Progress</option>
-        <option value="archived">📁 Archived</option>
+        <optgroup label="Active">
+          <option value="new">🆕 New</option>
+          <option value="contacted">📞 Contacted</option>
+          <option value="in_discussion">💬 In Discussion</option>
+          <option value="proposal_sent">📄 Proposal Sent</option>
+        </optgroup>
+        <optgroup label="Closed">
+          <option value="won">🏆 Closed (Won)</option>
+          <option value="lost">❌ Closed (Lost)</option>
+        </optgroup>
+        <optgroup label="Other">
+          <option value="archived">📁 Archived</option>
+          <option value="spam">🗑️ Spam</option>
+        </optgroup>
       </select>
       
       <button 

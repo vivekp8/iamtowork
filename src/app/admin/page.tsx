@@ -16,15 +16,19 @@ export default async function AdminDashboard({
   // We are guaranteed to have a user because middleware redirects if not
   const { data: { user } } = await supabase.auth.getUser();
 
-  const currentStatus = searchParams.status || 'active'; // 'active' means new or in_progress
+  const currentStatus = searchParams.status || 'active'; // 'active', 'closed', 'archived'
 
   let query = supabase.from('contacts').select('*').order('created_at', { ascending: false });
 
   if (currentStatus === 'archived') {
-    query = query.eq('status', 'archived');
-  } else if (currentStatus === 'active') {
-    // Show 'new', 'in_progress', or null (for older rows without a status)
-    query = query.neq('status', 'archived');
+    query = query.in('status', ['archived', 'spam']);
+  } else if (currentStatus === 'closed') {
+    query = query.in('status', ['won', 'lost']);
+  } else {
+    // Active (default)
+    // We show 'new', 'contacted', 'in_discussion', 'proposal_sent', or null
+    // We achieve this by filtering out the other categories
+    query = query.not('status', 'in', '("archived","spam","won","lost")');
   }
 
   const { data: contacts, error } = await query;
@@ -77,6 +81,12 @@ export default async function AdminDashboard({
             className={`${styles.tab} ${currentStatus === 'active' ? styles.activeTab : ''}`}
           >
             Active
+          </Link>
+          <Link 
+            href="/admin?status=closed" 
+            className={`${styles.tab} ${currentStatus === 'closed' ? styles.activeTab : ''}`}
+          >
+            Closed
           </Link>
           <Link 
             href="/admin?status=archived" 
