@@ -38,15 +38,14 @@ export default function AnalyticsCards({ contacts }: { contacts: any[] }) {
 }
 
 const cardStyle = {
-  background: 'rgba(255, 255, 255, 0.03)',
-  backdropFilter: 'blur(10px)',
-  border: '1px solid rgba(255, 255, 255, 0.1)',
-  borderRadius: '12px',
+  background: '#1a1a1a',
+  borderRadius: '16px',
   padding: '1.5rem',
   display: 'flex',
   flexDirection: 'column' as const,
   gap: '0.5rem',
-  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+  boxShadow: '7px 7px 14px #121212, -7px -7px 14px #222222',
+  border: 'none',
 };
 
 const labelStyle = {

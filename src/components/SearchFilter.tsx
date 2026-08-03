@@ -32,17 +32,17 @@ export default function SearchFilter() {
         style={{
           width: '100%',
           padding: '0.75rem 1rem 0.75rem 2.5rem',
-          borderRadius: '8px',
-          background: 'rgba(255, 255, 255, 0.05)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          borderRadius: '25px',
+          background: '#1a1a1a',
+          border: 'none',
+          boxShadow: 'inset 5px 5px 10px #121212, inset -5px -5px 10px #222222',
           color: 'white',
           fontSize: '0.9rem',
-          backdropFilter: 'blur(10px)',
           outline: 'none',
-          transition: 'border-color 0.2s',
+          transition: 'box-shadow 0.2s',
         }}
-        onFocus={(e) => e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)'}
-        onBlur={(e) => e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)'}
+        onFocus={(e) => e.target.style.boxShadow = 'inset 7px 7px 14px #121212, inset -7px -7px 14px #222222'}
+        onBlur={(e) => e.target.style.boxShadow = 'inset 5px 5px 10px #121212, inset -5px -5px 10px #222222'}
       />
       <svg 
         style={{ 

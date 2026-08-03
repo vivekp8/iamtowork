@@ -75,13 +75,15 @@ export default function AdminControls({
             width: '100%',
             minHeight: '80px',
             padding: '0.75rem',
-            borderRadius: '6px',
-            background: 'rgba(0,0,0,0.2)',
-            border: '1px solid #444',
+            borderRadius: '12px',
+            background: '#1a1a1a',
+            border: 'none',
+            boxShadow: 'inset 5px 5px 10px #121212, inset -5px -5px 10px #222222',
             color: 'white',
             fontSize: '0.9rem',
             resize: 'vertical',
-            fontFamily: 'inherit'
+            fontFamily: 'inherit',
+            outline: 'none'
           }}
         />
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
