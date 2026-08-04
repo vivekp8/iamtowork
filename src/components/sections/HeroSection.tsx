@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CONTACT } from '@/lib/config';
+import { ChevronRight } from 'lucide-react';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
@@ -32,9 +33,7 @@ export default function HeroSection() {
           </Link>
           <Link href="/services" className={styles.secondaryCta}>
             Explore Services
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+            <ChevronRight size={16} aria-hidden="true" />
           </Link>
         </div>
 

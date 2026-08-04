@@ -1,14 +1,13 @@
 import { MetadataRoute } from 'next';
+import { SERVICES } from '@/lib/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://iamtowork.com';
-  const routes = [
+  
+  // Base static routes
+  const staticRoutes = [
     '',
     '/services',
-    '/services/websites',
-    '/services/automation',
-    '/services/content-design',
-    '/services/ai-marketing',
     '/solutions',
     '/work',
     '/pricing',
@@ -17,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy',
     '/terms',
   ];
+
+  // Dynamic service routes
+  const serviceRoutes = SERVICES.map(service => service.slug);
+
+  // Combine all routes
+  const routes = [...staticRoutes, ...serviceRoutes];
 
   return routes.map((route) => ({
     url: `${base}${route}`,
