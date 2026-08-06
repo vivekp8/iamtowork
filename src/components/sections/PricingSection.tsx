@@ -6,7 +6,6 @@ const PACKAGES = [
   {
     id: 'websites',
     title: 'Website Building',
-    price: '$X,XXX',
     description: 'Professional, responsive websites built for conversion.',
     features: [
       'Custom Design & Development',
@@ -18,7 +17,6 @@ const PACKAGES = [
   {
     id: 'automation',
     title: 'Business Automation',
-    price: '$X,XXX',
     description: 'Workflows that eliminate manual tasks and save hours.',
     features: [
       'Workflow Audit & Strategy',
@@ -31,7 +29,6 @@ const PACKAGES = [
   {
     id: 'ai-growth',
     title: 'AI Growth',
-    price: '$X,XXX',
     description: 'Content and marketing engines powered by AI.',
     features: [
       'AI Content Strategy',
@@ -50,7 +47,7 @@ export default function PricingSection() {
           <span className={styles.eyebrow}>Pricing</span>
           <h2 className={styles.title}>Simple, Transparent Pricing</h2>
           <p className={styles.sub}>
-            Starting prices to give you an idea of investment. Every project gets a custom quote.
+            Every project is unique. We provide detailed custom quotes tailored to your exact business requirements.
           </p>
         </div>
 
@@ -60,8 +57,7 @@ export default function PricingSection() {
               {pkg.highlight && <div className={styles.badge}>Most Popular</div>}
               <h3 className={styles.cardTitle}>{pkg.title}</h3>
               <div className={styles.price}>
-                <span className={styles.from}>Starting from</span>
-                <span className={styles.amount}>{pkg.price}</span>
+                <span className={styles.amount}>Custom</span>
               </div>
               <p className={styles.cardDesc}>{pkg.description}</p>
               
