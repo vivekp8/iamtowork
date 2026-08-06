@@ -12,7 +12,7 @@ export const SITE = {
 
 export const CONTACT = {
   email: 'vivekp@iamtowork.com',
-  whatsapp: '', // fill when ready
+  whatsapp: '+917036338557',
   companyLinkedin: 'https://www.linkedin.com/company/143035530/',
   personalLinkedin: 'https://www.linkedin.com/in/vivek-potnuru-302677200/',
   bookingUrl: '', // fill when ready (e.g., Calendly)

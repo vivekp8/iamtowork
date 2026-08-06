@@ -4,6 +4,7 @@ import type { FormEvent } from 'react';
 import styles from './page.module.css';
 
 import { submitContactForm } from '@/app/actions/contact';
+import { CONTACT } from '@/lib/config';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -37,6 +38,17 @@ export default function ContactPage() {
             Tell us what you&apos;re building, automating, or trying to improve.
             We&apos;ll respond with clear next steps — no commitment required.
           </p>
+          <div className={styles.quickContact}>
+            <span>Or need a faster response?</span>
+            <a 
+              href={`https://wa.me/${CONTACT.whatsapp.replace(/\+/g, '').replace(/\s/g, '')}`} 
+              target="_blank" 
+              rel="noreferrer" 
+              className={styles.whatsappBtn}
+            >
+              Message on WhatsApp
+            </a>
+          </div>>
         </header>
 
         {submitted ? (
