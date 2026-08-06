@@ -48,7 +48,7 @@ export default function ContactPage() {
             >
               Message on WhatsApp
             </a>
-          </div>>
+          </div>
         </header>
 
         {submitted ? (
