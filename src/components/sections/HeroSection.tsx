@@ -23,13 +23,12 @@ export default function HeroSection() {
         </h1>
 
         <p className={styles.sub}>
-          I Am To Work helps businesses build modern websites, automate repetitive workflows,
-          create better content, and implement practical AI solutions.
+          Helping small businesses launch websites & automate work with AI.
         </p>
 
         <div className={styles.actions}>
           <Link href="/contact" className={styles.primaryCta}>
-            Start a Project
+            Book Free Consultation
           </Link>
           <Link href="/services" className={styles.secondaryCta}>
             Explore Services
@@ -39,9 +38,15 @@ export default function HeroSection() {
 
         <p className={styles.tertiary}>
           Or{' '}
-          <Link href="/contact" className={styles.tertiaryLink}>
-            book a free consultation
-          </Link>
+          {CONTACT.bookingUrl ? (
+            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer" className={styles.tertiaryLink}>
+              start a project enquiry
+            </a>
+          ) : (
+            <Link href="/contact" className={styles.tertiaryLink}>
+              start a project enquiry
+            </Link>
+          )}
         </p>
 
         <div className={styles.socials}>

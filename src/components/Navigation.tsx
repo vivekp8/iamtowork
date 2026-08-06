@@ -70,11 +70,8 @@ export default function Navigation() {
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-            <Link href="/contact" className={styles.actionSecondary}>
+            <Link href={CONTACT.bookingUrl || "/contact"} className={styles.actionPrimary}>
               Book a Call
-            </Link>
-            <Link href="/contact" className={styles.actionPrimary}>
-              Get a Quote
             </Link>
           </div>
 
@@ -113,10 +110,7 @@ export default function Navigation() {
           ))}
         </nav>
         <div className={styles.mobileCtas}>
-          <Link href="/contact" className={styles.mobilePrimary} onClick={() => setMenuOpen(false)}>
-            Get a Quote
-          </Link>
-          <Link href="/contact" className={styles.mobileSecondary} onClick={() => setMenuOpen(false)}>
+          <Link href={CONTACT.bookingUrl || "/contact"} className={styles.mobilePrimary} onClick={() => setMenuOpen(false)}>
             Book a Call
           </Link>
         </div>

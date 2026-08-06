@@ -95,15 +95,6 @@ export const SERVICES = [
 
 export const PILLARS = [
   {
-    id: 'create',
-    label: 'CREATE',
-    tagline: 'AI-Assisted Creative Services',
-    description:
-      'Content, copy, design, and media — produced with AI tools and refined for real business use.',
-    href: '/services/content-design',
-    color: '#06B6D4',
-  },
-  {
     id: 'build',
     label: 'BUILD',
     tagline: 'Digital Products & Experiences',
@@ -136,37 +127,37 @@ export const PROCESS_STEPS = [
   {
     number: '01',
     title: 'Discover',
-    description: 'Understand your business, goals, and the specific problem we need to solve.',
+    description: 'Understand your business, goals, and the specific problem we need to solve. (1–2 days)',
   },
   {
     number: '02',
     title: 'Strategy',
-    description: 'Determine the most appropriate solution — technology, approach, and scope.',
+    description: 'Determine the most appropriate solution — technology, approach, and scope. (2–3 days)',
   },
   {
     number: '03',
     title: 'Design',
-    description: 'Plan the experience, content structure, or workflow in detail.',
+    description: 'Plan the experience, content structure, or workflow in detail. (3–5 days)',
   },
   {
     number: '04',
     title: 'Build',
-    description: 'Implement the solution with precision and care.',
+    description: 'Implement the solution with precision and care. (5–10 days)',
   },
   {
     number: '05',
     title: 'Review',
-    description: 'Test, refine, and validate against the original brief.',
+    description: 'Test, refine, and validate against the original brief. (1–3 days)',
   },
   {
     number: '06',
     title: 'Launch',
-    description: 'Deploy to production with proper setup and configuration.',
+    description: 'Deploy to production with proper setup and configuration. (1 day)',
   },
   {
     number: '07',
     title: 'Support',
-    description: 'Provide agreed post-launch support and guidance.',
+    description: 'Provide agreed post-launch support and guidance. (Ongoing)',
   },
 ];
 

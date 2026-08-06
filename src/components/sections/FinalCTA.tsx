@@ -16,10 +16,7 @@ export default function FinalCTA() {
           </p>
           <div className={styles.actions}>
             <Link href="/contact" className={styles.primary}>
-              Start a Project
-            </Link>
-            <Link href="/contact" className={styles.secondary}>
-              Book a Call
+              Book Your Free Consultation
             </Link>
           </div>
         </div>

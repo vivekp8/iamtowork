@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSection';
+import SocialProofSection from '@/components/sections/SocialProofSection';
 import OutcomesSection from '@/components/sections/OutcomesSection';
 import ServicePillars from '@/components/sections/ServicePillars';
 import WebsiteFeature from '@/components/sections/WebsiteFeature';
+import PricingSection from '@/components/sections/PricingSection';
 import ProcessSection from '@/components/sections/ProcessSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
 import WhyUsSection from '@/components/sections/WhyUsSection';
@@ -27,9 +29,11 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <SocialProofSection />
       <OutcomesSection />
       <ServicePillars />
       <WebsiteFeature />
+      <PricingSection />
       <ProcessSection />
       <PortfolioSection />
       <WhyUsSection />

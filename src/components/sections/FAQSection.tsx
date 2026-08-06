@@ -5,7 +5,19 @@ import { FAQS } from '@/lib/config';
 import styles from './FAQSection.module.css';
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0, 1, 2]));
+
+  const toggleOpen = (idx: number) => {
+    setOpenIndices((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) {
+        next.delete(idx);
+      } else {
+        next.add(idx);
+      }
+      return next;
+    });
+  };
 
   return (
     <section className={styles.section}>
@@ -17,12 +29,12 @@ export default function FAQSection() {
 
         <div className={styles.list}>
           {FAQS.map((faq, idx) => {
-            const isOpen = openIndex === idx;
+            const isOpen = openIndices.has(idx);
             return (
               <div key={idx} className={`${styles.item} ${isOpen ? styles.itemOpen : ''}`}>
                 <button
                   className={styles.question}
-                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  onClick={() => toggleOpen(idx)}
                   aria-expanded={isOpen}
                 >
                   <span>{faq.q}</span>

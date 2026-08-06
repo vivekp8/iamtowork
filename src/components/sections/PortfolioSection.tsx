@@ -13,7 +13,7 @@ export default function PortfolioSection() {
           <span className={styles.eyebrow}>Selected Work</span>
           <h2 className={styles.title}>Recent Projects</h2>
           <p className={styles.sub}>
-            A selection of projects showcasing our approach. All concept projects are clearly labelled.
+            A selection of projects showcasing our approach. All concept projects are clearly labelled (client results coming soon).
           </p>
         </div>
 
