@@ -56,9 +56,6 @@ export default function PricingSection() {
             <div key={pkg.id} className={`${styles.card} ${pkg.highlight ? styles.highlight : ''}`}>
               {pkg.highlight && <div className={styles.badge}>Most Popular</div>}
               <h3 className={styles.cardTitle}>{pkg.title}</h3>
-              <div className={styles.price}>
-                <span className={styles.amount}>Custom</span>
-              </div>
               <p className={styles.cardDesc}>{pkg.description}</p>
               
               <ul className={styles.features}>
