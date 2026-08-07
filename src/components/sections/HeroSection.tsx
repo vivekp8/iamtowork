@@ -16,14 +16,15 @@ export default function HeroSection() {
         </div>
 
         <h1 className={styles.headline}>
-          Build Faster.{' '}
-          <span className={styles.accent}>Automate Smarter.</span>
+          Reclaim Your Time.
           <br />
-          Grow with AI.
+          <span className={styles.accent}>Automate the Busywork.</span>
+          <br />
+          Scale Your Business.
         </h1>
 
         <p className={styles.sub}>
-          Helping small businesses launch websites & automate work with AI.
+          We build custom websites and AI automations that work around the clock, so you don't have to.
         </p>
 
         <div className={styles.actions}>

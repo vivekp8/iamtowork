@@ -44,6 +44,9 @@ export const metadata: Metadata = {
   },
 };
 
+import BackToTop from '@/components/BackToTop';
+import BackButton from '@/components/BackButton';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,6 +58,8 @@ export default function RootLayout({
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
+        <BackButton />
       </body>
     </html>
   );
