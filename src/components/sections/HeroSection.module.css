@@ -104,13 +104,15 @@
   border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 1rem;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
 .primaryCta:hover {
   background-color: var(--primary-hover);
   color: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
 .secondaryCta {
@@ -123,13 +125,16 @@
   font-weight: 500;
   font-size: 1rem;
   border: 1px solid var(--border);
-  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+  background-color: transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .secondaryCta:hover {
   color: var(--text-main);
-  border-color: var(--border-hover);
-  background-color: var(--surface-light);
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
 .tertiary {
@@ -140,10 +145,31 @@
 .tertiaryLink {
   color: var(--primary);
   font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.tertiaryLink::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
 .tertiaryLink:hover {
   color: var(--secondary);
+}
+
+.tertiaryLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .socials {
@@ -161,11 +187,20 @@
   font-size: 0.875rem;
   color: var(--text-muted);
   font-weight: 500;
-  transition: color var(--transition-fast);
+  transition: all 0.3s ease;
+}
+
+.socialLink svg {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .socialLink:hover {
   color: var(--text-main);
+}
+
+.socialLink:hover svg {
+  transform: scale(1.1) translateY(-2px);
+  color: var(--primary);
 }
 
 @media (prefers-reduced-motion: reduce) {

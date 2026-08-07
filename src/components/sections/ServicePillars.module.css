@@ -42,13 +42,33 @@
 
 @media (min-width: 640px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .card:nth-child(1) {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+  }
+  .card:nth-child(2) {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+  }
+  .card:nth-child(3) {
+    grid-column: span 4 / span 4;
+    grid-row: span 2 / span 2;
+    grid-row-start: 4;
   }
 }
 
 @media (min-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+  .card:nth-child(1), .card:nth-child(2), .card:nth-child(3) {
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 

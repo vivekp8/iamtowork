@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import FAQSection from '@/components/sections/FAQSection';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -77,6 +78,8 @@ export default function PricingPage() {
             </div>
           ))}
         </div>
+
+        <FAQSection />
 
         <div className={styles.note}>
           <p>

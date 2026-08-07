@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { WHY_US } from '@/lib/config';
+import ProcessSection from '@/components/sections/ProcessSection';
+import TechSection from '@/components/sections/TechSection';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -49,6 +51,9 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+
+        <ProcessSection />
+        <TechSection />
 
         <div className={styles.cta}>
           <h2 className={styles.ctaTitle}>Ready to work together?</h2>

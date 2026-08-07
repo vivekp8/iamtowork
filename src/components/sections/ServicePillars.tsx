@@ -8,7 +8,7 @@ export default function ServicePillars() {
       <div className="container">
         <div className={styles.header}>
           <span className={styles.eyebrow}>What We Do</span>
-          <h2 className={styles.title}>Four Ways We Help Your Business</h2>
+          <h2 className={styles.title}>Three Ways We Help Your Business</h2>
           <p className={styles.sub}>
             From websites to automation, from content to growth — practical AI services built around real business outcomes.
           </p>

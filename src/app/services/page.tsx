@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES, PILLARS } from '@/lib/config';
+import WebsiteFeature from '@/components/sections/WebsiteFeature';
 import styles from './services.module.css';
 
 export const metadata: Metadata = {
@@ -52,6 +53,8 @@ export default function ServicesPage() {
             );
           })}
         </div>
+
+        <WebsiteFeature />
 
         <div className={styles.cta}>
           <h2 className={styles.ctaTitle}>Not sure which service you need?</h2>
