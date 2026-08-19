@@ -8,16 +8,16 @@ export async function submitContactForm(formData: FormData) {
   try {
     const rawData = {
       name: formData.get('name') as string,
-      email: formData.get('email') as string | null,
-      company: formData.get('company') as string | null,
-      contact_preference: formData.get('contactPreference') as string,
-      whatsapp: formData.get('whatsapp') as string | null,
-      phone: formData.get('phone') as string | null,
-      website: formData.get('website') as string | null,
-      service: formData.get('service') as string,
-      description: formData.get('description') as string,
-      budget: formData.get('budget') as string | null,
-      timeline: formData.get('timeline') as string | null,
+      email: (formData.get('email') as string) || null,
+      company: (formData.get('company') as string) || null,
+      contact_preference: (formData.get('contactPreference') as string) || 'email',
+      whatsapp: (formData.get('whatsapp') as string) || null,
+      phone: (formData.get('phone') as string) || null,
+      website: (formData.get('website') as string) || null,
+      service: (formData.get('service') as string) || (formData.get('helpWith') as string) || 'general',
+      description: (formData.get('description') as string) || (formData.get('message') as string) || '',
+      budget: (formData.get('budget') as string) || null,
+      timeline: (formData.get('timeline') as string) || null,
     };
 
     const { error } = await supabase

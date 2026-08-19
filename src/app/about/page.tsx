@@ -79,10 +79,7 @@ export default function AboutPage() {
           <section className={styles.mission} aria-labelledby="mission-title">
             <h2 id="mission-title" className={styles.missionTitle}>What We Believe</h2>
             <p>
-              AI tools have changed what small and medium businesses can achieve. Most companies are still not using them effectively. We exist to close that gap with practical, results-focused solutions.
-            </p>
-            <p>
-              We do not sell AI as an abstract concept or overcomplicate projects with unnecessary tools. We use AI as a practical accelerator to deliver exceptional websites, bulletproof automations, and growth systems — faster and more cost-effectively than traditional agencies.
+              AI has changed what small and medium businesses can achieve. Most companies are still not using these tools effectively. We exist to close that gap with practical, results-focused solutions.
             </p>
           </section>
 

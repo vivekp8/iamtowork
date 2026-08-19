@@ -88,7 +88,7 @@ const GOAL_SOLUTIONS = [
   },
   {
     goalTitle: 'Get More Leads',
-    desc: 'Websites + lead capture systems + automated follow-ups.',
+    desc: 'Websites + lead capture + automated follow-ups.',
     icon: Target,
     color: '#2563EB',
     items: [
@@ -114,7 +114,7 @@ const GOAL_SOLUTIONS = [
   },
   {
     goalTitle: 'Scale Faster',
-    desc: 'AI-powered systems that grow with your business without adding complexity.',
+    desc: 'AI-powered systems that grow with your business.',
     icon: TrendingUp,
     color: '#10B981',
     items: [

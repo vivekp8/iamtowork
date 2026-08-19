@@ -7,9 +7,9 @@ export default function WhyUsSection() {
       <div className="container">
         <div className={styles.header}>
           <span className={styles.eyebrow}>Why I Am To Work</span>
-          <h2 className={styles.title}>Why Businesses Choose I Am To Work</h2>
+          <h2 className={styles.title}>Why Choose I Am To Work</h2>
           <p className={styles.sub}>
-            Practical approach, combined expertise, and fast execution engineered for real business outcomes.
+            Practical solutions, combined expertise, and fast execution engineered for real business outcomes.
           </p>
         </div>
 

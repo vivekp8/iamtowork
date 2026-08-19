@@ -99,7 +99,7 @@ export const PILLARS = [
     label: 'BUILD',
     tagline: 'Digital Products & Experiences',
     description:
-      'Modern websites, landing pages, and digital tools designed to achieve real business goals. Clean, fast, and conversion-focused.',
+      'Modern websites, landing pages, and digital tools built to achieve real business goals. Clean, fast, and conversion-focused.',
     href: '/services/websites',
     color: '#2563EB',
   },
@@ -108,7 +108,7 @@ export const PILLARS = [
     label: 'AUTOMATE',
     tagline: 'Business Automation',
     description:
-      'Eliminate repetitive tasks with custom n8n and Make workflows. Connect your tools, save hours every week, and reduce human error.',
+      'Eliminate repetitive tasks with custom n8n and Make workflows. Connect your tools, save hours every week, and reduce errors.',
     href: '/services/automation',
     color: '#8B5CF6',
   },
@@ -117,7 +117,7 @@ export const PILLARS = [
     label: 'GROW',
     tagline: 'AI-Assisted Growth Solutions',
     description:
-      'Marketing systems, content engines, and lead generation setups that help you attract more clients and scale efficiently.',
+      'Marketing systems, content engines, and lead generation setups that help you attract more clients and scale.',
     href: '/services/ai-marketing',
     color: '#10B981',
   },
@@ -212,29 +212,29 @@ export const FAQS = [
 
 export const WHY_US = [
   {
-    title: 'Practical approach',
+    title: 'Practical Solutions',
     description:
-      'We focus on real business outcomes, not complicated tech for the sake of it.',
+      'Practical solutions focused on real business outcomes, not complicated tech for the sake of it.',
   },
   {
-    title: 'Combined expertise',
+    title: 'All-in-One Expertise',
     description:
-      'Websites + automation + AI in one place for unified digital execution.',
+      'Websites + Automation + AI under one roof for seamless execution.',
   },
   {
-    title: 'Fast execution',
+    title: 'Fast Delivery',
     description:
-      'Clear, proactive communication and rapid turnaround times on every sprint.',
+      'Fast delivery with clear, proactive communication from day one.',
   },
   {
-    title: 'Solutions built to grow',
+    title: 'Transparent Process',
     description:
-      'Future-proof architectures designed to scale seamlessly as your business expands.',
+      'Transparent process from start to finish with no hidden surprises.',
   },
   {
-    title: 'Transparent process',
+    title: 'Built to Grow',
     description:
-      'Honest timelines, clear scopes, and zero surprises from start to finish.',
+      'Solutions designed to grow and scale with your business.',
   },
 ];
 

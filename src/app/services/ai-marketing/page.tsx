@@ -94,11 +94,6 @@ const WHAT_WE_OFFER = [
     title: 'Social Media Support Systems',
     desc: 'AI-assisted scheduling, hashtag optimization, and community engagement prompts for consistent brand presence.',
   },
-  {
-    icon: Bot,
-    title: 'AI Implementation for Marketing Teams',
-    desc: 'Empowering your in-house staff with custom GPTs, tailored prompt libraries, and automated creative tools.',
-  },
 ];
 
 const BENEFITS = [
@@ -117,10 +112,6 @@ const BENEFITS = [
   {
     title: 'Improve consistency across channels',
     desc: 'Maintain active authority on LinkedIn, email newsletters, and social platforms every single week.',
-  },
-  {
-    title: 'Make data-driven decisions',
-    desc: 'Clear conversion tracking dashboards that connect your marketing campaigns directly to closed revenue.',
   },
 ];
 

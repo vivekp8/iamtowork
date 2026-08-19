@@ -30,7 +30,7 @@ export default function HeroSection() {
             Book Free Consultation
           </Link>
           <Link href="/services" className={styles.secondaryCta}>
-            View Our Services
+            View Services
             <ChevronRight size={16} aria-hidden="true" />
           </Link>
         </div>

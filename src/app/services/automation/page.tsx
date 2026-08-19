@@ -79,12 +79,12 @@ const automationSchema = {
 const WHAT_WE_AUTOMATE = [
   {
     icon: Database,
-    title: 'Lead capture & CRM updates',
+    title: 'Lead capture and CRM updates',
     desc: 'Automatically capture inbound web leads, qualify them, and create clean records in HubSpot, Airtable, or Notion.',
   },
   {
     icon: MessageSquare,
-    title: 'WhatsApp & email notifications',
+    title: 'WhatsApp and email notifications',
     desc: 'Send instant WhatsApp alerts to team members and automated confirmation emails to prospective clients.',
   },
   {
@@ -99,12 +99,12 @@ const WHAT_WE_AUTOMATE = [
   },
   {
     icon: Bot,
-    title: 'AI-powered document processing',
+    title: 'AI document processing',
     desc: 'Extract structured information from incoming PDF invoices, receipts, and emails using Claude & OpenAI models.',
   },
   {
     icon: FileText,
-    title: 'Internal workflow automation',
+    title: 'Internal workflows',
     desc: 'Automate client onboarding packets, scheduled reporting digests, task creation, and team status alerts.',
   },
 ];
@@ -124,11 +124,6 @@ const BENEFITS = [
     stat: '99.9%',
     title: 'Reduce human error',
     desc: 'Eliminate typos, duplicate data, and dropped leads with automated validation rules.',
-  },
-  {
-    stat: '$$$',
-    title: 'Lower operational costs',
-    desc: 'Replace expensive bloated enterprise subscriptions with lean, reliable workflows.',
   },
   {
     stat: '10x',
@@ -182,11 +177,11 @@ const INTEGRATIONS = [
 ];
 
 const PROCESS_STEPS = [
-  { step: '01', title: 'Audit Your Current Workflows', desc: 'We analyze your manual tasks and pinpoint high-ROI automation opportunities.' },
-  { step: '02', title: 'Design the Automation Architecture', desc: 'We map out the data schemas, trigger logic, and error-handling paths.' },
-  { step: '03', title: 'Build & Test the Workflows', desc: 'We configure the workflows in n8n or Make and run rigorous QA edge-case testing.' },
+  { step: '01', title: 'Audit Current Workflows', desc: 'We analyze your manual tasks and pinpoint high-ROI automation opportunities.' },
+  { step: '02', title: 'Design Automation Architecture', desc: 'We map out the data schemas, trigger logic, and error-handling paths.' },
+  { step: '03', title: 'Build and Test', desc: 'We configure the workflows in n8n or Make and run rigorous QA edge-case testing.' },
   { step: '04', title: 'Deploy with Monitoring', desc: 'We launch live in production with real-time error alerts and logging.' },
-  { step: '05', title: 'Train Your Team & Support', desc: 'We provide video walkthroughs, documentation, and ongoing support.' },
+  { step: '05', title: 'Train and Support', desc: 'We provide video walkthroughs, documentation, and ongoing support.' },
 ];
 
 export default function AutomationPage() {
@@ -200,7 +195,7 @@ export default function AutomationPage() {
             <span className={styles.eyebrow}>AUTOMATE</span>
             <h1 className={styles.title}>Automate Repetitive Work. Free Your Time to Scale.</h1>
             <p className={styles.sub}>
-              Custom n8n and Make workflows that eliminate manual tasks, connect your tools, and run your operations 24/7.
+              Custom n8n and Make workflows that eliminate manual tasks and run your operations 24/7.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={styles.heroCta}>
@@ -215,12 +210,12 @@ export default function AutomationPage() {
           {/* Problem Section */}
           <section className={styles.problemSection} aria-labelledby="problem-heading">
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>The Operational Trap</span>
+              <span className={styles.sectionTag}>The Problem</span>
               <h2 id="problem-heading" className={styles.sectionTitle}>
                 Manual Tasks Are Eating Your High-Value Hours
               </h2>
               <p className={styles.sectionDesc}>
-                Most businesses lose 10–15 hours every week on repetitive work — copying data, following up on leads manually, and managing tools that don’t talk to each other.
+                Most businesses lose 10–15 hours every week on repetitive work — manual data entry, slow lead follow-ups, and disconnected tools.
               </p>
             </div>
             <div className={styles.problemGrid}>

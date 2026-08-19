@@ -91,9 +91,9 @@ export default function ServicesPage() {
         <div className="container">
           <header className={styles.header}>
             <span className={styles.eyebrow}>Services Overview</span>
-            <h1 className={styles.title}>Build. Automate. Grow.</h1>
+            <h1 className={styles.title}>AI & Web Development Services</h1>
             <p className={styles.sub}>
-              We organize our capabilities around the three foundational pillars of modern business operations: establishing high-converting web assets, eliminating manual grunt work with automations, and accelerating growth with AI systems.
+              Practical services organised around the three ways we help businesses grow.
             </p>
           </header>
 
@@ -172,12 +172,12 @@ export default function ServicesPage() {
           <WebsiteFeature />
 
           <div className={styles.cta}>
-            <h2 className={styles.ctaTitle}>Not sure where to begin?</h2>
+            <h2 className={styles.ctaTitle}>Not sure which service you need?</h2>
             <p className={styles.ctaDesc}>
-              Book a free 20-minute consultation. We&apos;ll audit your current workflows and outline the highest-ROI opportunity for your business.
+              Start a conversation. Tell us what you want to build, automate, or improve and we’ll help you find the right approach.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Book a Free Consultation
+              Start a Conversation
             </Link>
           </div>
         </div>

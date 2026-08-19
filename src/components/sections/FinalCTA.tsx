@@ -8,10 +8,10 @@ export default function FinalCTA() {
         <div className={styles.inner}>
           <div className={styles.bgGlow} aria-hidden="true" />
           <h2 className={styles.title}>
-            Ready to save time and grow your business?
+            Ready to save time and grow?
           </h2>
           <p className={styles.desc}>
-            Tell us what you want to build, automate, or improve. We&apos;ll help you find the most practical solution.
+            Tell us what you want to build, automate, or improve.
           </p>
           <div className={styles.actions}>
             <Link href="/contact" className={styles.primary}>

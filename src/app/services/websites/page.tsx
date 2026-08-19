@@ -81,19 +81,18 @@ const TYPES = [
   { label: 'Landing Pages', desc: 'Laser-focused single pages engineered for paid ad campaigns or new product launches.' },
   { label: 'Startup Websites', desc: 'Speed-to-market websites that clearly communicate your value proposition to investors & users.' },
   { label: 'Portfolio Websites', desc: 'Authority-building portfolio sites for founders, consultants, coaches, and boutique firms.' },
-  { label: 'Restaurant & Service Websites', desc: 'Interactive menus, reservation integrations, operating hours, and location maps.' },
+  { label: 'Service & Restaurant Websites', desc: 'Interactive menus, reservation integrations, operating hours, and location maps.' },
   { label: 'Website Redesigns', desc: 'Transform outdated, slow websites into modern, ultra-fast Next.js digital assets.' },
 ];
 
 const DELIVERABLES = [
   'Modern UI/UX design',
-  'Fully responsive (mobile-friendly)',
-  'Fast loading performance',
+  'Fully responsive design',
+  'Fast loading speed',
   'Clear calls-to-action',
   'Contact forms + WhatsApp integration',
   'Basic SEO setup',
-  'Custom domain & deployment',
-  'Performance optimization',
+  'Performance optimisation',
 ];
 
 const TECH_STACK = [
