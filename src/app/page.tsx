@@ -5,14 +5,17 @@ import ServicePillars from '@/components/sections/ServicePillars';
 import FinalCTA from '@/components/sections/FinalCTA';
 
 export const metadata: Metadata = {
-  title: 'I Am To Work | AI Websites, Automation & Business Solutions',
+  title: 'I Am To Work | AI Websites, Automation & Growth Solutions',
   description:
-    'I Am To Work helps businesses build modern websites, automate repetitive workflows, create better content, and implement practical AI solutions.',
+    'Build high-converting websites and eliminate manual tasks with custom AI workflows, n8n automations, and growth systems tailored for modern businesses.',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'I Am To Work | Build Faster. Automate Smarter. Grow with AI.',
+    title: 'I Am To Work | AI Websites, Automation & Growth Solutions',
     description:
-      'Premium AI solutions to help businesses build websites, automate workflows, create content and implement practical AI.',
-    url: 'https://iamtowork.com',
+      'Build high-converting websites and eliminate manual tasks with custom AI workflows, n8n automations, and growth systems tailored for modern businesses.',
+    url: 'https://www.iamtowork.com',
     type: 'website',
   },
 };

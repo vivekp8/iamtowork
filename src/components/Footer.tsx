@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { CONTACT } from '@/lib/config';
 import styles from './Footer.module.css';
 
@@ -7,7 +8,15 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
         <div className={styles.brandColumn}>
-          <div className={styles.logo}>I Am To Work</div>
+          <div className={styles.logo}>
+            <Image
+              src="/logo.png"
+              alt="I Am To Work - AI Powered Workflows"
+              width={190}
+              height={52}
+              className={styles.footerLogoImg}
+            />
+          </div>
           <p className={styles.tagline}>Build Faster. Automate Smarter. Grow with AI.</p>
         </div>
         

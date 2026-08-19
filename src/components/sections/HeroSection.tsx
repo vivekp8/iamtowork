@@ -24,7 +24,7 @@ export default function HeroSection() {
         </h1>
 
         <p className={styles.sub}>
-          We build custom websites and AI automations that work around the clock, so you don't have to.
+          We build custom websites and AI automations that work around the clock, so you don&apos;t have to.
         </p>
 
         <div className={styles.actions}>

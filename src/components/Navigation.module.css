@@ -23,18 +23,22 @@
   height: 72px;
 }
 
-/* ── Logo ── */
 .logo {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: var(--text-main);
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
 .logo a {
-  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
 /* ── Desktop nav ── */

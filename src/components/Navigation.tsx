@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { CONTACT } from '@/lib/config';
 import styles from './Navigation.module.css';
@@ -18,11 +19,6 @@ export default function Navigation() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  // Close menu on route change
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   // Add scrolled state for shadow
   useEffect(() => {
@@ -44,7 +40,14 @@ export default function Navigation() {
           {/* Logo */}
           <div className={styles.logo}>
             <Link href="/" aria-label="I Am To Work — Home">
-              I Am To Work
+              <Image
+                src="/logo.png"
+                alt="I Am To Work - AI Powered Workflows"
+                width={170}
+                height={48}
+                priority
+                className={styles.logoImg}
+              />
             </Link>
           </div>
 

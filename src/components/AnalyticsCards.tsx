@@ -1,6 +1,9 @@
-'use client';
+interface ContactItem {
+  id?: string;
+  status: string;
+}
 
-export default function AnalyticsCards({ contacts }: { contacts: any[] }) {
+export default function AnalyticsCards({ contacts }: { contacts: ContactItem[] }) {
   const totalLeads = contacts.length;
   const activeDiscussions = contacts.filter(c => ['in_discussion', 'proposal_sent'].includes(c.status)).length;
   const wonDeals = contacts.filter(c => c.status === 'won').length;

@@ -24,11 +24,16 @@
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--text-main);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.footerLogoImg {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
 }
 
 .tagline {

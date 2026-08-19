@@ -18,10 +18,6 @@ export default function AdminControls({
   const [isSavingNotes, setIsSavingNotes] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
 
-  useEffect(() => {
-    setNotes(initialNotes || '');
-  }, [initialNotes]);
-
   const handleStatusChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     setIsPending(true);
     const newStatus = e.target.value;

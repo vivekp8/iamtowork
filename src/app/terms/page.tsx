@@ -4,6 +4,17 @@ import styles from '../privacy/page.module.css';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | I Am To Work',
+  description:
+    'Review the terms of service, project delivery standards, payment policies, and intellectual property agreements for digital services provided by I Am To Work.',
+  alternates: {
+    canonical: '/terms',
+  },
+  openGraph: {
+    title: 'Terms of Service | I Am To Work',
+    description:
+      'Review the terms of service, project delivery standards, payment policies, and intellectual property agreements for digital services provided by I Am To Work.',
+    url: 'https://www.iamtowork.com/terms',
+  },
 };
 
 export default function TermsPage() {

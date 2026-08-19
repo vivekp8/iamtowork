@@ -4,6 +4,17 @@ import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | I Am To Work',
+  description:
+    'Read the I Am To Work privacy policy to understand how we protect your personal information, contact data, and project details with complete transparency.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | I Am To Work',
+    description:
+      'Read the I Am To Work privacy policy to understand how we protect your personal information, contact data, and project details with complete transparency.',
+    url: 'https://www.iamtowork.com/privacy',
+  },
 };
 
 export default function PrivacyPage() {

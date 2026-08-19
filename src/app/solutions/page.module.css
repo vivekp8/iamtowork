@@ -5,39 +5,78 @@
 
 .header {
   text-align: center;
-  margin-bottom: 5rem;
+  max-width: 800px;
+  margin: 0 auto 4.5rem;
 }
 
 .eyebrow {
   display: inline-block;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  background-color: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
 }
 
 .title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: -0.02em;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
 }
 
 .sub {
   font-size: 1.125rem;
   color: var(--text-muted);
-  max-width: 480px;
-  margin: 0 auto;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+
+.sectionTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.sectionDesc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Challenge Grid */
+.challengesSection {
+  margin-bottom: 5rem;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
-  margin-bottom: 5rem;
+  gap: 1.5rem;
 }
 
 @media (min-width: 640px) {
@@ -56,11 +95,12 @@
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 2rem;
+  padding: 2.25rem 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.875rem;
-  transition: border-color var(--transition-normal), transform var(--transition-normal);
+  justify-content: space-between;
+  gap: 1rem;
+  transition: border-color var(--transition-normal), transform var(--transition-fast);
 }
 
 .card:hover {
@@ -69,13 +109,13 @@
 }
 
 .bullet {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
 
 .cardTitle {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-main);
   line-height: 1.3;
@@ -90,42 +130,152 @@
 }
 
 .cardLink {
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   transition: opacity var(--transition-fast);
 }
 
 .cardLink:hover {
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
-.cta {
-  text-align: center;
-  padding: 4rem 2rem;
+/* Industries Section */
+.industrySection {
+  margin-bottom: 5rem;
+  padding: 3.5rem 2.5rem;
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
 
-.ctaTitle {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+.industryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .industryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .industryGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.industryCard {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.industryIcon {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.industryTitle {
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-main);
-  margin-bottom: 0.875rem;
+  margin-bottom: 0.35rem;
+}
+
+.industryDesc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* FAQs */
+.faqSection {
+  margin-bottom: 5rem;
+}
+
+.faqList {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faqItem {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.faqItem:hover {
+  border-color: var(--border-hover);
+}
+
+.faqQuestion {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faqAnswer {
+  padding: 0 1.5rem 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 4.5rem 2rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1rem;
 }
 
 .ctaDesc {
-  font-size: 1.0625rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
 }
 
 .ctaBtn {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--primary);
   color: #fff;
-  padding: 0.875rem 2rem;
+  padding: 0.9375rem 2.5rem;
   border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 1rem;
@@ -135,10 +285,4 @@
 .ctaBtn:hover {
   background-color: var(--primary-hover);
   color: #fff;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card:hover {
-    transform: none;
-  }
 }
