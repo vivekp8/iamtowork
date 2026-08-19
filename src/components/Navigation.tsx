@@ -41,7 +41,7 @@ export default function Navigation() {
           <div className={styles.logo}>
             <Link href="/" aria-label="I Am To Work — Home">
               <Image
-                src="/logo.png?v=3"
+                src="/logo.png?v=4"
                 alt="I Am To Work - AI Powered Workflows"
                 width={170}
                 height={48}

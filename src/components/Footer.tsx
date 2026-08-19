@@ -10,7 +10,7 @@ export default function Footer() {
         <div className={styles.brandColumn}>
           <div className={styles.logo}>
             <Image
-              src="/logo.png?v=3"
+              src="/logo.png?v=4"
               alt="I Am To Work - AI Powered Workflows"
               width={190}
               height={52}
