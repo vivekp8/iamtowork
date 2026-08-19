@@ -16,8 +16,7 @@ export default function HeroSection() {
         </div>
 
         <h1 className={styles.headline}>
-          Reclaim Your Time.
-          <br />
+          <span className={styles.headlineLine}>Reclaim Your Time.</span>
           <span className={styles.accent}>Automate the Busywork.</span>
         </h1>
 

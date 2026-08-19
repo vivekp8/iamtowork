@@ -44,7 +44,7 @@
 /* ── Desktop nav ── */
 .desktopNav {
   display: flex;
-  gap: 1.75rem;
+  gap: clamp(0.75rem, 1.25vw, 1.5rem);
   align-items: center;
 }
 
@@ -290,7 +290,7 @@
 }
 
 /* ── Responsive breakpoints ── */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .desktopNav {
     display: none;
   }
@@ -302,7 +302,7 @@
   }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 993px) {
   .mobileMenu {
     display: none !important;
   }

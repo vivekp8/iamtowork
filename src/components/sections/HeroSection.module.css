@@ -53,22 +53,30 @@
 
 .headline {
   font-family: var(--font-heading);
-  font-size: clamp(2.25rem, 6vw, 5.5rem);
+  font-size: clamp(2.25rem, 5.5vw, 4.75rem);
   font-weight: 700;
   letter-spacing: -0.025em;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--text-main);
   margin-bottom: 1.75rem;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.headlineLine {
+  display: block;
 }
 
 .accent {
+  display: inline-block;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-bottom: 0.08em;
 }
 
 .sub {
