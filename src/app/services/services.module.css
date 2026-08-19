@@ -5,7 +5,20 @@
 
 .header {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 4.5rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1rem;
 }
 
 .title {
@@ -13,14 +26,13 @@
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: -0.02em;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .sub {
   font-size: 1.125rem;
   color: var(--text-muted);
-  max-width: 520px;
-  margin: 0 auto;
+  line-height: 1.7;
 }
 
 .pillars {
@@ -40,7 +52,7 @@
 
 @media (min-width: 1024px) {
   .pillar {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     align-items: start;
   }
 }
@@ -70,6 +82,24 @@
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.benefitList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.benefitList li {
+  font-size: 0.875rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .serviceItems {
@@ -77,6 +107,10 @@
   flex-direction: column;
   gap: 0.75rem;
   padding-top: 0.25rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
 }
 
 .serviceItem {
@@ -95,9 +129,9 @@
 
 .serviceLink {
   display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
   transition: opacity var(--transition-fast);
 }
 
@@ -105,18 +139,120 @@
   opacity: 0.75;
 }
 
+/* Guide Matrix */
+.guideSection {
+  margin-bottom: 6rem;
+}
+
+.guideHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+
+.guideTitle {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.guideSub {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.guideGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .guideGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.guideCard {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.guideProblem {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.guideProblemText {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 0.35rem;
+}
+
+.guideSolution {
+  background-color: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.guideSolutionLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.guideSolutionText {
+  font-size: 0.9375rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.guideBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  background-color: var(--surface-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.guideBtn:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
 /* CTA */
 .cta {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 4.5rem 2rem;
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
 
 .ctaTitle {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 600;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
   color: var(--text-main);
   margin-bottom: 0.875rem;
 }
@@ -125,6 +261,9 @@
   font-size: 1.0625rem;
   color: var(--text-muted);
   margin-bottom: 2rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ctaBtn {

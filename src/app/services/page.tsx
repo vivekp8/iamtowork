@@ -44,6 +44,45 @@ const servicesCatalogSchema = {
   },
 };
 
+const PILLAR_BENEFITS: Record<string, string[]> = {
+  build: [
+    'Sub-second page loads optimized for mobile conversion rates',
+    'Custom clean Next.js code with zero proprietary builder lock-in',
+    'Built-in technical SEO and conversion tracking architectures',
+  ],
+  automate: [
+    'Save 15+ hours weekly by automating manual repetitive data entry',
+    'Instant WhatsApp, Slack, and email notifications for high-intent leads',
+    'Robust custom n8n and Make workflows with error-handling safeguards',
+  ],
+  grow: [
+    'Multi-channel AI content engines that repurpose founder insights',
+    'Automated email nurture pipelines that convert cold visitors into clients',
+    'Scalable, data-backed customer acquisition systems',
+  ],
+};
+
+const DECISION_GUIDE = [
+  {
+    problem: 'My website is slow, outdated, or doesn’t convert visitors into leads.',
+    recommendation: 'Custom Website Development',
+    link: '/services/websites',
+    pillar: 'Build',
+  },
+  {
+    problem: 'My team is drowning in manual data entry, slow follow-ups, and copy-pasting.',
+    recommendation: 'Business Automation & n8n Workflows',
+    link: '/services/automation',
+    pillar: 'Automate',
+  },
+  {
+    problem: 'I need consistent marketing content and automated lead generation funnels.',
+    recommendation: 'AI Marketing & Growth Systems',
+    link: '/services/ai-marketing',
+    pillar: 'Grow',
+  },
+];
+
 export default function ServicesPage() {
   return (
     <>
@@ -51,9 +90,10 @@ export default function ServicesPage() {
       <div className={styles.page}>
         <div className="container">
           <header className={styles.header}>
-            <h1 className={styles.title}>What We Build</h1>
+            <span className={styles.eyebrow}>Services Overview</span>
+            <h1 className={styles.title}>Build. Automate. Grow.</h1>
             <p className={styles.sub}>
-              Practical AI services organised around the four ways we help businesses grow.
+              We organize our capabilities around the three foundational pillars of modern business operations: establishing high-converting web assets, eliminating manual grunt work with automations, and accelerating growth with AI systems.
             </p>
           </header>
 
@@ -74,15 +114,26 @@ export default function ServicesPage() {
                     </span>
                     <h2 className={styles.pillarTitle}>{pillar.tagline}</h2>
                     <p className={styles.pillarDesc}>{pillar.description}</p>
+                    
+                    <ul className={styles.benefitList}>
+                      {PILLAR_BENEFITS[pillar.id]?.map((benefit) => (
+                        <li key={benefit}>
+                          <span style={{ color: pillar.color, fontWeight: 700 }}>✓</span> {benefit}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   {service && (
                     <div className={styles.serviceItems}>
+                      <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-main)' }}>
+                        Included Capabilities
+                      </span>
                       {service.items.map((item) => (
                         <span key={item} className={styles.serviceItem}>{item}</span>
                       ))}
                       <Link href={service.slug} className={styles.serviceLink} style={{ color: pillar.color }}>
-                        Learn more about {pillar.label.toLowerCase()} →
+                        Explore detailed {pillar.label.toLowerCase()} services →
                       </Link>
                     </div>
                   )}
@@ -91,13 +142,42 @@ export default function ServicesPage() {
             })}
           </div>
 
+          {/* Which Service Do You Need Guide */}
+          <section className={styles.guideSection} aria-labelledby="guide-heading">
+            <div className={styles.guideHeader}>
+              <span className={styles.eyebrow}>Decision Guide</span>
+              <h2 id="guide-heading" className={styles.guideTitle}>Which Service Do You Need?</h2>
+              <p className={styles.guideSub}>Match your current operational bottleneck to the most effective solution.</p>
+            </div>
+
+            <div className={styles.guideGrid}>
+              {DECISION_GUIDE.map((guide) => (
+                <div key={guide.recommendation} className={styles.guideCard}>
+                  <div>
+                    <span className={styles.guideProblem}>If your challenge is:</span>
+                    <p className={styles.guideProblemText}>&ldquo;{guide.problem}&rdquo;</p>
+                  </div>
+                  <div className={styles.guideSolution}>
+                    <div className={styles.guideSolutionLabel}>Recommended Solution</div>
+                    <div className={styles.guideSolutionText}>{guide.recommendation}</div>
+                  </div>
+                  <Link href={guide.link} className={styles.guideBtn}>
+                    View Service Details →
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <WebsiteFeature />
 
           <div className={styles.cta}>
-            <h2 className={styles.ctaTitle}>Not sure which service you need?</h2>
-            <p className={styles.ctaDesc}>Tell us what you&apos;re trying to achieve and we&apos;ll recommend the right approach.</p>
+            <h2 className={styles.ctaTitle}>Not sure where to begin?</h2>
+            <p className={styles.ctaDesc}>
+              Book a free 20-minute consultation. We&apos;ll audit your current workflows and outline the highest-ROI opportunity for your business.
+            </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Start a Conversation
+              Book a Free Consultation
             </Link>
           </div>
         </div>

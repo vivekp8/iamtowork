@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSection';
 import OutcomesSection from '@/components/sections/OutcomesSection';
 import ServicePillars from '@/components/sections/ServicePillars';
+import WhyUsSection from '@/components/sections/WhyUsSection';
+import ImpactSection from '@/components/sections/ImpactSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import FinalCTA from '@/components/sections/FinalCTA';
 
@@ -27,6 +29,8 @@ export default function HomePage() {
       <HeroSection />
       <OutcomesSection />
       <ServicePillars />
+      <WhyUsSection />
+      <ImpactSection />
       <TestimonialsSection />
       <FinalCTA />
     </>

@@ -32,6 +32,14 @@ const SOLUTIONS_FAQS = [
     q: 'Can you work with our existing development or marketing team?',
     a: 'Yes. We often act as a specialist implementation partner, delivering automation modules, custom AI scripts, or specific frontend components directly into your team&apos;s workflow.',
   },
+  {
+    q: 'How quickly can we expect to see results after deploying a solution?',
+    a: 'Website revamps and core automation workflows go live within 1 to 3 weeks. You will notice immediate time savings and faster lead response times from day one of deployment.',
+  },
+  {
+    q: 'Do you offer ongoing support after the solution is deployed?',
+    a: 'Yes. Every project includes 30 days of post-launch warranty and monitoring, with optional monthly retainer plans for continuous optimization, feature expansion, and API maintenance.',
+  },
 ];
 
 const solutionsSchema = {
@@ -64,48 +72,94 @@ const solutionsSchema = {
   ],
 };
 
-const SOLUTIONS = [
+const GOAL_GROUPS = [
   {
-    problem: 'I need a modern, high-converting website',
-    desc: 'Your current website looks dated, loads slowly on mobile, or fails to turn visitors into booked calls and paying customers.',
-    href: '/services/websites',
-    cta: 'Explore Website Solutions',
-    color: '#2563EB',
+    goalTitle: 'Save Time & Eliminate Manual Busywork',
+    icon: '⚡',
+    solutions: [
+      {
+        title: 'n8n & Make Workflow Automations',
+        desc: 'Connect your web forms, CRM, spreadsheets, and messaging apps to eliminate manual copy-pasting and routine data transfer.',
+        who: 'Teams spending 10+ hours weekly copying data between disconnected software tools.',
+        href: '/services/automation',
+        cta: 'Explore Automation Solutions',
+        color: '#8B5CF6',
+      },
+      {
+        title: 'AI Document & Invoice Processing',
+        desc: 'Extract structured data from PDF invoices, emails, and contracts directly into your accounting spreadsheets and databases.',
+        who: 'Finance teams, operations managers, and property managers handling heavy paperwork.',
+        href: '/services/automation',
+        cta: 'View Document AI Workflows',
+        color: '#8B5CF6',
+      },
+    ],
   },
   {
-    problem: 'I want to eliminate manual data entry & repetitive tasks',
-    desc: 'Your staff spends hours manually transferring data between forms, spreadsheets, and emails instead of focusing on growth.',
-    href: '/services/automation',
-    cta: 'Explore Automation Solutions',
-    color: '#8B5CF6',
+    goalTitle: 'Get More Qualified Leads & Convert Higher',
+    icon: '🎯',
+    solutions: [
+      {
+        title: 'High-Converting Next.js Websites',
+        desc: 'Ultra-fast, mobile-first websites designed with clear value propositions, interactive booking flows, and instant lead capture forms.',
+        who: 'Businesses with slow, outdated WordPress sites or low mobile conversion rates.',
+        href: '/services/websites',
+        cta: 'Explore Website Development',
+        color: '#2563EB',
+      },
+      {
+        title: 'Instant WhatsApp & CRM Lead Routing',
+        desc: 'Trigger immediate WhatsApp alerts to sales reps and create enriched CRM contacts within 60 seconds of form submission.',
+        who: 'Service businesses where fast response time directly impacts closing rates.',
+        href: '/services/automation',
+        cta: 'View Lead Routing Pipelines',
+        color: '#2563EB',
+      },
+    ],
   },
   {
-    problem: 'I need a consistent stream of on-brand content',
-    desc: 'You want high-quality social posts, newsletters, landing page copy, and slide decks without spending days writing.',
-    href: '/services/content-design',
-    cta: 'Explore Content Solutions',
-    color: '#06B6D4',
+    goalTitle: 'Scale Marketing & Build Brand Authority',
+    icon: '📈',
+    solutions: [
+      {
+        title: 'Multi-Channel AI Content Engines',
+        desc: 'Repurpose founder insights or a single 5-minute recording into LinkedIn posts, newsletters, and social graphics on autopilot.',
+        who: 'Founders and executives who want consistent visibility without writing for hours.',
+        href: '/services/ai-marketing',
+        cta: 'Explore Content Engines',
+        color: '#10B981',
+      },
+      {
+        title: 'Automated Lead Nurture Funnels',
+        desc: 'Behavior-based email drip campaigns and lead magnets that educate prospects and guide them toward booking consultations.',
+        who: 'B2B service providers looking to monetize website traffic and build email lists.',
+        href: '/services/ai-marketing',
+        cta: 'View Marketing Funnels',
+        color: '#10B981',
+      },
+    ],
   },
   {
-    problem: 'I want to build an automated inbound marketing system',
-    desc: 'Your customer acquisition is inconsistent. You need an automated system that captures, qualifies, and nurtures leads 24/7.',
-    href: '/services/ai-marketing',
-    cta: 'Explore Marketing Solutions',
-    color: '#10B981',
-  },
-  {
-    problem: 'I need a custom AI chatbot or operational assistant',
-    desc: 'You want an intelligent assistant that handles common customer inquiries, extracts invoice data, or assists internal teams.',
-    href: '/contact',
-    cta: 'Discuss Your AI Project',
-    color: '#F59E0B',
-  },
-  {
-    problem: 'I need a custom end-to-end digital transformation',
-    desc: 'Your business challenges are unique and require a combination of custom software, AI workflows, and modern cloud deployment.',
-    href: '/contact',
-    cta: 'Talk to an AI Consultant',
-    color: '#EC4899',
+    goalTitle: 'Optimize Internal Operations & Support',
+    icon: '🤖',
+    solutions: [
+      {
+        title: 'Custom AI Chatbots & Customer Assistants',
+        desc: 'Intelligent support bots trained on your company docs and FAQs that answer client inquiries accurately 24/7.',
+        who: 'Businesses receiving repetitive pre-sale questions or support inquiries.',
+        href: '/contact',
+        cta: 'Discuss AI Assistant Setup',
+        color: '#F59E0B',
+      },
+      {
+        title: 'Custom Digital Transformation Consulting',
+        desc: 'Full-stack audit and tailored architecture uniting modern web engineering, AI models, and automated back-office pipelines.',
+        who: 'Companies needing a bespoke technical partner to modernize legacy workflows.',
+        href: '/contact',
+        cta: 'Request Transformation Audit',
+        color: '#EC4899',
+      },
+    ],
   },
 ];
 
@@ -140,36 +194,40 @@ export default function SolutionsPage() {
         <div className="container">
           {/* Header */}
           <header className={styles.header}>
-            <span className={styles.eyebrow}>Solutions</span>
-            <h1 className={styles.title}>Find the Right Solution for Your Business</h1>
+            <span className={styles.eyebrow}>Solutions by Business Goal</span>
+            <h1 className={styles.title}>Outcome-Driven AI & Web Solutions</h1>
             <p className={styles.sub}>
-              Start with your operational bottleneck. We design and deliver practical, AI-driven solutions
-              engineered to achieve measurable business outcomes.
+              Tell us what business metric you want to improve. We design and deliver practical, AI-assisted systems engineered to achieve measurable outcomes.
             </p>
           </header>
 
-          {/* Solutions Matrix */}
-          <section className={styles.challengesSection} aria-labelledby="challenges-heading">
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>Problem Matrix</span>
-              <h2 id="challenges-heading" className={styles.sectionTitle}>
-                What Challenge Are You Looking to Solve?
-              </h2>
-            </div>
-            <div className={styles.grid}>
-              {SOLUTIONS.map((sol) => (
-                <div key={sol.problem} className={styles.card}>
-                  <div>
-                    <div className={styles.bullet} style={{ backgroundColor: sol.color, marginBottom: '0.75rem' }} />
-                    <h2 className={styles.cardTitle}>{sol.problem}</h2>
-                  </div>
-                  <p className={styles.cardDesc}>{sol.desc}</p>
-                  <Link href={sol.href} className={styles.cardLink} style={{ color: sol.color }}>
-                    {sol.cta} <ArrowRight size={14} />
-                  </Link>
+          {/* Grouped Goals Section */}
+          <section className={styles.goalsSection} aria-labelledby="goals-heading">
+            {GOAL_GROUPS.map((group) => (
+              <div key={group.goalTitle} className={styles.goalGroup}>
+                <div className={styles.goalHeader}>
+                  <span className={styles.goalIcon}>{group.icon}</span>
+                  <h2 className={styles.goalTitle}>{group.goalTitle}</h2>
                 </div>
-              ))}
-            </div>
+
+                <div className={styles.grid}>
+                  {group.solutions.map((sol) => (
+                    <div key={sol.title} className={styles.card}>
+                      <div>
+                        <h3 className={styles.cardTitle}>{sol.title}</h3>
+                        <p className={styles.cardDesc}>{sol.desc}</p>
+                        <div className={styles.cardWho}>
+                          <strong>Ideal for:</strong> {sol.who}
+                        </div>
+                      </div>
+                      <Link href={sol.href} className={styles.cardLink} style={{ color: sol.color }}>
+                        {sol.cta} <ArrowRight size={14} />
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </section>
 
           {/* Industry Focus */}

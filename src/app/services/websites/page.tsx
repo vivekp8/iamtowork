@@ -36,6 +36,14 @@ const WEBSITE_FAQS = [
     q: 'Can I update the content on my website after launch?',
     a: 'Yes. We can integrate lightweight CMS solutions (like Supabase, Notion, or Sanity) or provide straightforward markdown/content schemas so your team can easily update copy, products, or blog articles.',
   },
+  {
+    q: 'Do I own the website code, domain, and assets after launch?',
+    a: 'Yes, 100%. We transfer the entire GitHub repository, DNS configurations, and deployment accounts directly to you with zero vendor lock-in or recurring proprietary platform fees.',
+  },
+  {
+    q: 'Can you redesign or migrate my existing slow website?',
+    a: 'Absolutely. We specialize in taking slow, outdated websites on WordPress, Wix, or Squarespace and re-architecting them into modern, ultra-fast Next.js assets while preserving your existing SEO rankings.',
+  },
 ];
 
 const websiteServiceSchema = {

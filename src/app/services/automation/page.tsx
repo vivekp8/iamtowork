@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, Zap, ArrowRight, Database, MessageSquare, Bot } from 'lucide-react';
+import { CheckCircle2, Zap, ArrowRight, Database, MessageSquare, Bot, FileText, Bell } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
@@ -22,19 +22,27 @@ export const metadata: Metadata = {
 const AUTOMATION_FAQS = [
   {
     q: 'What is the difference between n8n and Make for business automation?',
-    a: 'n8n is a powerful open-source workflow automation platform that can be self-hosted with no execution limits and custom code flexibility. Make (Integromat) is a cloud-based visual automation tool ideal for connecting SaaS applications quickly. We evaluate your privacy, budget, and integration needs to recommend the ideal platform.',
+    a: 'n8n is an open-source workflow automation platform that can be self-hosted with zero per-execution fees and full custom code flexibility. Make (Integromat) is a cloud-based visual automation tool ideal for connecting SaaS applications quickly. We evaluate your privacy, volume, and security needs to recommend the ideal engine.',
   },
   {
     q: 'How long does it take to implement a custom automation workflow?',
-    a: 'Standard workflows (like lead capture to WhatsApp and CRM routing) are typically deployed within 3 to 7 business days. Complex multi-system automations with custom AI processing logic generally take 1 to 3 weeks.',
+    a: 'Standard workflows (such as instant lead capture to WhatsApp and CRM routing) are typically deployed within 3 to 7 business days. Complex multi-system automations with custom AI data transformation logic generally take 1 to 2 weeks.',
   },
   {
-    q: 'What happens if an external API or tool changes?',
-    a: 'We build error-handling routines, automated retry logic, and fallback notifications (via Slack/Email/Telegram) into every workflow. We also provide ongoing maintenance and monitoring to ensure your automations never break silently.',
+    q: 'What happens if an external API or third-party service changes?',
+    a: 'We build robust error-handling routines, automated retry mechanisms, and instant fallback notifications (via Slack/Email/Telegram) into every workflow. We also provide ongoing maintenance so your operations never break silently.',
   },
   {
-    q: 'Do I need to migrate away from my existing software or CRM?',
+    q: 'Do I need to replace my existing software or CRM?',
     a: 'No. Our automations integrate directly into your current tech stack — including HubSpot, Airtable, Notion, Google Workspace, WhatsApp, Supabase, Stripe, and custom databases.',
+  },
+  {
+    q: 'Who owns the automation workflows and data once built?',
+    a: 'You do. We build workflows directly in your own cloud instances or accounts, document every step thoroughly, and hand over 100% administrative control upon completion.',
+  },
+  {
+    q: 'How much time and money can my team realistically save?',
+    a: 'Most clients eliminate 12 to 20 hours per week of manual data copying, lead follow-up delays, and reporting busywork, often seeing full project payback within the first 30 to 60 days.',
   },
 ];
 
@@ -92,6 +100,33 @@ const CAPABILITIES = [
     title: 'AI Agents & Document Parsing',
     desc: 'Extract structured information from PDFs, invoices, emails, and unstructured messages using OpenAI/Claude.',
     deliverables: ['Invoice & receipt processing', 'Auto-drafting customer replies', 'Sentiment & intent classification'],
+  },
+];
+
+const EXAMPLE_WORKFLOWS = [
+  {
+    badge: 'Live Workflow Architecture',
+    title: 'Instant Lead Capture & WhatsApp Routing',
+    desc: 'Eliminates the delay between a website visitor requesting a quote and sales following up.',
+    steps: [
+      'Visitor submits inquiry form on website',
+      'n8n validates data & enriches lead profile via AI',
+      'Contact record automatically created in HubSpot/Airtable',
+      'Instant WhatsApp notification sent to on-duty sales rep (< 45s)',
+    ],
+    result: 'Reduces lead response time from hours to under 60 seconds, boosting conversion by 40%.',
+  },
+  {
+    badge: 'Live Workflow Architecture',
+    title: 'Automated Invoice & Document Extraction',
+    desc: 'Turns vendor invoices and receipts into structured financial records without human typing.',
+    steps: [
+      'Vendor emails PDF invoice to finance inbox',
+      'Webhook triggers Claude Vision to parse line items & amounts',
+      'Line items matched with Stripe transactions & logged to Sheets',
+      'Slack notification alert sent if amount exceeds budget threshold',
+    ],
+    result: 'Saves 10+ hours of monthly accounting data entry with 100% accuracy.',
   },
 ];
 
@@ -213,6 +248,42 @@ export default function AutomationPage() {
                   </div>
                 );
               })}
+            </div>
+          </section>
+
+          {/* Real-World Workflow Examples Showcase */}
+          <section className={styles.workflowSection} aria-labelledby="workflows-heading">
+            <div className={styles.sectionHeader}>
+              <span className={`${styles.sectionTag} ${styles.sectionTagPurple}`}>Real-World Blueprints</span>
+              <h2 id="workflows-heading" className={styles.sectionTitle}>
+                Example Automations We Build
+              </h2>
+              <p className={styles.sectionDesc}>
+                Take a look under the hood at standard workflow pipelines we design and deploy for our clients.
+              </p>
+            </div>
+
+            <div className={styles.workflowGrid}>
+              {EXAMPLE_WORKFLOWS.map((wf) => (
+                <div key={wf.title} className={styles.workflowCard}>
+                  <div>
+                    <span className={styles.workflowBadge}>{wf.badge}</span>
+                    <h3 className={styles.workflowTitle}>{wf.title}</h3>
+                    <p className={styles.workflowDesc}>{wf.desc}</p>
+                    <div className={styles.workflowSteps}>
+                      {wf.steps.map((step, idx) => (
+                        <div key={step} className={styles.workflowStepItem}>
+                          <span className={styles.workflowStepNum}>{idx + 1}</span>
+                          <span>{step}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className={styles.workflowResult}>
+                    <span>✨</span> {wf.result}
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
 
