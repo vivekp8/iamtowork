@@ -78,22 +78,22 @@ const websiteServiceSchema = {
 
 const TYPES = [
   { label: 'Business Websites', desc: 'Complete multi-page digital headquarters designed to establish credibility and convert traffic.' },
-  { label: 'High-Converting Landing Pages', desc: 'Laser-focused single pages engineered for paid ad campaigns or new product launches.' },
-  { label: 'Restaurant & Hospitality Sites', desc: 'Interactive menus, reservation integrations, operating hours, and location maps.' },
-  { label: 'Consultant & Agency Portfolios', desc: 'Authority-building portfolio sites for founders, consultants, coaches, and boutique firms.' },
-  { label: 'Startup Launchpad Websites', desc: 'Speed-to-market websites that clearly communicate your value proposition to investors & users.' },
-  { label: 'Legacy Website Redesigns', desc: 'Transform outdated, slow websites into modern, ultra-fast Next.js digital assets.' },
+  { label: 'Landing Pages', desc: 'Laser-focused single pages engineered for paid ad campaigns or new product launches.' },
+  { label: 'Startup Websites', desc: 'Speed-to-market websites that clearly communicate your value proposition to investors & users.' },
+  { label: 'Portfolio Websites', desc: 'Authority-building portfolio sites for founders, consultants, coaches, and boutique firms.' },
+  { label: 'Restaurant & Service Websites', desc: 'Interactive menus, reservation integrations, operating hours, and location maps.' },
+  { label: 'Website Redesigns', desc: 'Transform outdated, slow websites into modern, ultra-fast Next.js digital assets.' },
 ];
 
 const DELIVERABLES = [
-  'Bespoke UI/UX design (No cookie-cutter templates)',
-  '100% mobile responsive on all devices',
-  'Sub-second page load times & Core Web Vitals optimization',
-  'Interactive contact forms & instant WhatsApp CTA buttons',
-  'Complete Technical SEO setup & OpenGraph tags',
-  'Custom domain setup, SSL, and Vercel cloud deployment',
-  'Google Analytics 4 & Meta Pixel tracking setup',
-  'Accessibility (WCAG AA) standards compliance',
+  'Modern UI/UX design',
+  'Fully responsive (mobile-friendly)',
+  'Fast loading performance',
+  'Clear calls-to-action',
+  'Contact forms + WhatsApp integration',
+  'Basic SEO setup',
+  'Custom domain & deployment',
+  'Performance optimization',
 ];
 
 const TECH_STACK = [
@@ -108,11 +108,11 @@ const TECH_STACK = [
 ];
 
 const PROCESS = [
-  { step: '01', title: 'Strategy & Brief', desc: 'We align on your business model, customer journey, and conversion targets.' },
-  { step: '02', title: 'Wireframes & UI Design', desc: 'We map the user flow and design modern desktop and mobile prototypes.' },
-  { step: '03', title: 'Clean-Code Development', desc: 'We build the site with Next.js, optimizing performance and responsive breakpoints.' },
-  { step: '04', title: 'Testing & SEO Audit', desc: 'We run cross-browser QA, mobile speed tests, and schema verification.' },
-  { step: '05', title: 'Deployment & Launch', desc: 'We connect your domain, configure DNS & SSL, and launch live to the world.' },
+  { step: '01', title: 'Understand Your Goals', desc: 'We align on your business model, customer journey, and conversion targets.' },
+  { step: '02', title: 'Plan Structure & Design Direction', desc: 'We map the user flow and design modern desktop and mobile prototypes.' },
+  { step: '03', title: 'Design & Develop', desc: 'We build the site with clean Next.js code, optimizing performance and responsive breakpoints.' },
+  { step: '04', title: 'Review & Refine', desc: 'We run cross-browser QA, mobile speed tests, and fine-tune based on your feedback.' },
+  { step: '05', title: 'Launch & Support', desc: 'We connect your domain, configure DNS & SSL, and provide post-launch support.' },
 ];
 
 export default function WebsitesPage() {
@@ -124,10 +124,9 @@ export default function WebsitesPage() {
           {/* Header */}
           <header className={styles.header}>
             <span className={styles.eyebrow}>BUILD</span>
-            <h1 className={styles.title}>Modern Websites Built for Real Business Goals</h1>
+            <h1 className={styles.title}>Modern Websites Built for Real Business Results</h1>
             <p className={styles.sub}>
-              Your website is often the first impression a prospective client has of your business.
-              We build clean, ultra-fast, conversion-focused websites that position you as an industry leader.
+              Clean, fast, and conversion-focused websites that help you attract clients and make a strong first impression.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={styles.heroCta}>
@@ -142,12 +141,12 @@ export default function WebsitesPage() {
           {/* Problem Section */}
           <section className={styles.problemSection} aria-labelledby="web-problem-heading">
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>The Digital Reality</span>
+              <span className={styles.sectionTag}>The Digital Challenge</span>
               <h2 id="web-problem-heading" className={styles.sectionTitle}>
-                Is Your Current Website Costing You Customers?
+                Is an Outdated Website Holding You Back?
               </h2>
               <p className={styles.sectionDesc}>
-                Visitors judge credibility in less than 0.05 seconds. A slow or outdated site actively sends business to your competitors.
+                Many businesses still operate with outdated, slow, or confusing websites. This leads to lost trust, fewer enquiries, and missed opportunities.
               </p>
             </div>
             <div className={styles.problemGrid}>
@@ -155,32 +154,32 @@ export default function WebsitesPage() {
                 <span className={styles.problemIcon}>🐌</span>
                 <h3 className={styles.problemCardTitle}>Slow Loading Speed</h3>
                 <p className={styles.problemCardDesc}>
-                  Over 53% of mobile users abandon a website that takes longer than 3 seconds to load. Bloated templates hurt your rankings.
+                  Visitors abandon websites that take longer than 3 seconds to load. Outdated templates kill conversions.
                 </p>
               </div>
               <div className={styles.problemCard}>
                 <span className={styles.problemIcon}>📱</span>
                 <h3 className={styles.problemCardTitle}>Poor Mobile Experience</h3>
                 <p className={styles.problemCardDesc}>
-                  Broken layouts, unreadable fonts, and clunky forms frustrate users on smartphones where 70%+ of modern traffic originates.
+                  Clunky layouts and hard-to-click buttons turn away mobile visitors where the majority of traffic originates.
                 </p>
               </div>
               <div className={styles.problemCard}>
                 <span className={styles.problemIcon}>📉</span>
-                <h3 className={styles.problemCardTitle}>Zero Conversion Flow</h3>
+                <h3 className={styles.problemCardTitle}>Unclear Conversion Path</h3>
                 <p className={styles.problemCardDesc}>
-                  Vague headlines and buried contact options cause high bounce rates without generating tangible leads or enquiries.
+                  Vague messaging and buried contact options cause visitors to bounce without ever reaching out.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Types Section */}
+          {/* Types Section: What We Build */}
           <section id="types" className={styles.typesSection} aria-labelledby="types-heading">
             <div className={styles.sectionHeader}>
-              <span className={`${styles.sectionTag} ${styles.sectionTagBlue}`}>Website Formats</span>
+              <span className={`${styles.sectionTag} ${styles.sectionTagBlue}`}>What We Build</span>
               <h2 id="types-heading" className={styles.sectionTitle}>
-                Websites Tailored to Your Specific Business Model
+                Websites Tailored to Your Business Goals
               </h2>
             </div>
             <div className={styles.typesGrid}>
@@ -193,10 +192,10 @@ export default function WebsitesPage() {
             </div>
           </section>
 
-          {/* Deliverables Section */}
+          {/* Deliverables Section: What's Included */}
           <section className={styles.deliverablesSection} aria-labelledby="del-heading">
             <div>
-              <span className={`${styles.sectionTag} ${styles.sectionTagBlue}`}>Standard Inclusions</span>
+              <span className={`${styles.sectionTag} ${styles.sectionTagBlue}`}>Complete Package</span>
               <h2 id="del-heading" className={styles.sectionTitle}>
                 What&apos;s Included in Every Build
               </h2>
@@ -250,9 +249,9 @@ export default function WebsitesPage() {
           {/* Process Section */}
           <section className={styles.processSection} aria-labelledby="web-process-heading">
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>How We Work</span>
+              <span className={styles.sectionTag}>Our Process</span>
               <h2 id="web-process-heading" className={styles.sectionTitle}>
-                Our 5-Step Web Delivery Process
+                How We Deliver Your Website
               </h2>
               <p className={styles.sectionDesc}>
                 Clear communication, transparent milestones, and zero unexpected surprises.
@@ -299,7 +298,7 @@ export default function WebsitesPage() {
             </p>
             <div className={styles.ctaActions}>
               <Link href="/contact" className={styles.ctaBtn}>
-                Start Your Project <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
+                Start Your Website Project <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
               </Link>
             </div>
           </div>

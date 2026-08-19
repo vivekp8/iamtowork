@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, Zap, ArrowRight, Database, MessageSquare, Bot, FileText, Bell } from 'lucide-react';
+import { CheckCircle2, Zap, ArrowRight, Database, MessageSquare, Bot, FileText, Settings } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
@@ -42,7 +42,7 @@ const AUTOMATION_FAQS = [
   },
   {
     q: 'How much time and money can my team realistically save?',
-    a: 'Most clients eliminate 12 to 20 hours per week of manual data copying, lead follow-up delays, and reporting busywork, often seeing full project payback within the first 30 to 60 days.',
+    a: 'Most clients eliminate 10 to 15+ hours per week of manual data copying, lead follow-up delays, and reporting busywork, often seeing full project payback within the first 30 to 60 days.',
   },
 ];
 
@@ -76,30 +76,64 @@ const automationSchema = {
   ],
 };
 
-const CAPABILITIES = [
-  {
-    icon: Zap,
-    title: 'n8n Workflow Engineering',
-    desc: 'Self-hosted and cloud n8n architectures with custom Javascript/Python nodes and complex multi-branch routing.',
-    deliverables: ['Custom API endpoints', 'Webhooks & trigger logic', 'Data transformation & cleansing'],
-  },
+const WHAT_WE_AUTOMATE = [
   {
     icon: Database,
-    title: 'CRM & Lead Automation',
-    desc: 'Capture inbound leads from website forms, qualify intent with AI, and instantly sync them to your CRM.',
-    deliverables: ['HubSpot / Airtable sync', 'Lead scoring & qualification', 'Automated assignment rules'],
+    title: 'Lead capture & CRM updates',
+    desc: 'Automatically capture inbound web leads, qualify them, and create clean records in HubSpot, Airtable, or Notion.',
   },
   {
     icon: MessageSquare,
-    title: 'WhatsApp & Notification Systems',
-    desc: 'Instant alerts and conversational messaging pipelines triggered whenever key business events occur.',
-    deliverables: ['WhatsApp Cloud API integration', 'Slack / Telegram admin alerts', 'SMS & transactional email'],
+    title: 'WhatsApp & email notifications',
+    desc: 'Send instant WhatsApp alerts to team members and automated confirmation emails to prospective clients.',
+  },
+  {
+    icon: Zap,
+    title: 'Form processing',
+    desc: 'Validate, route, and transform multi-step form submissions without manual human intervention.',
+  },
+  {
+    icon: Settings,
+    title: 'Data syncing between tools',
+    desc: 'Keep spreadsheets, databases, billing apps, and communication channels 100% in sync around the clock.',
   },
   {
     icon: Bot,
-    title: 'AI Agents & Document Parsing',
-    desc: 'Extract structured information from PDFs, invoices, emails, and unstructured messages using OpenAI/Claude.',
-    deliverables: ['Invoice & receipt processing', 'Auto-drafting customer replies', 'Sentiment & intent classification'],
+    title: 'AI-powered document processing',
+    desc: 'Extract structured information from incoming PDF invoices, receipts, and emails using Claude & OpenAI models.',
+  },
+  {
+    icon: FileText,
+    title: 'Internal workflow automation',
+    desc: 'Automate client onboarding packets, scheduled reporting digests, task creation, and team status alerts.',
+  },
+];
+
+const BENEFITS = [
+  {
+    stat: '10–15+ hrs',
+    title: 'Save 10–15+ hours per week',
+    desc: 'Free your team from repetitive manual grunt work so they can focus on high-leverage growth.',
+  },
+  {
+    stat: '< 60s',
+    title: 'Respond to leads in under 60 seconds',
+    desc: 'Connect with prospective buyers while their intent is highest, radically boosting conversions.',
+  },
+  {
+    stat: '99.9%',
+    title: 'Reduce human error',
+    desc: 'Eliminate typos, duplicate data, and dropped leads with automated validation rules.',
+  },
+  {
+    stat: '$$$',
+    title: 'Lower operational costs',
+    desc: 'Replace expensive bloated enterprise subscriptions with lean, reliable workflows.',
+  },
+  {
+    stat: '10x',
+    title: 'Scale without hiring more people',
+    desc: 'Handle 5x to 10x your current inquiry and processing volume without expanding headcount.',
   },
 ];
 
@@ -148,11 +182,11 @@ const INTEGRATIONS = [
 ];
 
 const PROCESS_STEPS = [
-  { step: '01', title: 'Audit & Mapping', desc: 'We document your manual bottlenecks and identify high-ROI automation targets.' },
-  { step: '02', title: 'System Architecture', desc: 'We design the data schemas, webhook triggers, and error-handling paths.' },
-  { step: '03', title: 'Workflow Build', desc: 'We configure and code the workflows in n8n or Make with security controls.' },
-  { step: '04', title: 'End-to-End QA', desc: 'We stress-test edge cases, rate limits, and fallback notifications.' },
-  { step: '05', title: 'Deploy & Monitor', desc: 'We launch into production with live logging and staff documentation.' },
+  { step: '01', title: 'Audit Your Current Workflows', desc: 'We analyze your manual tasks and pinpoint high-ROI automation opportunities.' },
+  { step: '02', title: 'Design the Automation Architecture', desc: 'We map out the data schemas, trigger logic, and error-handling paths.' },
+  { step: '03', title: 'Build & Test the Workflows', desc: 'We configure the workflows in n8n or Make and run rigorous QA edge-case testing.' },
+  { step: '04', title: 'Deploy with Monitoring', desc: 'We launch live in production with real-time error alerts and logging.' },
+  { step: '05', title: 'Train Your Team & Support', desc: 'We provide video walkthroughs, documentation, and ongoing support.' },
 ];
 
 export default function AutomationPage() {
@@ -166,12 +200,11 @@ export default function AutomationPage() {
             <span className={styles.eyebrow}>AUTOMATE</span>
             <h1 className={styles.title}>Automate Repetitive Work. Free Your Time to Scale.</h1>
             <p className={styles.sub}>
-              We engineer custom n8n and Make workflows that eliminate manual data entry, connect your SaaS tools,
-              and run your business operations 24/7 without human bottlenecks.
+              Custom n8n and Make workflows that eliminate manual tasks, connect your tools, and run your operations 24/7.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={styles.heroCta}>
-                Automate Your Workflow
+                Get Your Automation Blueprint
               </Link>
               <Link href="#capabilities" className={styles.secondaryCta}>
                 Explore Capabilities
@@ -179,7 +212,7 @@ export default function AutomationPage() {
             </div>
           </header>
 
-          {/* Problem / Pain Point Section */}
+          {/* Problem Section */}
           <section className={styles.problemSection} aria-labelledby="problem-heading">
             <div className={styles.sectionHeader}>
               <span className={styles.sectionTag}>The Operational Trap</span>
@@ -187,14 +220,13 @@ export default function AutomationPage() {
                 Manual Tasks Are Eating Your High-Value Hours
               </h2>
               <p className={styles.sectionDesc}>
-                Most businesses lose 15+ hours weekly copying data between spreadsheets, chasing leads manually,
-                and copy-pasting customer information.
+                Most businesses lose 10–15 hours every week on repetitive work — copying data, following up on leads manually, and managing tools that don’t talk to each other.
               </p>
             </div>
             <div className={styles.problemGrid}>
               <div className={styles.problemCard}>
                 <span className={styles.problemIcon}>⏳</span>
-                <h3 className={styles.problemCardTitle}>Slow Lead Response</h3>
+                <h3 className={styles.problemCardTitle}>Slow Lead Follow-ups</h3>
                 <p className={styles.problemCardDesc}>
                   Every minute a new enquiry sits unanswered decreases conversion rates by 80%. Manual routing creates costly delays.
                 </p>
@@ -203,32 +235,32 @@ export default function AutomationPage() {
                 <span className={styles.problemIcon}>📉</span>
                 <h3 className={styles.problemCardTitle}>Human Error & Lost Data</h3>
                 <p className={styles.problemCardDesc}>
-                  Manual data entry leads to missed follow-ups, duplicate CRM records, and disconnected communication across your team.
+                  Manual copy-pasting leads to missing follow-ups, duplicate CRM records, and disconnected communication across your team.
                 </p>
               </div>
               <div className={styles.problemCard}>
                 <span className={styles.problemIcon}>💸</span>
-                <h3 className={styles.problemCardTitle}>Skyrocketing SaaS Costs</h3>
+                <h3 className={styles.problemCardTitle}>Disconnected Software Tools</h3>
                 <p className={styles.problemCardDesc}>
-                  Overpaying for bloated enterprise automation subscriptions when lightweight, self-hosted n8n workflows can do more for less.
+                  Your forms, spreadsheets, and messaging apps don&apos;t communicate, forcing your team to act as manual bridges.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Capabilities Grid */}
+          {/* Capabilities Grid: What We Automate */}
           <section id="capabilities" className={styles.capabilitiesSection} aria-labelledby="cap-heading">
             <div className={styles.sectionHeader}>
-              <span className={`${styles.sectionTag} ${styles.sectionTagPurple}`}>Core Capabilities</span>
+              <span className={`${styles.sectionTag} ${styles.sectionTagPurple}`}>Capabilities</span>
               <h2 id="cap-heading" className={styles.sectionTitle}>
-                Custom Automation Systems Built for Reliability
+                What We Automate
               </h2>
               <p className={styles.sectionDesc}>
-                From simple notification hooks to complex multi-step AI business pipelines.
+                Custom automation systems engineered to eliminate friction from your daily operations.
               </p>
             </div>
             <div className={styles.grid}>
-              {CAPABILITIES.map((cap) => {
+              {WHAT_WE_AUTOMATE.map((cap) => {
                 const IconComponent = cap.icon;
                 return (
                   <div key={cap.title} className={styles.card}>
@@ -237,14 +269,6 @@ export default function AutomationPage() {
                       <h3 className={styles.cardTitle}>{cap.title}</h3>
                       <p className={styles.cardDesc}>{cap.desc}</p>
                     </div>
-                    <ul className={styles.cardDeliverables}>
-                      {cap.deliverables.map((item) => (
-                        <li key={item} className={styles.delItem}>
-                          <CheckCircle2 size={14} className={styles.checkIcon} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 );
               })}
@@ -287,28 +311,20 @@ export default function AutomationPage() {
             </div>
           </section>
 
-          {/* Measurable ROI */}
+          {/* Benefits Section */}
           <section className={styles.metricsSection} aria-labelledby="metrics-heading">
-            <span className={`${styles.sectionTag} ${styles.sectionTagPositive}`}>Proven Impact</span>
+            <span className={`${styles.sectionTag} ${styles.sectionTagPositive}`}>Core Benefits</span>
             <h2 id="metrics-heading" className={styles.sectionTitle}>
-              Real Business Efficiency by the Numbers
+              Why Automate Your Business Operations?
             </h2>
             <div className={styles.metricsGrid}>
-              <div className={styles.metricItem}>
-                <div className={styles.metricNumber}>15+ hrs</div>
-                <div className={styles.metricLabel}>Time Saved Weekly</div>
-                <p className={styles.metricDesc}>Per team member across administrative tasks</p>
-              </div>
-              <div className={styles.metricItem}>
-                <div className={styles.metricNumber}>&lt; 60s</div>
-                <div className={styles.metricLabel}>Lead Turnaround</div>
-                <p className={styles.metricDesc}>Instant form processing and WhatsApp alerts</p>
-              </div>
-              <div className={styles.metricItem}>
-                <div className={styles.metricNumber}>99.9%</div>
-                <div className={styles.metricLabel}>Data Accuracy</div>
-                <p className={styles.metricDesc}>Zero dropped records between your core systems</p>
-              </div>
+              {BENEFITS.slice(0, 3).map((b) => (
+                <div key={b.title} className={styles.metricItem}>
+                  <div className={styles.metricNumber}>{b.stat}</div>
+                  <div className={styles.metricLabel}>{b.title}</div>
+                  <p className={styles.metricDesc}>{b.desc}</p>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -331,12 +347,12 @@ export default function AutomationPage() {
           {/* Process Section */}
           <section className={styles.processSection} aria-labelledby="process-heading">
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionTag}>How We Deliver</span>
+              <span className={styles.sectionTag}>Our Process</span>
               <h2 id="process-heading" className={styles.sectionTitle}>
-                5-Step Implementation Workflow
+                How We Deliver Your Automations
               </h2>
               <p className={styles.sectionDesc}>
-                We build bulletproof workflows with robust error-handling so you never have to worry about silent failures.
+                A structured 5-step sprint from workflow discovery to production deployment.
               </p>
             </div>
             <div className={styles.processTimeline}>
@@ -380,7 +396,7 @@ export default function AutomationPage() {
             </p>
             <div className={styles.ctaActions}>
               <Link href="/contact" className={styles.ctaBtn}>
-                Get an Automation Blueprint <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
+                Get Your Automation Blueprint <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
               </Link>
             </div>
           </div>

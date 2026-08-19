@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock, Target, Settings, TrendingUp } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
@@ -72,94 +72,58 @@ const solutionsSchema = {
   ],
 };
 
-const GOAL_GROUPS = [
+const GOAL_SOLUTIONS = [
   {
-    goalTitle: 'Save Time & Eliminate Manual Busywork',
-    icon: '⚡',
-    solutions: [
-      {
-        title: 'n8n & Make Workflow Automations',
-        desc: 'Connect your web forms, CRM, spreadsheets, and messaging apps to eliminate manual copy-pasting and routine data transfer.',
-        who: 'Teams spending 10+ hours weekly copying data between disconnected software tools.',
-        href: '/services/automation',
-        cta: 'Explore Automation Solutions',
-        color: '#8B5CF6',
-      },
-      {
-        title: 'AI Document & Invoice Processing',
-        desc: 'Extract structured data from PDF invoices, emails, and contracts directly into your accounting spreadsheets and databases.',
-        who: 'Finance teams, operations managers, and property managers handling heavy paperwork.',
-        href: '/services/automation',
-        cta: 'View Document AI Workflows',
-        color: '#8B5CF6',
-      },
+    goalTitle: 'Save Time',
+    desc: 'Automate repetitive tasks and free your team for higher-value work.',
+    icon: Clock,
+    color: '#8B5CF6',
+    items: [
+      'Custom n8n and Make workflow automations',
+      'Automated invoice and document extraction',
+      'Automatic spreadsheet and database syncing',
     ],
+    href: '/services/automation',
+    cta: 'Explore Time-Saving Automations',
   },
   {
-    goalTitle: 'Get More Qualified Leads & Convert Higher',
-    icon: '🎯',
-    solutions: [
-      {
-        title: 'High-Converting Next.js Websites',
-        desc: 'Ultra-fast, mobile-first websites designed with clear value propositions, interactive booking flows, and instant lead capture forms.',
-        who: 'Businesses with slow, outdated WordPress sites or low mobile conversion rates.',
-        href: '/services/websites',
-        cta: 'Explore Website Development',
-        color: '#2563EB',
-      },
-      {
-        title: 'Instant WhatsApp & CRM Lead Routing',
-        desc: 'Trigger immediate WhatsApp alerts to sales reps and create enriched CRM contacts within 60 seconds of form submission.',
-        who: 'Service businesses where fast response time directly impacts closing rates.',
-        href: '/services/automation',
-        cta: 'View Lead Routing Pipelines',
-        color: '#2563EB',
-      },
+    goalTitle: 'Get More Leads',
+    desc: 'Websites + lead capture systems + automated follow-ups.',
+    icon: Target,
+    color: '#2563EB',
+    items: [
+      'High-converting Next.js website & landing pages',
+      'Instant WhatsApp & SMS lead notification triggers',
+      'Automated CRM contact qualification & routing',
     ],
+    href: '/services/websites',
+    cta: 'Explore Lead Generation Solutions',
   },
   {
-    goalTitle: 'Scale Marketing & Build Brand Authority',
-    icon: '📈',
-    solutions: [
-      {
-        title: 'Multi-Channel AI Content Engines',
-        desc: 'Repurpose founder insights or a single 5-minute recording into LinkedIn posts, newsletters, and social graphics on autopilot.',
-        who: 'Founders and executives who want consistent visibility without writing for hours.',
-        href: '/services/ai-marketing',
-        cta: 'Explore Content Engines',
-        color: '#10B981',
-      },
-      {
-        title: 'Automated Lead Nurture Funnels',
-        desc: 'Behavior-based email drip campaigns and lead magnets that educate prospects and guide them toward booking consultations.',
-        who: 'B2B service providers looking to monetize website traffic and build email lists.',
-        href: '/services/ai-marketing',
-        cta: 'View Marketing Funnels',
-        color: '#10B981',
-      },
+    goalTitle: 'Improve Operations',
+    desc: 'Connect your tools and create smooth internal workflows.',
+    icon: Settings,
+    color: '#06B6D4',
+    items: [
+      'Seamless SaaS tool & API integrations',
+      'Automated onboarding & notification pipelines',
+      'Real-time business alerts and status digests',
     ],
+    href: '/services/automation',
+    cta: 'Explore Operational Systems',
   },
   {
-    goalTitle: 'Optimize Internal Operations & Support',
-    icon: '🤖',
-    solutions: [
-      {
-        title: 'Custom AI Chatbots & Customer Assistants',
-        desc: 'Intelligent support bots trained on your company docs and FAQs that answer client inquiries accurately 24/7.',
-        who: 'Businesses receiving repetitive pre-sale questions or support inquiries.',
-        href: '/contact',
-        cta: 'Discuss AI Assistant Setup',
-        color: '#F59E0B',
-      },
-      {
-        title: 'Custom Digital Transformation Consulting',
-        desc: 'Full-stack audit and tailored architecture uniting modern web engineering, AI models, and automated back-office pipelines.',
-        who: 'Companies needing a bespoke technical partner to modernize legacy workflows.',
-        href: '/contact',
-        cta: 'Request Transformation Audit',
-        color: '#EC4899',
-      },
+    goalTitle: 'Scale Faster',
+    desc: 'AI-powered systems that grow with your business without adding complexity.',
+    icon: TrendingUp,
+    color: '#10B981',
+    items: [
+      'Multi-channel AI content creation engines',
+      'Scalable inbound marketing and nurture funnels',
+      'Custom AI assistants for staff and customer support',
     ],
+    href: '/services/ai-marketing',
+    cta: 'Explore Growth Solutions',
   },
 ];
 
@@ -194,40 +158,53 @@ export default function SolutionsPage() {
         <div className="container">
           {/* Header */}
           <header className={styles.header}>
-            <span className={styles.eyebrow}>Solutions by Business Goal</span>
-            <h1 className={styles.title}>Outcome-Driven AI & Web Solutions</h1>
+            <span className={styles.eyebrow}>Outcome-Focused Solutions</span>
+            <h1 className={styles.title}>Practical AI & Automation Solutions for Business Growth</h1>
             <p className={styles.sub}>
-              Tell us what business metric you want to improve. We design and deliver practical, AI-assisted systems engineered to achieve measurable outcomes.
+              Outcome-focused solutions designed to save time, improve operations, and help your business scale.
             </p>
           </header>
 
-          {/* Grouped Goals Section */}
+          {/* Solutions by Goal Section */}
           <section className={styles.goalsSection} aria-labelledby="goals-heading">
-            {GOAL_GROUPS.map((group) => (
-              <div key={group.goalTitle} className={styles.goalGroup}>
-                <div className={styles.goalHeader}>
-                  <span className={styles.goalIcon}>{group.icon}</span>
-                  <h2 className={styles.goalTitle}>{group.goalTitle}</h2>
-                </div>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionTag}>Solutions by Goal</span>
+              <h2 id="goals-heading" className={styles.sectionTitle}>
+                What Metric Do You Want to Improve?
+              </h2>
+              <p className={styles.sectionDesc}>
+                We align our technology stack to directly solve your specific operational objective.
+              </p>
+            </div>
 
-                <div className={styles.grid}>
-                  {group.solutions.map((sol) => (
-                    <div key={sol.title} className={styles.card}>
-                      <div>
-                        <h3 className={styles.cardTitle}>{sol.title}</h3>
-                        <p className={styles.cardDesc}>{sol.desc}</p>
-                        <div className={styles.cardWho}>
-                          <strong>Ideal for:</strong> {sol.who}
-                        </div>
+            <div className={styles.grid}>
+              {GOAL_SOLUTIONS.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.goalTitle} className={styles.card}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                        <Icon size={24} style={{ color: item.color }} />
+                        <h3 className={styles.cardTitle} style={{ margin: 0 }}>{item.goalTitle}</h3>
                       </div>
-                      <Link href={sol.href} className={styles.cardLink} style={{ color: sol.color }}>
-                        {sol.cta} <ArrowRight size={14} />
-                      </Link>
+                      <p className={styles.cardDesc}>{item.desc}</p>
+                      
+                      <ul style={{ listStyle: 'none', padding: 0, margin: '1rem 0', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                        {item.items.map((it) => (
+                          <li key={it} style={{ fontSize: '0.8125rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <span style={{ color: item.color, fontWeight: 700 }}>✓</span> {it}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+
+                    <Link href={item.href} className={styles.cardLink} style={{ color: item.color }}>
+                      {item.cta} <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </section>
 
           {/* Industry Focus */}
@@ -276,12 +253,12 @@ export default function SolutionsPage() {
 
           {/* Final CTA */}
           <div className={styles.cta}>
-            <h2 className={styles.ctaTitle}>Still Unsure About the Right Approach?</h2>
+            <h2 className={styles.ctaTitle}>Find the Right Solution for Your Business</h2>
             <p className={styles.ctaDesc}>
               Schedule a free 20-minute discovery call. We&apos;ll diagnose your operational bottlenecks and suggest practical solutions.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Schedule a Discovery Call
+              Find the Right Solution
             </Link>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, TrendingUp, ArrowRight, Target, Share2, Layers, BarChart3, Users } from 'lucide-react';
+import { CheckCircle2, TrendingUp, ArrowRight, Target, Share2, Users, BarChart3, Bot, Layers } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
@@ -68,42 +68,59 @@ const aiMarketingSchema = {
   ],
 };
 
-const CAPABILITIES = [
+const WHAT_WE_OFFER = [
   {
     icon: Target,
-    title: 'AI Marketing Strategy & Positioning',
-    desc: 'Deep competitor research, customer persona generation, and positioning blueprints engineered using LLM analysis.',
-    deliverables: ['Competitor gap analysis', 'Audience segmentation models', 'Channel priority matrix'],
+    title: 'AI Marketing Strategy',
+    desc: 'Deep market analysis, customer persona creation, and positioning blueprints engineered using LLM market intelligence.',
   },
   {
     icon: Share2,
-    title: 'Multi-Channel Content Engines',
-    desc: 'Systems that transform 1 core idea or founder voice note into 10+ platform-specific assets (LinkedIn, Twitter, Newsletters).',
-    deliverables: ['Weekly content calendars', 'Cross-platform auto-formatting', 'High-engagement hook templates'],
+    title: 'Content Systems',
+    desc: 'Repeatable pipelines that transform founder insights into LinkedIn posts, newsletters, and social assets at scale.',
   },
   {
     icon: Users,
-    title: 'Automated Inbound Lead Funnels',
-    desc: 'High-converting landing pages combined with automated lead magnets, instant qualification, and nurture sequences.',
-    deliverables: ['Lead magnet creation', 'Email drip sequences', 'Instant calendar booking flows'],
-  },
-  {
-    icon: Layers,
-    title: 'Social Media Management & Distribution',
-    desc: 'Strategic organic presence management with AI-assisted scheduling, hashtag optimization, and community engagement prompts.',
-    deliverables: ['LinkedIn founder branding', 'X / Twitter growth threads', 'Visual asset generation'],
+    title: 'Lead Generation Systems',
+    desc: 'High-converting landing pages combined with automated lead magnets and instant CRM qualification sequences.',
   },
   {
     icon: BarChart3,
-    title: 'Marketing Automation & Attribution',
-    desc: 'Event-triggered campaigns that nurture prospects based on page visits, email clicks, and document downloads.',
-    deliverables: ['Behavioral email triggers', 'CRM lead scoring', 'GA4 & conversion attribution setup'],
+    title: 'Marketing Automation',
+    desc: 'Event-triggered email nurture sequences and automated pipeline follow-ups that turn prospects into clients.',
   },
   {
-    icon: TrendingUp,
-    title: 'Business AI Implementation',
-    desc: 'Empowering your in-house marketing team with custom GPTs, prompt libraries, and automated creative tools.',
-    deliverables: ['Custom AI marketing bots', 'Brand prompt library', 'Team training & SOPs'],
+    icon: Layers,
+    title: 'Social Media Support Systems',
+    desc: 'AI-assisted scheduling, hashtag optimization, and community engagement prompts for consistent brand presence.',
+  },
+  {
+    icon: Bot,
+    title: 'AI Implementation for Marketing Teams',
+    desc: 'Empowering your in-house staff with custom GPTs, tailored prompt libraries, and automated creative tools.',
+  },
+];
+
+const BENEFITS = [
+  {
+    title: 'Create better content faster',
+    desc: 'Turn a single core brief or voice note into multi-platform content assets in minutes instead of days.',
+  },
+  {
+    title: 'Generate and nurture leads more effectively',
+    desc: 'Automated lead capture funnels and email nurture sequences working 24/7 without manual intervention.',
+  },
+  {
+    title: 'Reduce manual marketing work',
+    desc: 'Eliminate tedious formatting, manual scheduling, and repetitive copy adjustments across channels.',
+  },
+  {
+    title: 'Improve consistency across channels',
+    desc: 'Maintain active authority on LinkedIn, email newsletters, and social platforms every single week.',
+  },
+  {
+    title: 'Make data-driven decisions',
+    desc: 'Clear conversion tracking dashboards that connect your marketing campaigns directly to closed revenue.',
   },
 ];
 
@@ -139,17 +156,16 @@ export default function AIMarketingPage() {
           {/* Header */}
           <header className={styles.header}>
             <span className={styles.eyebrow}>GROW</span>
-            <h1 className={styles.title}>Grow Your Business with AI-Assisted Marketing</h1>
+            <h1 className={styles.title}>AI-Powered Marketing Systems That Help You Grow</h1>
             <p className={styles.sub}>
-              We build repeatable content systems, automated lead generation funnels, and marketing engines that
-              consistently attract customers without burning out your team.
+              Practical AI marketing solutions that improve content, lead generation, and customer engagement.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={styles.heroCta}>
-                Start Your Growth Engine
+                Improve Your Marketing with AI
               </Link>
               <Link href="#capabilities" className={styles.secondaryCta}>
-                Explore Capabilities
+                Explore Services
               </Link>
             </div>
           </header>
@@ -190,19 +206,19 @@ export default function AIMarketingPage() {
             </div>
           </section>
 
-          {/* Capabilities Grid */}
+          {/* What We Offer Grid */}
           <section id="capabilities" className={styles.capabilitiesSection} aria-labelledby="marketing-cap-heading">
             <div className={styles.sectionHeader}>
-              <span className={`${styles.sectionTag} ${styles.sectionTagGreen}`}>Core Capabilities</span>
+              <span className={`${styles.sectionTag} ${styles.sectionTagGreen}`}>Capabilities</span>
               <h2 id="marketing-cap-heading" className={styles.sectionTitle}>
-                Intelligent Marketing Services Built to Scale
+                What We Offer
               </h2>
               <p className={styles.sectionDesc}>
                 Everything you need to build authority, capture qualified demand, and turn traffic into clients.
               </p>
             </div>
             <div className={styles.grid}>
-              {CAPABILITIES.map((cap) => {
+              {WHAT_WE_OFFER.map((cap) => {
                 const IconComponent = cap.icon;
                 return (
                   <div key={cap.title} className={styles.card}>
@@ -211,42 +227,25 @@ export default function AIMarketingPage() {
                       <h3 className={styles.cardTitle}>{cap.title}</h3>
                       <p className={styles.cardDesc}>{cap.desc}</p>
                     </div>
-                    <ul className={styles.cardDeliverables}>
-                      {cap.deliverables.map((item) => (
-                        <li key={item} className={styles.delItem}>
-                          <CheckCircle2 size={14} className={styles.checkIcon} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 );
               })}
             </div>
           </section>
 
-          {/* Measurable ROI */}
+          {/* Benefits Section */}
           <section className={styles.metricsSection} aria-labelledby="marketing-metrics-heading">
-            <span className={`${styles.sectionTag} ${styles.sectionTagGreen}`}>Growth Impact</span>
+            <span className={`${styles.sectionTag} ${styles.sectionTagGreen}`}>Core Benefits</span>
             <h2 id="marketing-metrics-heading" className={styles.sectionTitle}>
-              Compounding Results Through Automation
+              Why Use AI in Your Marketing Strategy?
             </h2>
             <div className={styles.metricsGrid}>
-              <div className={styles.metricItem}>
-                <div className={styles.metricNumber}>5x</div>
-                <div className={styles.metricLabel}>Content Output</div>
-                <p className={styles.metricDesc}>Multi-platform distribution from a single core brief</p>
-              </div>
-              <div className={styles.metricItem}>
-                <div className={styles.metricNumber}>+42%</div>
-                <div className={styles.metricLabel}>Lead Capture Lift</div>
-                <p className={styles.metricDesc}>With automated lead magnets & instant nurture flows</p>
-              </div>
-              <div className={styles.metricItem}>
-                <div className={styles.metricNumber}>100%</div>
-                <div className={styles.metricLabel}>Brand Alignment</div>
-                <p className={styles.metricDesc}>Trained custom tone models with human QA oversight</p>
-              </div>
+              {BENEFITS.slice(0, 3).map((b) => (
+                <div key={b.title} className={styles.metricItem}>
+                  <div className={styles.metricLabel}>{b.title}</div>
+                  <p className={styles.metricDesc}>{b.desc}</p>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -318,7 +317,7 @@ export default function AIMarketingPage() {
             </p>
             <div className={styles.ctaActions}>
               <Link href="/contact" className={styles.ctaBtn}>
-                Book a Marketing Strategy Call <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
+                Improve Your Marketing with AI <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
               </Link>
             </div>
           </div>
