@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 const workSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Selected Projects & Portfolio | I Am To Work',
+  name: 'Case Studies & Selected Client Projects | I Am To Work',
   description:
-    'Curated collection of websites, business automation workflows, and AI implementations built by I Am To Work.',
+    'Curated case studies demonstrating measurable business outcomes from custom website builds and n8n workflow automations.',
   url: 'https://www.iamtowork.com/work',
 };
 
@@ -36,10 +36,10 @@ export default function WorkPage() {
       <div className={styles.page}>
         <div className="container">
           <header className={styles.header}>
-            <span className={styles.eyebrow}>Work</span>
-            <h1 className={styles.title}>Selected Projects</h1>
+            <span className={styles.eyebrow}>Case Studies</span>
+            <h1 className={styles.title}>Selected Projects & Proven Outcomes</h1>
             <p className={styles.sub}>
-              A curated selection of our work. Concept projects are always clearly labelled — we never present demo work as client work.
+              Explore how we design, build, and automate solutions that solve real operational bottlenecks.
             </p>
           </header>
 
@@ -49,17 +49,14 @@ export default function WorkPage() {
               <strong>Project transparency:</strong> All projects are labelled as either{' '}
               <Badge variant="client">Client Project</Badge> or{' '}
               <Badge variant="concept">Concept Project</Badge>. Concept projects demonstrate capability
-              with hypothetical scenarios.
+              with realistic business requirements.
             </p>
           </div>
 
           <div className={styles.grid}>
             {PORTFOLIO_PROJECTS.map((project) => (
               <article key={project.id} className={styles.card}>
-                <div className={styles.cardImage}>
-                  <span className={styles.imagePlaceholder}>{project.category[0]}</span>
-                </div>
-                <div className={styles.cardBody}>
+                <div>
                   <div className={styles.cardMeta}>
                     <Badge variant={project.type}>
                       {project.type === 'concept' ? 'Concept Project' : 'Client Project'}
@@ -67,10 +64,39 @@ export default function WorkPage() {
                     <span className={styles.category}>{project.category}</span>
                   </div>
                   <h2 className={styles.cardTitle}>{project.title}</h2>
-                  <p className={styles.cardDesc}>{project.description}</p>
+
+                  {/* Case Study Details */}
+                  <div className={styles.caseStudyBody}>
+                    <div className={styles.caseStudyRow}>
+                      <span className={styles.caseStudyLabel}>Client</span>
+                      <span className={styles.caseStudyValue}>{project.client}</span>
+                    </div>
+
+                    <div className={styles.caseStudyRow}>
+                      <span className={styles.caseStudyLabel}>Challenge</span>
+                      <span className={styles.caseStudyValue}>{project.challenge}</span>
+                    </div>
+
+                    <div className={styles.caseStudyRow}>
+                      <span className={styles.caseStudyLabel}>Solution</span>
+                      <span className={styles.caseStudyValue}>{project.solution}</span>
+                    </div>
+
+                    <div className={`${styles.caseStudyRow} ${styles.resultRow}`}>
+                      <span className={styles.caseStudyLabel}>Result</span>
+                      <span className={`${styles.caseStudyValue} ${styles.resultValue}`}>
+                        ✨ {project.result}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
                   <div className={styles.techList}>
                     {project.technologies.map((tech) => (
-                      <span key={tech} className={styles.techTag}>{tech}</span>
+                      <span key={tech} className={styles.techTag}>
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -79,11 +105,13 @@ export default function WorkPage() {
           </div>
 
           <div className={styles.cta}>
-            <h2 className={styles.ctaTitle}>Have a project in mind?</h2>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-              Let&apos;s build something exceptional for your business.
+            <h2 className={styles.ctaTitle}>Ready to Achieve Similar Results?</h2>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1.75rem' }}>
+              Tell us about your business challenge and let&apos;s build a custom solution.
             </p>
-            <Link href="/contact" className={styles.ctaBtn}>Start a Project</Link>
+            <Link href="/contact" className={styles.ctaBtn}>
+              Start a Project
+            </Link>
           </div>
         </div>
       </div>

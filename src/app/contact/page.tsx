@@ -3,16 +3,16 @@ import ContactForm from './ContactForm';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
-  title: 'Book a Consultation | Start Your Project with I Am To Work',
+  title: 'Contact I Am To Work | Start Your Project',
   description:
-    'Ready to build a modern website or automate your workflows? Book a free consultation or send us an enquiry. We respond within 1–2 business days.',
+    'Ready to build a website, automate your work, or implement AI solutions? Contact us for a free consultation and project discussion.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Book a Consultation | Start Your Project with I Am To Work',
+    title: 'Contact I Am To Work | Start Your Project',
     description:
-      'Ready to build a modern website or automate your workflows? Book a free consultation or send us an enquiry. We respond within 1–2 business days.',
+      'Ready to build a website, automate your work, or implement AI solutions? Contact us for a free consultation and project discussion.',
     url: 'https://www.iamtowork.com/contact',
   },
 };

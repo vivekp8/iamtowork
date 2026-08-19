@@ -7,16 +7,16 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'About Us | Practical AI & Web Solutions for Business',
+  title: 'About I Am To Work | Practical AI & Web Solutions',
   description:
-    'Learn how I Am To Work helps businesses scale faster by combining modern web development, intelligent automation, and practical AI implementations.',
+    'Learn how I Am To Work helps businesses build modern websites, automate workflows, and implement practical AI solutions that deliver real results.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About Us | Practical AI & Web Solutions for Business',
+    title: 'About I Am To Work | Practical AI & Web Solutions',
     description:
-      'Learn how I Am To Work helps businesses scale faster by combining modern web development, intelligent automation, and practical AI implementations.',
+      'Learn how I Am To Work helps businesses build modern websites, automate workflows, and implement practical AI solutions that deliver real results.',
     url: 'https://www.iamtowork.com/about',
   },
 };

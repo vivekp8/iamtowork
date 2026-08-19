@@ -5,16 +5,16 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Custom Website Development & Modern Web Design | I Am To Work',
+  title: 'Custom Website Development Services | I Am To Work',
   description:
-    'Professional, mobile-first websites and high-converting landing pages built with Next.js and clean code. Fast, responsive, SEO-ready, and conversion-focused.',
+    'Modern, fast, and conversion-focused websites built for real business goals. Professional websites, landing pages, and redesigns available.',
   alternates: {
     canonical: '/services/websites',
   },
   openGraph: {
-    title: 'Custom Website Development & Modern Web Design | I Am To Work',
+    title: 'Custom Website Development Services | I Am To Work',
     description:
-      'Professional, mobile-first websites and high-converting landing pages built with Next.js and clean code. Fast, responsive, SEO-ready, and conversion-focused.',
+      'Modern, fast, and conversion-focused websites built for real business goals. Professional websites, landing pages, and redesigns available.',
     url: 'https://www.iamtowork.com/services/websites',
   },
 };

@@ -5,16 +5,16 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Custom AI & Automation Solutions by Problem | I Am To Work',
+  title: 'AI Business Solutions & Automation Systems | I Am To Work',
   description:
-    'Discover tailored solutions for your operational challenges. From website revamps to automated CRM workflows and AI chatbots, find the right fix for your business.',
+    'Practical AI and automation solutions that help businesses reduce manual work, improve operations, and scale with confidence.',
   alternates: {
     canonical: '/solutions',
   },
   openGraph: {
-    title: 'Custom AI & Automation Solutions by Problem | I Am To Work',
+    title: 'AI Business Solutions & Automation Systems | I Am To Work',
     description:
-      'Discover tailored solutions for your operational challenges. From website revamps to automated CRM workflows and AI chatbots, find the right fix for your business.',
+      'Practical AI and automation solutions that help businesses reduce manual work, improve operations, and scale with confidence.',
     url: 'https://www.iamtowork.com/solutions',
   },
 };

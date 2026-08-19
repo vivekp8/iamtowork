@@ -7,14 +7,14 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: 'Business Automation Services & n8n Workflows | I Am To Work',
   description:
-    'Eliminate repetitive manual tasks with custom n8n and Make workflows, AI agents, automated lead qualification, CRM integrations, and smart notification alerts.',
+    'Eliminate repetitive tasks with custom n8n and Make automations. Save 15+ hours weekly and run your business operations more efficiently.',
   alternates: {
     canonical: '/services/automation',
   },
   openGraph: {
     title: 'Business Automation Services & n8n Workflows | I Am To Work',
     description:
-      'Eliminate repetitive manual tasks with custom n8n and Make workflows, AI agents, automated lead qualification, CRM integrations, and smart notification alerts.',
+      'Eliminate repetitive tasks with custom n8n and Make automations. Save 15+ hours weekly and run your business operations more efficiently.',
     url: 'https://www.iamtowork.com/services/automation',
   },
 };

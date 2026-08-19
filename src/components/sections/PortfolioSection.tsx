@@ -31,7 +31,7 @@ export default function PortfolioSection() {
                   <span className={styles.category}>{project.category}</span>
                 </div>
                 <h3 className={styles.cardTitle}>{project.title}</h3>
-                <p className={styles.cardDesc}>{project.description}</p>
+                <p className={styles.cardDesc}>{project.solution}</p>
                 <div className={styles.techList}>
                   {project.technologies.map((tech) => (
                     <span key={tech} className={styles.techTag}>{tech}</span>

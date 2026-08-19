@@ -5,16 +5,16 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'AI Marketing & Automated Growth Systems | I Am To Work',
+  title: 'AI Marketing & Growth Services | I Am To Work',
   description:
-    'Scale your inbound pipeline with AI-driven marketing strategies, automated lead capture funnels, content distribution systems, and intelligent campaign workflows.',
+    'AI-powered marketing systems, content engines, and lead generation solutions that help businesses attract more clients and grow faster.',
   alternates: {
     canonical: '/services/ai-marketing',
   },
   openGraph: {
-    title: 'AI Marketing & Automated Growth Systems | I Am To Work',
+    title: 'AI Marketing & Growth Services | I Am To Work',
     description:
-      'Scale your inbound pipeline with AI-driven marketing strategies, automated lead capture funnels, content distribution systems, and intelligent campaign workflows.',
+      'AI-powered marketing systems, content engines, and lead generation solutions that help businesses attract more clients and grow faster.',
     url: 'https://www.iamtowork.com/services/ai-marketing',
   },
 };

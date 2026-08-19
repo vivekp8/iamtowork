@@ -8,14 +8,14 @@ import styles from './services.module.css';
 export const metadata: Metadata = {
   title: 'AI & Web Development Services | I Am To Work',
   description:
-    'Explore our end-to-end services: custom website development, n8n business automation, AI-assisted content creation, and automated growth marketing engines.',
+    'Custom websites, business automation with n8n & Make, and AI-powered growth solutions designed to help small and medium businesses scale efficiently.',
   alternates: {
     canonical: '/services',
   },
   openGraph: {
     title: 'AI & Web Development Services | I Am To Work',
     description:
-      'Explore our end-to-end services: custom website development, n8n business automation, AI-assisted content creation, and automated growth marketing engines.',
+      'Custom websites, business automation with n8n & Make, and AI-powered growth solutions designed to help small and medium businesses scale efficiently.',
     url: 'https://www.iamtowork.com/services',
   },
 };

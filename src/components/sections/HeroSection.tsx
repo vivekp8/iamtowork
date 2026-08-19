@@ -19,12 +19,10 @@ export default function HeroSection() {
           Reclaim Your Time.
           <br />
           <span className={styles.accent}>Automate the Busywork.</span>
-          <br />
-          Scale Your Business.
         </h1>
 
         <p className={styles.sub}>
-          We build custom websites and AI automations that work around the clock, so you don&apos;t have to.
+          We build custom AI websites and smart automations that help your business run smoothly — without the manual grind.
         </p>
 
         <div className={styles.actions}>
