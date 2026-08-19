@@ -2,24 +2,19 @@ import styles from './ImpactSection.module.css';
 
 const IMPACT_STATS = [
   {
-    number: '15+ hrs',
-    label: 'Saved Per Week',
-    desc: 'Eliminating repetitive data entry, file transfers, and manual message routing.',
+    number: '10–15 hrs',
+    label: 'Average Time Saved',
+    desc: 'Hours saved per week eliminating manual data entry and repetitive busywork.',
   },
   {
     number: '< 60s',
-    label: 'Lead Follow-up Time',
-    desc: 'Instant WhatsApp and CRM triggers connecting you with buyers when intent is highest.',
+    label: 'Lead Response Time',
+    desc: 'Response time reduced from hours to under 60 seconds with automated routing.',
   },
   {
-    number: '3.5x',
-    label: 'Content Output',
-    desc: 'Multi-platform repurposing pipelines creating social, newsletter, and blog assets.',
-  },
-  {
-    number: '< 1.0s',
-    label: 'Web Load Speed',
-    desc: 'Ultra-fast Next.js architecture designed for higher mobile conversion rates.',
+    number: 'Days, not months',
+    label: 'Turnaround Time',
+    desc: 'Clean, modern websites and custom automations delivered with speed.',
   },
 ];
 
@@ -28,12 +23,12 @@ export default function ImpactSection() {
     <section className={styles.section} aria-labelledby="impact-heading">
       <div className="container">
         <div className={styles.header}>
-          <span className={styles.eyebrow}>Real Impact</span>
+          <span className={styles.eyebrow}>Measurable Impact</span>
           <h2 id="impact-heading" className={styles.title}>
-            Measurable Results for Growing Businesses
+            Real Results
           </h2>
           <p className={styles.sub}>
-            Practical digital systems engineered to save hours, eliminate friction, and accelerate revenue.
+            Practical AI websites and smart automations that deliver immediate operational improvements.
           </p>
         </div>
 

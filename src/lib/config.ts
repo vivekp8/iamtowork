@@ -99,7 +99,7 @@ export const PILLARS = [
     label: 'BUILD',
     tagline: 'Digital Products & Experiences',
     description:
-      'Modern websites, landing pages, apps, and internal tools built to achieve real business goals.',
+      'Modern websites, landing pages, and digital tools designed to achieve real business goals. Clean, fast, and conversion-focused.',
     href: '/services/websites',
     color: '#2563EB',
   },
@@ -108,7 +108,7 @@ export const PILLARS = [
     label: 'AUTOMATE',
     tagline: 'Business Automation',
     description:
-      'Eliminate repetitive work with smart n8n and Make workflows, AI agents, and process automation.',
+      'Eliminate repetitive tasks with custom n8n and Make workflows. Connect your tools, save hours every week, and reduce human error.',
     href: '/services/automation',
     color: '#8B5CF6',
   },
@@ -117,7 +117,7 @@ export const PILLARS = [
     label: 'GROW',
     tagline: 'AI-Assisted Growth Solutions',
     description:
-      'Marketing systems, content engines, and lead generation that help businesses scale.',
+      'Marketing systems, content engines, and lead generation setups that help you attract more clients and scale efficiently.',
     href: '/services/ai-marketing',
     color: '#10B981',
   },
@@ -212,34 +212,29 @@ export const FAQS = [
 
 export const WHY_US = [
   {
-    title: 'AI-First Execution',
+    title: 'Practical approach',
     description:
-      'We use modern AI tools where they genuinely improve quality, speed, and outcomes — not as a marketing claim, but as our actual working method.',
+      'We focus on real business outcomes, not complicated tech for the sake of it.',
   },
   {
-    title: 'Business-Focused',
+    title: 'Combined expertise',
     description:
-      'Every project starts with your actual business goal. We build what you need, not what is technically impressive.',
+      'Websites + automation + AI in one place for unified digital execution.',
   },
   {
-    title: 'Modern Technology',
+    title: 'Fast execution',
     description:
-      'We work with current AI, automation, and development technologies — not outdated tools or legacy approaches.',
+      'Clear, proactive communication and rapid turnaround times on every sprint.',
   },
   {
-    title: 'Flexible Solutions',
+    title: 'Solutions built to grow',
     description:
-      'We select the right technology for your requirements rather than forcing every client onto the same platform.',
+      'Future-proof architectures designed to scale seamlessly as your business expands.',
   },
   {
-    title: 'Built to Grow',
+    title: 'Transparent process',
     description:
-      'We design solutions with future expansion in mind so your investment continues to serve you as your business grows.',
-  },
-  {
-    title: 'Transparent Process',
-    description:
-      'Clear communication, honest timelines, and no surprises. You always know what is happening and why.',
+      'Honest timelines, clear scopes, and zero surprises from start to finish.',
   },
 ];
 
