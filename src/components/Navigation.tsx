@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import styles from './Navigation.module.css';
 
@@ -10,7 +11,16 @@ export function Navigation() {
     <header className={styles.header}>
       <div className={`container ${styles.navContainer}`}>
         <div className={styles.logo}>
-          <Link href="/">I Am To Work</Link>
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="I Am To Work"
+              width={170}
+              height={48}
+              priority
+              className={styles.logoImg}
+            />
+          </Link>
         </div>
         
         <nav className={`${styles.desktopNav} ${isOpen ? styles.open : ''}`}>
