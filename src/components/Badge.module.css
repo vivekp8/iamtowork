@@ -4,31 +4,31 @@
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-.default {
-  background-color: var(--bg-elevated);
+.tag {
+  background-color: var(--surface-light);
   color: var(--text-muted);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border);
 }
 
-.blue {
+.category {
   background-color: rgba(37, 99, 235, 0.1);
-  color: #3B82F6;
+  color: var(--primary);
   border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
-.purple {
-  background-color: rgba(139, 92, 246, 0.1);
-  color: #A78BFA;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+.concept {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
-.emerald {
+.client {
   background-color: rgba(16, 185, 129, 0.1);
-  color: #34D399;
+  color: #10B981;
   border: 1px solid rgba(16, 185, 129, 0.2);
 }

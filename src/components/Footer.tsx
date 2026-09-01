@@ -1,17 +1,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { siteConfig } from '../lib/config';
+import { CONTACT } from '@/lib/config';
 import styles from './Footer.module.css';
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
         <div className={styles.brandColumn}>
           <div className={styles.logo}>
-            <Link href="/">
-              <Image src="/iamtowork-logo.png" alt="I Am To Work Logo" width={200} height={60} style={{ width: 'auto', height: '40px' }} />
-            </Link>
+            <Image
+              src="/logo.png?v=4"
+              alt="I Am To Work - AI Powered Workflows"
+              width={190}
+              height={52}
+              unoptimized
+              className={styles.footerLogoImg}
+            />
           </div>
           <p className={styles.tagline}>Build Faster. Automate Smarter. Grow with AI.</p>
         </div>
@@ -21,9 +26,11 @@ export function Footer() {
             <h4 className={styles.columnTitle}>Services</h4>
             <Link href="/services/websites" className={styles.link}>Websites</Link>
             <Link href="/services/automation" className={styles.link}>Automation</Link>
+            <Link href="/services/content-design" className={styles.link}>AI Content & Design</Link>
             <Link href="/services/ai-marketing" className={styles.link}>Marketing</Link>
             <Link href="/solutions" className={styles.link}>AI Solutions</Link>
           </div>
+          
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>Company</h4>
             <Link href="/about" className={styles.link}>About</Link>
@@ -31,17 +38,25 @@ export function Footer() {
             <Link href="/pricing" className={styles.link}>Pricing</Link>
             <Link href="/contact" className={styles.link}>Contact</Link>
           </div>
+          
+          <div className={styles.column}>
+            <h4 className={styles.columnTitle}>Legal</h4>
+            <Link href="/privacy" className={styles.link}>Privacy</Link>
+            <Link href="/terms" className={styles.link}>Terms</Link>
+          </div>
+
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>Connect</h4>
-            <a href={`mailto:${siteConfig.contact.email}`} className={styles.link}>Email Us</a>
-            <a href={siteConfig.contact.linkedinCompany} target="_blank" rel="noopener noreferrer" className={styles.link}>Company LinkedIn</a>
-            <a href={siteConfig.contact.linkedinFounder} target="_blank" rel="noopener noreferrer" className={styles.link}>Founder LinkedIn</a>
+            <a href={`mailto:${CONTACT.email}`} className={styles.link}>Email Us</a>
+            <a href={CONTACT.companyLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Company LinkedIn</a>
+            <a href={CONTACT.personalLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Founder LinkedIn</a>
           </div>
         </div>
       </div>
+      
       <div className={styles.bottomBar}>
         <div className={`container ${styles.bottomContainer}`}>
-          <p className={styles.copyright}>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+          <p className={styles.copyright}>© {new Date().getFullYear()} I Am To Work. All rights reserved.</p>
         </div>
       </div>
     </footer>

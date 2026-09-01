@@ -1,42 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  --bg-main: #0B0F17;
-  --bg-surface: #131A26;
-  --bg-elevated: #1B2536;
-  
-  --text-main: #F8FAFC;
-  --text-muted: #94A3B8;
-  
+  --background: #0A0A0B;
+  --bg: #0A0A0B;              /* alias */
+  --surface: #111827;
+  --surface-light: #1E293B;
   --primary: #2563EB;
   --primary-hover: #1D4ED8;
-  
-  --accent-purple: #8B5CF6;
-  --accent-emerald: #10B981;
+  --secondary: #06B6D4;
+  --text-main: #F9FAFB;
+  --text-muted: #9CA3AF;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
 
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.2);
+  --font-heading: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --max-width: 1440px;
+  --container-pad: 1.5rem;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+
+  --shadow-glow: 0 0 60px rgba(37, 99, 235, 0.12);
 }
+
 
 * {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+html,
 body {
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  font-family: var(--font-sans);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background-color: var(--background);
+  color: var(--text-muted);
+  font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(37, 99, 235, 0.35);
+  color: #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
+  color: var(--text-main);
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -44,28 +66,65 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: var(--primary);
+  color: var(--text-main);
+}
+
+button {
+  font-family: inherit;
 }
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--container-pad);
 }
 
-/* Utiltiy classes */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+@media (min-width: 640px) {
+  :root { --container-pad: 2rem; }
+}
+@media (min-width: 1024px) {
+  :root { --container-pad: 3rem; }
+}
+
+/* Fluid Typography Helpers */
+.text-hero {
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.text-h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+.text-large {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+}
+
+/* Utilities */
+.gradient-text {
+  background: linear-gradient(135deg, #F9FAFB 0%, #9CA3AF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

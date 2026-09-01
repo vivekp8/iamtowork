@@ -1,15 +1,16 @@
-import React from 'react';
 import styles from './Badge.module.css';
+
+type BadgeVariant = 'concept' | 'client' | 'category' | 'tag';
 
 interface BadgeProps {
   children: React.ReactNode;
-  color?: 'blue' | 'purple' | 'emerald' | 'default';
+  variant?: BadgeVariant;
   className?: string;
 }
 
-export function Badge({ children, color = 'default', className = '' }: BadgeProps) {
+export default function Badge({ children, variant = 'tag', className = '' }: BadgeProps) {
   return (
-    <span className={`${styles.badge} ${styles[color]} ${className}`}>
+    <span className={`${styles.badge} ${styles[variant]} ${className}`.trim()}>
       {children}
     </span>
   );

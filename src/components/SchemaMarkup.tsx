@@ -1,0 +1,14 @@
+import React from 'react';
+
+interface SchemaMarkupProps {
+  data: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+export default function SchemaMarkup({ data }: SchemaMarkupProps) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
