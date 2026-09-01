@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig } from '../lib/config';
+import { SITE, CONTACT } from '../lib/config';
 import styles from './Footer.module.css';
 
 export function Footer() {
@@ -8,7 +8,7 @@ export function Footer() {
       <div className={`container ${styles.footerContainer}`}>
         <div className={styles.brandColumn}>
           <div className={styles.logo}>
-            <Link href="/">{siteConfig.name}</Link>
+            <Link href="/">{SITE.name}</Link>
           </div>
           <p className={styles.tagline}>Build Faster. Automate Smarter. Grow with AI.</p>
         </div>
@@ -30,15 +30,15 @@ export function Footer() {
           </div>
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>Connect</h4>
-            <a href={`mailto:${siteConfig.contact.email}`} className={styles.link}>Email Us</a>
-            <a href={siteConfig.contact.linkedinCompany} target="_blank" rel="noopener noreferrer" className={styles.link}>Company LinkedIn</a>
-            <a href={siteConfig.contact.linkedinFounder} target="_blank" rel="noopener noreferrer" className={styles.link}>Founder LinkedIn</a>
+            <a href={`mailto:${CONTACT.email}`} className={styles.link}>Email Us</a>
+            <a href={CONTACT.companyLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Company LinkedIn</a>
+            <a href={CONTACT.personalLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Founder LinkedIn</a>
           </div>
         </div>
       </div>
       <div className={styles.bottomBar}>
         <div className={`container ${styles.bottomContainer}`}>
-          <p className={styles.copyright}>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+          <p className={styles.copyright}>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>

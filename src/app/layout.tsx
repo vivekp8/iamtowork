@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { siteConfig } from '../lib/config';
+import { SITE } from '../lib/config';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | AI Websites & Business Automation`,
-  description: siteConfig.description,
+  title: `${SITE.name} | AI Websites & Business Automation`,
+  description: SITE.description,
   openGraph: {
-    title: `${siteConfig.name} | AI Websites & Business Automation`,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
+    title: `${SITE.name} | AI Websites & Business Automation`,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
     images: [
       {
         url: '/og-image.jpg',
