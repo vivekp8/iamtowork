@@ -1,39 +1,26 @@
+import React from 'react';
 import Link from 'next/link';
 import styles from './Button.module.css';
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
-
-interface ButtonProps {
-  children: React.ReactNode;
-  variant?: ButtonVariant;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
-  onClick?: () => void;
-  className?: string;
-  type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
+  variant?: 'primary' | 'secondary' | 'outline';
+  children: React.ReactNode;
 }
 
-export default function Button({
-  children,
-  variant = 'primary',
-  href,
-  onClick,
-  className = '',
-  type = 'button',
-  disabled,
-}: ButtonProps) {
-  const cls = `${styles.btn} ${styles[variant]} ${className}`.trim();
+export function Button({ href, variant = 'primary', children, className, ...props }: ButtonProps) {
+  const btnClass = `${styles.btn} ${styles[variant]} ${className || ''}`;
 
   if (href) {
     return (
-      <Link href={href} className={cls}>
+      <Link href={href} className={btnClass}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={cls} onClick={onClick} disabled={disabled}>
+    <button className={btnClass} {...props}>
       {children}
     </button>
   );
