@@ -24,6 +24,7 @@ export function Navigation() {
         </div>
         
         <nav className={`${styles.desktopNav} ${isOpen ? styles.open : ''}`}>
+          <Link href="/" className={styles.navLink}>Home</Link>
           <Link href="/services" className={styles.navLink}>Services</Link>
           <Link href="/solutions" className={styles.navLink}>Solutions</Link>
           <Link href="/work" className={styles.navLink}>Work</Link>

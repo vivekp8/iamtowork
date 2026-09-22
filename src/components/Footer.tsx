@@ -31,7 +31,7 @@ export function Footer() {
           </div>
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>Connect</h4>
-            <a href={`mailto:${CONTACT.email}`} className={styles.link}>Email Us</a>
+            <a href={`mailto:${CONTACT.email}`} className={styles.link}>{CONTACT.email}</a>
             <a href={CONTACT.companyLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Company LinkedIn</a>
             <a href={CONTACT.personalLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Founder LinkedIn</a>
           </div>
