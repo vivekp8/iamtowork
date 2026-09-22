@@ -24,14 +24,11 @@ export function Navigation() {
         </div>
         
         <nav className={`${styles.desktopNav} ${isOpen ? styles.open : ''}`}>
-          <Link href="/" className={styles.navLink}>Home</Link>
-          <Link href="/about" className={styles.navLink}>About</Link>
           <Link href="/services" className={styles.navLink}>Services</Link>
           <Link href="/solutions" className={styles.navLink}>Solutions</Link>
           <Link href="/work" className={styles.navLink}>Work</Link>
           <Link href="/pricing" className={styles.navLink}>Pricing</Link>
           <Link href="/blogs" className={styles.navLink}>Blogs</Link>
-          <Link href="/contact" className={styles.navLink}>Contact</Link>
         </nav>
 
         <div className={styles.actions}>
