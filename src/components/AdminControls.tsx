@@ -71,15 +71,23 @@ export default function AdminControls({
             width: '100%',
             minHeight: '80px',
             padding: '0.75rem',
-            borderRadius: '12px',
-            background: '#1a1a1a',
-            border: 'none',
-            boxShadow: 'inset 5px 5px 10px #121212, inset -5px -5px 10px #222222',
+            borderRadius: '8px',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.08)',
             color: 'white',
             fontSize: '0.9rem',
             resize: 'vertical',
             fontFamily: 'inherit',
-            outline: 'none'
+            outline: 'none',
+            transition: 'border-color 0.2s, box-shadow 0.2s',
+          }}
+          onFocus={(e) => {
+            e.target.style.borderColor = 'rgba(255,255,255,0.2)';
+            e.target.style.boxShadow = '0 0 0 2px rgba(255,255,255,0.05)';
+          }}
+          onBlur={(e) => {
+            e.target.style.borderColor = 'rgba(255,255,255,0.08)';
+            e.target.style.boxShadow = 'none';
           }}
         />
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
@@ -139,12 +147,23 @@ export default function AdminControls({
           style={{
             padding: '0.4rem 0.75rem',
             borderRadius: '4px',
-            border: '1px solid #ef4444',
-            background: 'transparent',
+            border: '1px solid rgba(239, 68, 68, 0.5)',
+            background: 'rgba(239, 68, 68, 0.05)',
             color: '#ef4444',
             fontSize: '0.85rem',
             cursor: (isPending || isDeleting) ? 'not-allowed' : 'pointer',
-            opacity: (isPending || isDeleting) ? 0.5 : 1
+            opacity: (isPending || isDeleting) ? 0.5 : 1,
+            transition: 'all 0.2s'
+          }}
+          onMouseOver={(e) => {
+            if (!isPending && !isDeleting) {
+              e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)';
+            }
+          }}
+          onMouseOut={(e) => {
+            if (!isPending && !isDeleting) {
+              e.currentTarget.style.background = 'rgba(239, 68, 68, 0.05)';
+            }
           }}
         >
           {isDeleting ? 'Deleting...' : 'Delete'}

@@ -29,7 +29,7 @@ export default async function AdminBlogsDashboard() {
                 Client Submissions
               </Link>
               <form action={logout}>
-                <button type="submit" style={{ padding: '0.5rem 1rem', background: '#333', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Sign Out</button>
+                <button type="submit" className={styles.secondaryButton}>Sign Out</button>
               </form>
             </div>
           </div>
@@ -38,15 +38,7 @@ export default async function AdminBlogsDashboard() {
         <div className={styles.toolbar} style={{ justifyContent: 'flex-start' }}>
           <Link 
             href="/admin/blogs/new" 
-            style={{ 
-              padding: '0.75rem 1.5rem', 
-              background: 'var(--primary)', 
-              color: '#000', 
-              textDecoration: 'none', 
-              fontWeight: 600, 
-              borderRadius: '8px',
-              display: 'inline-block'
-            }}
+            className={styles.primaryButton}
           >
             + Create New Post
           </Link>
@@ -92,14 +84,7 @@ export default async function AdminBlogsDashboard() {
                 <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
                   <Link 
                     href={`/admin/blogs/${blog.id}`}
-                    style={{
-                      padding: '0.5rem 1rem',
-                      background: 'rgba(255,255,255,0.1)',
-                      color: 'var(--text-main)',
-                      textDecoration: 'none',
-                      borderRadius: '4px',
-                      fontSize: '0.875rem'
-                    }}
+                    className={styles.secondaryButton}
                   >
                     Edit
                   </Link>
@@ -107,14 +92,7 @@ export default async function AdminBlogsDashboard() {
                     <Link 
                       href={`/blogs/${blog.slug}`}
                       target="_blank"
-                      style={{
-                        padding: '0.5rem 1rem',
-                        background: 'rgba(255,255,255,0.05)',
-                        color: 'var(--text-main)',
-                        textDecoration: 'none',
-                        borderRadius: '4px',
-                        fontSize: '0.875rem'
-                      }}
+                      className={styles.secondaryButton}
                     >
                       View Live
                     </Link>

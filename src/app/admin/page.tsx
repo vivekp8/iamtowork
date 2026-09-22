@@ -42,7 +42,7 @@ export default async function AdminDashboard(
                   Manage Blogs
                 </Link>
                 <form action={logout}>
-                  <button type="submit" style={{ padding: '0.5rem 1rem', background: '#333', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Sign Out</button>
+                  <button type="submit" className={styles.secondaryButton}>Sign Out</button>
                 </form>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default async function AdminDashboard(
                 Manage Blogs
               </Link>
               <form action={logout}>
-                <button type="submit" style={{ padding: '0.5rem 1rem', background: '#333', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Sign Out</button>
+                <button type="submit" className={styles.secondaryButton}>Sign Out</button>
               </form>
             </div>
           </div>
