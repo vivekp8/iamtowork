@@ -35,8 +35,13 @@ export async function updateSession(request: NextRequest) {
   const url = request.nextUrl.clone()
 
   // Protect admin routes
-  if (request.nextUrl.pathname.startsWith('/admin') && !request.nextUrl.pathname.startsWith('/admin/login')) {
-    if (!user) {
+  // Also explicitly exclude the forgot-password and update-password routes so they can be accessed!
+  const isAuthRoute = request.nextUrl.pathname.startsWith('/admin/login') || 
+                      request.nextUrl.pathname.startsWith('/admin/forgot-password') ||
+                      request.nextUrl.pathname.startsWith('/admin/update-password')
+
+  if (request.nextUrl.pathname.startsWith('/admin') && !isAuthRoute) {
+    if (!user || user.email !== 'vivekp@iamtowork.com') {
       url.pathname = '/admin/login'
       return NextResponse.redirect(url)
     }
