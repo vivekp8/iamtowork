@@ -8,7 +8,11 @@
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
-  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform 0.3s ease-in-out;
+}
+
+.hidden {
+  transform: translateY(-100%);
 }
 
 .scrolled {
