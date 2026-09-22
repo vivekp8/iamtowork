@@ -1,11 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
-import { login } from '@/app/actions/auth'
-import styles from './page.module.css'
+import { updatePassword } from '@/app/actions/auth'
+import styles from '../login/page.module.css'
 
-export default function LoginPage() {
+export default function UpdatePasswordPage() {
   const [errorMsg, setErrorMsg] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -15,38 +14,33 @@ export default function LoginPage() {
     setErrorMsg('')
     
     const formData = new FormData(e.currentTarget)
-    const res = await login(formData)
+    
+    if (formData.get('password') !== formData.get('confirm_password')) {
+      setErrorMsg('Passwords do not match')
+      setLoading(false)
+      return
+    }
+    
+    const res = await updatePassword(formData)
     
     if (res?.error) {
       setErrorMsg(res.error)
       setLoading(false)
     }
-    // if successful, the action will redirect, so no need to setLoading(false)
+    // if successful, action redirects to /admin
   }
 
   return (
     <div className={styles.page}>
       <div className={styles.card}>
         <header className={styles.header}>
-          <h1 className={styles.title}>Admin Login</h1>
-          <p className={styles.sub}>Enter your credentials to access the dashboard</p>
+          <h1 className={styles.title}>Set New Password</h1>
+          <p className={styles.sub}>Enter your new password below.</p>
         </header>
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
-            <label htmlFor="email" className={styles.label}>Email</label>
-            <input 
-              id="email" 
-              name="email" 
-              type="email" 
-              required 
-              className={styles.input} 
-              placeholder="admin@example.com"
-            />
-          </div>
-
-          <div className={styles.field}>
-            <label htmlFor="password" className={styles.label}>Password</label>
+            <label htmlFor="password" className={styles.label}>New Password</label>
             <input 
               id="password" 
               name="password" 
@@ -54,6 +48,20 @@ export default function LoginPage() {
               required 
               className={styles.input} 
               placeholder="••••••••"
+              minLength={6}
+            />
+          </div>
+          
+          <div className={styles.field}>
+            <label htmlFor="confirm_password" className={styles.label}>Confirm New Password</label>
+            <input 
+              id="confirm_password" 
+              name="confirm_password" 
+              type="password" 
+              required 
+              className={styles.input} 
+              placeholder="••••••••"
+              minLength={6}
             />
           </div>
 
@@ -64,14 +72,8 @@ export default function LoginPage() {
           )}
 
           <button type="submit" className={styles.submit} disabled={loading}>
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? 'Updating...' : 'Update Password'}
           </button>
-          
-          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-            <Link href="/admin/forgot-password" style={{ color: '#a1a1aa', fontSize: '0.875rem', textDecoration: 'none' }}>
-              Forgot Password?
-            </Link>
-          </div>
         </form>
       </div>
     </div>
