@@ -3,27 +3,17 @@ import { createBlog } from '@/app/actions/blogs';
 import styles from '../../page.module.css';
 import Link from 'next/link';
 
-export default async function NewBlogPage() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+export default function NewBlogPage() {
 
   return (
     <div className={styles.page}>
-      <div className="container">
-        <header className={styles.header}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <h1 className={styles.title}>Create New Blog Post</h1>
-              <p className={styles.sub}>Write a new article or research paper.</p>
-              <p className={styles.sub} style={{ marginTop: '0.25rem', fontSize: '0.75rem' }}>Logged in as {user?.email}</p>
-            </div>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <Link href="/admin/blogs" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
-                &larr; Back to Blogs
-              </Link>
-            </div>
-          </div>
-        </header>
+      <div className="container" style={{ marginTop: '2rem' }}>
+        <div style={{ marginBottom: '2rem' }}>
+          <Link href="/admin/blogs" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+            &larr; Back to Blogs
+          </Link>
+          <h1 className={styles.title} style={{ marginTop: '1rem' }}>Create New Blog Post</h1>
+        </div>
 
         <div className={styles.card} style={{ maxWidth: '800px', margin: '0 auto' }}>
           <form action={createBlog} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>

@@ -1,13 +1,11 @@
 export const dynamic = 'force-dynamic';
 
 import { createClient } from '@/utils/supabase/server';
-import { logout } from '@/app/actions/auth';
 import styles from '../page.module.css';
 import Link from 'next/link';
 
 export default async function AdminBlogsDashboard() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
 
   const { data: blogs, error } = await supabase
     .from('blogs')
@@ -17,24 +15,6 @@ export default async function AdminBlogsDashboard() {
   return (
     <div className={styles.page}>
       <div className="container">
-        <header className={styles.header}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <h1 className={styles.title}>Blogs & Research Papers</h1>
-              <p className={styles.sub}>Manage your articles and publications.</p>
-              <p className={styles.sub} style={{ marginTop: '0.25rem', fontSize: '0.75rem' }}>Logged in as {user?.email}</p>
-            </div>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <Link href="/admin" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 500 }}>
-                Client Submissions
-              </Link>
-              <form action={logout}>
-                <button type="submit" className={styles.secondaryButton}>Sign Out</button>
-              </form>
-            </div>
-          </div>
-        </header>
-
         <div className={styles.toolbar} style={{ justifyContent: 'flex-start' }}>
           <Link 
             href="/admin/blogs/new" 

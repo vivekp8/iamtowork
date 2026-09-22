@@ -7,7 +7,6 @@ import { notFound } from 'next/navigation';
 export default async function EditBlogPage(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
 
   const { data: blog, error } = await supabase
     .from('blogs')
@@ -25,21 +24,14 @@ export default async function EditBlogPage(props: { params: Promise<{ id: string
 
   return (
     <div className={styles.page}>
-      <div className="container">
-        <header className={styles.header}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <h1 className={styles.title}>Edit Post</h1>
-              <p className={styles.sub}>Editing: {blog.title}</p>
-              <p className={styles.sub} style={{ marginTop: '0.25rem', fontSize: '0.75rem' }}>Logged in as {user?.email}</p>
-            </div>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <Link href="/admin/blogs" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
-                &larr; Back to Blogs
-              </Link>
-            </div>
-          </div>
-        </header>
+      <div className="container" style={{ marginTop: '2rem' }}>
+        <div style={{ marginBottom: '2rem' }}>
+          <Link href="/admin/blogs" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+            &larr; Back to Blogs
+          </Link>
+          <h1 className={styles.title} style={{ marginTop: '1rem' }}>Edit Post</h1>
+          <p className={styles.sub}>Editing: {blog.title}</p>
+        </div>
 
         <div className={styles.card} style={{ maxWidth: '800px', margin: '0 auto' }}>
           <form action={updateBlogWithId} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
