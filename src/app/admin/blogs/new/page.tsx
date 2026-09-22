@@ -68,9 +68,9 @@ export default async function NewBlogPage() {
               <textarea 
                 id="content" 
                 name="content" 
-                rows={15}
+                rows={8}
                 required
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem', fontFamily: 'monospace' }} 
+                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem', fontFamily: 'monospace', resize: 'vertical' }} 
               />
             </div>
 
