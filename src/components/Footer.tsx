@@ -38,8 +38,9 @@ export function Footer() {
         </div>
       </div>
       <div className={styles.bottomBar}>
-        <div className={`container ${styles.bottomContainer}`}>
+        <div className={`container ${styles.bottomContainer}`} style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
           <p className={styles.copyright}>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+          <Link href="/admin" style={{ color: '#52525b', fontSize: '0.875rem', textDecoration: 'none' }}>Admin Login</Link>
         </div>
       </div>
     </footer>
