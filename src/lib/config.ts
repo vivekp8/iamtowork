@@ -26,7 +26,7 @@ export const CONTACT = {
 
 export const TRACKING = {
   googleAnalyticsId: '', // e.g., "G-XXXXXXXXXX"
-  facebookPixelId: '', // e.g., "123456789012345"
+  facebookPixelId: '3026094814417568',
 };
 
 export const SERVICES = [
