@@ -40,8 +40,13 @@ export function Footer() {
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Connect</h3>
             <a href={`mailto:${CONTACT.email}`} className={styles.link}>Email Us</a>
+            {CONTACT.phone && <a href={`tel:${CONTACT.phone.replace(/\s+/g, '')}`} className={styles.link}>{CONTACT.phone}</a>}
             <a href={CONTACT.companyLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Company LinkedIn</a>
             <a href={CONTACT.personalLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Founder LinkedIn</a>
+            {CONTACT.facebook && <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" className={styles.link}>Facebook</a>}
+            {CONTACT.twitter && <a href={CONTACT.twitter} target="_blank" rel="noopener noreferrer" className={styles.link}>X (Twitter)</a>}
+            {CONTACT.instagram && <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" className={styles.link}>Instagram</a>}
+            {CONTACT.youtube && <a href={CONTACT.youtube} target="_blank" rel="noopener noreferrer" className={styles.link}>YouTube</a>}
           </div>
         </div>
       </div>

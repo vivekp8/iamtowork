@@ -12,10 +12,21 @@ export const SITE = {
 
 export const CONTACT = {
   email: 'vivekp@iamtowork.com',
+  phone: '+91 70363 38557', // Added for local business schema / footer
   whatsapp: '+917036338557',
+  address: '', // e.g. "123 Business Rd, Tech City"
   companyLinkedin: 'https://www.linkedin.com/company/143035530/',
   personalLinkedin: 'https://www.linkedin.com/in/vivek-potnuru-302677200/',
+  facebook: '',
+  twitter: '',
+  instagram: '',
+  youtube: '',
   bookingUrl: '', // fill when ready (e.g., Calendly)
+};
+
+export const TRACKING = {
+  googleAnalyticsId: '', // e.g., "G-XXXXXXXXXX"
+  facebookPixelId: '', // e.g., "123456789012345"
 };
 
 export const SERVICES = [
