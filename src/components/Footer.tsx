@@ -23,14 +23,14 @@ export function Footer() {
         
         <div className={styles.linksGrid}>
           <div className={styles.column}>
-            <h4 className={styles.columnTitle}>Services</h4>
+            <h3 className={styles.columnTitle}>Services</h3>
             <Link href="/services/websites" className={styles.link}>Websites</Link>
             <Link href="/services/automation" className={styles.link}>Automation</Link>
             <Link href="/services/ai-marketing" className={styles.link}>Marketing</Link>
             <Link href="/solutions" className={styles.link}>AI Solutions</Link>
           </div>
           <div className={styles.column}>
-            <h4 className={styles.columnTitle}>Company</h4>
+            <h3 className={styles.columnTitle}>Company</h3>
             <Link href="/about" className={styles.link}>About</Link>
             <Link href="/blogs" className={styles.link}>Blogs</Link>
             <Link href="/work" className={styles.link}>Work</Link>
@@ -38,8 +38,8 @@ export function Footer() {
             <Link href="/contact" className={styles.link}>Contact</Link>
           </div>
           <div className={styles.column}>
-            <h4 className={styles.columnTitle}>Connect</h4>
-            <a href={`mailto:${CONTACT.email}`} className={styles.link}>{CONTACT.email}</a>
+            <h3 className={styles.columnTitle}>Connect</h3>
+            <a href={`mailto:${CONTACT.email}`} className={styles.link}>Email Us</a>
             <a href={CONTACT.companyLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Company LinkedIn</a>
             <a href={CONTACT.personalLinkedin} target="_blank" rel="noopener noreferrer" className={styles.link}>Founder LinkedIn</a>
           </div>

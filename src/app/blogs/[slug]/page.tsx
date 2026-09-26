@@ -61,17 +61,17 @@ export default async function BlogPostPage(props: Props) {
   }
 
   return (
-    <div className={styles.page} style={{ paddingTop: '150px' }}>
+    <div className={`${styles.page} ${styles.postPageContainer}`}>
       <div className="container">
         <article>
           <header className={styles.postHeader}>
-            <div style={{ marginBottom: '1.5rem' }}>
-              <Link href="/blogs" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>
+            <div className={styles.backLinkContainer}>
+              <Link href="/blogs" className={styles.backLink}>
                 &larr; Back to Blogs
               </Link>
             </div>
             
-            <div className={styles.type} style={{ marginBottom: '1rem' }}>
+            <div className={`${styles.type} ${styles.typeContainer}`}>
               {blog.type.replace('_', ' ')}
             </div>
             
@@ -86,7 +86,7 @@ export default async function BlogPostPage(props: Props) {
                 })}
               </time>
               {!blog.published && (
-                <span style={{ padding: '0.2rem 0.5rem', background: '#ef4444', color: '#fff', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 'bold' }}>
+                <span className={styles.draftBadge}>
                   DRAFT
                 </span>
               )}

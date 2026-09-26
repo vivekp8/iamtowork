@@ -214,7 +214,7 @@ export default function AIMarketingPage() {
                 return (
                   <div key={cap.title} className={styles.card}>
                     <div className={styles.cardHeader}>
-                      <IconComponent size={28} className={styles.checkIcon} strokeWidth={1.75} style={{ marginBottom: '1rem' }} />
+                      <IconComponent size={28} className={`${styles.checkIcon} icon-margin-bottom`} strokeWidth={1.75} />
                       <h3 className={styles.cardTitle}>{cap.title}</h3>
                       <p className={styles.cardDesc}>{cap.desc}</p>
                     </div>
@@ -308,7 +308,7 @@ export default function AIMarketingPage() {
             </p>
             <div className={styles.ctaActions}>
               <Link href="/contact" className={styles.ctaBtn}>
-                Improve Your Marketing with AI <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
+                Improve Your Marketing with AI <ArrowRight size={16} className="icon-margin-left" />
               </Link>
             </div>
           </div>

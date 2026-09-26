@@ -212,10 +212,10 @@ export default function WebsitesPage() {
             </div>
 
             {/* Metrics inside section */}
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div className={styles.metricsSection} style={{ margin: 0, padding: '2rem' }}>
-                <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: 'var(--text-main)' }}>Engineering Standards</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className={styles.metricsContainer}>
+              <div className={`${styles.metricsSection} ${styles.metricsSectionCustom}`}>
+                <h3 className={styles.metricsTitle}>Engineering Standards</h3>
+                <div className={styles.metricsList}>
                   <div>
                     <div className={styles.metricNumber}>&lt; 1.0s</div>
                     <div className={styles.metricLabel}>LCP Page Load Time</div>
@@ -297,7 +297,7 @@ export default function WebsitesPage() {
             </p>
             <div className={styles.ctaActions}>
               <Link href="/contact" className={styles.ctaBtn}>
-                Start Your Website Project <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
+                Start Your Website Project <ArrowRight size={16} className={styles.btnIcon} />
               </Link>
             </div>
           </div>

@@ -487,3 +487,30 @@
   background-color: var(--primary-hover);
   color: #fff;
 }
+
+.metricsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metricsSectionCustom {
+  margin: 0 !important;
+  padding: 2rem !important;
+}
+
+.metricsTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.metricsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.btnIcon {
+  margin-left: 0.5rem;
+}

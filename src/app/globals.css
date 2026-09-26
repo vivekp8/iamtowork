@@ -128,3 +128,11 @@ button {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.icon-margin-bottom {
+  margin-bottom: 1rem !important;
+}
+
+.icon-margin-left {
+  margin-left: 0.5rem !important;
+}

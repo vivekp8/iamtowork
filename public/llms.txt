@@ -1,0 +1,18 @@
+# I Am To Work
+
+> Build Faster. Automate Smarter. Grow with AI.
+
+I Am To Work is a technology and marketing agency that helps businesses build modern websites, automate repetitive workflows, create better content, and implement practical AI solutions.
+
+## Services
+1. **Website Building**: Modern, responsive Next.js websites built for real business goals (Landing pages, business websites, restaurant websites).
+2. **Business Automation**: Automating repetitive work and business processes using tools like n8n and Make.
+3. **AI Content & Design**: Professional content writing, copywriting, and design powered by AI tools.
+4. **AI Marketing & Growth**: Creating content systems, lead generation flows, and marketing automation to consistently drive growth.
+
+## Contact Information
+- **Email**: vivekp@iamtowork.com
+- **Website**: https://iamtowork.com
+
+## Philosophy
+Practical solutions focused on real business outcomes, not complicated tech for the sake of it. Fast delivery, transparent processes, and all-in-one expertise.
