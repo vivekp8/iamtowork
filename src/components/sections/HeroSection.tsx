@@ -21,7 +21,7 @@ export default function HeroSection() {
         </h1>
 
         <p className={styles.sub}>
-          We build custom AI websites and smart automations that help your business run smoothly — without the manual grind.
+          We build <strong>custom AI websites</strong> and smart automations for <strong>lead capture</strong> that help your business run smoothly. Our goal is to provide <strong>practical solutions</strong> that drive <strong>real business outcomes</strong> for every <strong>client</strong> we partner with.
         </p>
 
         <div className={styles.actions}>
