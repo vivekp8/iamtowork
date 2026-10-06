@@ -1,8 +1,13 @@
+import { Inter, Space_Grotesk } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
 import { SITE, CONTACT, TRACKING } from '../lib/config';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
+import Script from 'next/script';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -10,6 +15,10 @@ export const metadata: Metadata = {
   description: SITE.description,
   alternates: {
     canonical: '/',
+    languages: {
+      'en-US': '/',
+      'en': '/',
+    },
   },
   openGraph: {
     title: `${SITE.name} | AI Websites & Business Automation`,
@@ -71,7 +80,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -85,11 +94,13 @@ export default function RootLayout({
         {/* Google Analytics */}
         {TRACKING.googleAnalyticsId && (
           <>
-            <script
-              async
+            <Script
+              strategy="afterInteractive"
               src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING.googleAnalyticsId}`}
             />
-            <script
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
@@ -105,7 +116,9 @@ export default function RootLayout({
         {/* Facebook Pixel */}
         {TRACKING.facebookPixelId && (
           <>
-            <script
+            <Script
+              id="facebook-pixel"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
                   !function(f,b,e,v,n,t,s)
@@ -125,7 +138,7 @@ export default function RootLayout({
               <img 
                 height="1" 
                 width="1" 
-                style={{ display: 'none' }}
+                hidden
                 src={`https://www.facebook.com/tr?id=${TRACKING.facebookPixelId}&ev=PageView&noscript=1`}
                 alt=""
               />

@@ -1,0 +1,42 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border-radius: 25px;
+  background: #1a1a1a;
+  border: none;
+  box-shadow: inset 5px 5px 10px #121212, inset -5px -5px 10px #222222;
+  color: white;
+  font-size: 0.9rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.input:focus {
+  box-shadow: inset 7px 7px 14px #121212, inset -7px -7px 14px #222222;
+}
+
+.icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.pending {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pendingText {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}

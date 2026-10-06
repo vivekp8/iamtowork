@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { updateContactStatus, deleteContact, updateAdminNotes } from '@/app/actions/contact';
+import styles from './AdminControls.module.css';
 
 export default function AdminControls({ 
   id, 
@@ -57,73 +58,35 @@ export default function AdminControls({
   };
 
   return (
-    <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-      <div style={{ marginBottom: '1rem' }}>
-        <label style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem', color: '#9ca3af', marginBottom: '0.5rem' }}>
+    <div className={styles.container}>
+      <div className={styles.formGroup}>
+        <label className={styles.labelWrapper}>
           <span>Private Admin Notes</span>
-          {saveSuccess && <span style={{ color: '#34d399', fontSize: '0.75rem' }}>Saved!</span>}
+          {saveSuccess && <span className={styles.successMsg}>Saved!</span>}
         </label>
         <textarea
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Add internal notes about this client..."
-          style={{
-            width: '100%',
-            minHeight: '80px',
-            padding: '0.75rem',
-            borderRadius: '8px',
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            color: 'white',
-            fontSize: '0.9rem',
-            resize: 'vertical',
-            fontFamily: 'inherit',
-            outline: 'none',
-            transition: 'border-color 0.2s, box-shadow 0.2s',
-          }}
-          onFocus={(e) => {
-            e.target.style.borderColor = 'rgba(255,255,255,0.2)';
-            e.target.style.boxShadow = '0 0 0 2px rgba(255,255,255,0.05)';
-          }}
-          onBlur={(e) => {
-            e.target.style.borderColor = 'rgba(255,255,255,0.08)';
-            e.target.style.boxShadow = 'none';
-          }}
+          className={styles.textarea}
         />
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
+        <div className={styles.btnRight}>
           <button 
             onClick={handleSaveNotes}
             disabled={isSavingNotes || notes === (initialNotes || '')}
-            style={{
-              padding: '0.3rem 0.75rem',
-              borderRadius: '4px',
-              border: 'none',
-              background: notes !== (initialNotes || '') ? '#3b82f6' : '#374151',
-              color: 'white',
-              fontSize: '0.8rem',
-              cursor: notes !== (initialNotes || '') ? 'pointer' : 'not-allowed',
-              opacity: isSavingNotes ? 0.7 : 1,
-              transition: 'background 0.2s'
-            }}
+            className={styles.saveNotesBtn}
           >
             {isSavingNotes ? 'Saving...' : 'Save Notes'}
           </button>
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+      <div className={styles.actionGroup}>
         <select 
           value={currentStatus || 'new'} 
           onChange={handleStatusChange}
           disabled={isPending || isDeleting}
-          style={{
-            padding: '0.4rem',
-            borderRadius: '4px',
-            background: '#222',
-            color: 'white',
-            border: '1px solid #444',
-            fontSize: '0.85rem'
-          }}
+          className={styles.select}
         >
           <option value="new">New</option>
           <option value="contacted">Contacted</option>
@@ -138,27 +101,7 @@ export default function AdminControls({
         <button 
           onClick={handleDelete}
           disabled={isPending || isDeleting}
-          style={{
-            padding: '0.4rem 0.75rem',
-            borderRadius: '4px',
-            border: '1px solid rgba(239, 68, 68, 0.5)',
-            background: 'rgba(239, 68, 68, 0.05)',
-            color: '#ef4444',
-            fontSize: '0.85rem',
-            cursor: (isPending || isDeleting) ? 'not-allowed' : 'pointer',
-            opacity: (isPending || isDeleting) ? 0.5 : 1,
-            transition: 'all 0.2s'
-          }}
-          onMouseOver={(e) => {
-            if (!isPending && !isDeleting) {
-              e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)';
-            }
-          }}
-          onMouseOut={(e) => {
-            if (!isPending && !isDeleting) {
-              e.currentTarget.style.background = 'rgba(239, 68, 68, 0.05)';
-            }
-          }}
+          className={styles.deleteBtn}
         >
           {isDeleting ? 'Deleting...' : 'Delete'}
         </button>

@@ -103,12 +103,10 @@ export default function ServicesPage() {
               return (
                 <div key={pillar.id} className={styles.pillar}>
                   <div
-                    className={styles.pillarHeader}
-                    style={{ borderLeftColor: pillar.color }}
+                    className={`${styles.pillarHeader} theme-${pillar.id}-border`}
                   >
                     <span
-                      className={styles.pillarLabel}
-                      style={{ color: pillar.color }}
+                      className={`${styles.pillarLabel} theme-${pillar.id}`}
                     >
                       {pillar.label}
                     </span>
@@ -118,7 +116,7 @@ export default function ServicesPage() {
                     <ul className={styles.benefitList}>
                       {PILLAR_BENEFITS[pillar.id]?.map((benefit) => (
                         <li key={benefit}>
-                          <span style={{ color: pillar.color, fontWeight: 700 }}>✓</span> {benefit}
+                          <span className={`pillar-list-icon theme-${pillar.id}`}>✓</span> {benefit}
                         </li>
                       ))}
                     </ul>
@@ -126,13 +124,13 @@ export default function ServicesPage() {
 
                   {service && (
                     <div className={styles.serviceItems}>
-                      <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-main)' }}>
+                      <span className="capabilities-heading">
                         Included Capabilities
                       </span>
                       {service.items.map((item) => (
                         <span key={item} className={styles.serviceItem}>{item}</span>
                       ))}
-                      <Link href={service.slug} className={styles.serviceLink} style={{ color: pillar.color }}>
+                      <Link href={service.slug} className={`${styles.serviceLink} theme-${pillar.id}`}>
                         Explore detailed {pillar.label.toLowerCase()} services →
                       </Link>
                     </div>

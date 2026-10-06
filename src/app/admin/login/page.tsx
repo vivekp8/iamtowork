@@ -58,7 +58,7 @@ export default function LoginPage() {
           </div>
 
           {errorMsg && (
-            <div style={{ color: 'var(--destructive, #ef4444)', fontSize: '0.875rem' }}>
+            <div className="auth-error">
               {errorMsg}
             </div>
           )}
@@ -67,8 +67,8 @@ export default function LoginPage() {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
           
-          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-            <Link href="/admin/forgot-password" style={{ color: '#a1a1aa', fontSize: '0.875rem', textDecoration: 'none' }}>
+          <div className="auth-link-container">
+            <Link href="/admin/forgot-password" className="auth-link">
               Forgot Password?
             </Link>
           </div>

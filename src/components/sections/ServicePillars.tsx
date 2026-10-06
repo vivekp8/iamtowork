@@ -39,8 +39,7 @@ export default function ServicePillars() {
             <Link key={pillar.id} href={pillar.href} className={styles.card}>
               <div className={styles.cardTop}>
                 <div
-                  className={styles.pillarTag}
-                  style={{ color: pillar.color, borderColor: `${pillar.color}33`, backgroundColor: `${pillar.color}11` }}
+                  className={`${styles.pillarTag} theme-${pillar.id}-tag`}
                 >
                   {pillar.label}
                 </div>
@@ -48,15 +47,15 @@ export default function ServicePillars() {
               <h3 className={styles.cardTitle}>{pillar.tagline}</h3>
               <p className={styles.cardDesc}>{pillar.description}</p>
               
-              <ul style={{ listStyle: 'none', padding: 0, margin: '1rem 0', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <ul className="pillar-list">
                 {PILLAR_BENEFITS[pillar.id]?.map((b) => (
-                  <li key={b} style={{ fontSize: '0.8125rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ color: pillar.color, fontWeight: 700 }}>✓</span> {b}
+                  <li key={b} className="pillar-list-item">
+                    <span className={`pillar-list-icon theme-${pillar.id}`}>✓</span> {b}
                   </li>
                 ))}
               </ul>
 
-              <span className={styles.cardLink} style={{ color: pillar.color }}>
+              <span className={`${styles.cardLink} theme-${pillar.id}`}>
                 Learn more →
               </span>
             </Link>

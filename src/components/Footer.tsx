@@ -19,6 +19,11 @@ export function Footer() {
             <Link href="/">{SITE.name}</Link>
           </div>
           <p className={styles.tagline}>Build Faster. Automate Smarter. Grow with AI.</p>
+          {CONTACT.address && (
+            <address className={styles.address}>
+              {CONTACT.address}
+            </address>
+          )}
         </div>
         
         <div className={styles.linksGrid}>

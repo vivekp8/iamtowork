@@ -50,13 +50,13 @@ export default function ForgotPasswordPage() {
           </div>
 
           {errorMsg && (
-            <div style={{ color: 'var(--destructive, #ef4444)', fontSize: '0.875rem' }}>
+            <div className="auth-error">
               {errorMsg}
             </div>
           )}
           
           {successMsg && (
-            <div style={{ color: '#10b981', fontSize: '0.875rem' }}>
+            <div className="auth-success">
               {successMsg}
             </div>
           )}
@@ -65,8 +65,8 @@ export default function ForgotPasswordPage() {
             {loading ? 'Sending...' : 'Send Reset Link'}
           </button>
           
-          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-            <Link href="/admin/login" style={{ color: '#a1a1aa', fontSize: '0.875rem', textDecoration: 'none' }}>
+          <div className="auth-link-container">
+            <Link href="/admin/login" className="auth-link">
               Back to Login
             </Link>
           </div>

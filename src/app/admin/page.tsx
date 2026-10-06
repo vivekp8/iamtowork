@@ -30,7 +30,7 @@ export default async function AdminDashboard(
     return (
       <div className={styles.page}>
         <div className="container">
-          <div className={styles.error} style={{ marginTop: '2rem' }}>
+          <div className={`${styles.error} mt-2rem`}>
             Failed to load contacts. Ensure your Supabase connection is set up and the contacts table exists.
             <br /><br />
             Error details: {error.message}
@@ -102,7 +102,7 @@ export default async function AdminDashboard(
               <div key={contact.id} className={styles.card}>
                 <div className={styles.cardHeader}>
                   <h3 className={styles.name}>{contact.name}</h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
+                  <div className="align-end-gap-4">
                     <span className={styles.date}>
                       {new Date(contact.created_at).toLocaleDateString()}
                     </span>
@@ -153,7 +153,7 @@ export default async function AdminDashboard(
                 
                 {contact.website && (
                   <div className={styles.website}>
-                    <a href={contact.website} target="_blank" rel="noreferrer">
+                    <a href={contact.website} target="_blank" rel="noreferrer nofollow">
                       View Website &rarr;
                     </a>
                   </div>

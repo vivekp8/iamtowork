@@ -106,7 +106,7 @@ export default function WorkPage() {
 
           <div className={styles.cta}>
             <h2 className={styles.ctaTitle}>Ready to Achieve Similar Results?</h2>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '1.75rem' }}>
+            <p className="text-muted mb-1-75">
               Tell us about your business challenge and let&apos;s build a custom solution.
             </p>
             <Link href="/contact" className={styles.ctaBtn}>

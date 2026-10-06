@@ -7,29 +7,29 @@ export default function NewBlogPage() {
 
   return (
     <div className={styles.page}>
-      <div className="container" style={{ marginTop: '2rem' }}>
-        <div style={{ marginBottom: '2rem' }}>
-          <Link href="/admin/blogs" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+      <div className={`container ${styles.blogContainer}`}>
+        <div className={styles.blogHeader}>
+          <Link href="/admin/blogs" className={styles.blogBackLink}>
             &larr; Back to Blogs
           </Link>
-          <h1 className={styles.title} style={{ marginTop: '1rem' }}>Create New Blog Post</h1>
+          <h1 className={`${styles.title} ${styles.blogTitle}`}>Create New Blog Post</h1>
         </div>
 
-        <div className={styles.card} style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <form action={createBlog} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div className={`${styles.card} ${styles.blogCard}`}>
+          <form action={createBlog} className={styles.blogForm}>
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className={styles.blogFormGroup}>
               <label htmlFor="title" className={styles.label}>Title</label>
               <input 
                 type="text" 
                 id="title" 
                 name="title" 
                 required
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem' }} 
+                className={styles.blogInput} 
               />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className={styles.blogFormGroup}>
               <label htmlFor="slug" className={styles.label}>Slug (URL-friendly)</label>
               <input 
                 type="text" 
@@ -37,56 +37,46 @@ export default function NewBlogPage() {
                 name="slug" 
                 required
                 placeholder="e.g. my-first-article"
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem' }} 
+                className={styles.blogInput} 
               />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className={styles.blogFormGroup}>
               <label htmlFor="type" className={styles.label}>Type</label>
               <select 
                 id="type" 
                 name="type" 
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem' }}
+                className={styles.blogInput}
               >
                 <option value="article">Article</option>
                 <option value="research_paper">Research Paper</option>
               </select>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className={styles.blogFormGroup}>
               <label htmlFor="content" className={styles.label}>Content (Markdown)</label>
               <textarea 
                 id="content" 
                 name="content" 
                 rows={8}
                 required
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem', fontFamily: 'monospace', resize: 'vertical' }} 
+                className={styles.blogTextarea} 
               />
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div className={styles.blogCheckboxGroup}>
               <input 
                 type="checkbox" 
                 id="published" 
                 name="published" 
-                style={{ width: '1.25rem', height: '1.25rem' }} 
+                className={styles.blogCheckbox} 
               />
               <label htmlFor="published" className={styles.label}>Publish immediately</label>
             </div>
 
             <button 
               type="submit" 
-              style={{ 
-                padding: '1rem', 
-                background: 'var(--primary)', 
-                color: '#000', 
-                border: 'none', 
-                borderRadius: '8px',
-                fontSize: '1rem',
-                fontWeight: 600,
-                cursor: 'pointer',
-                marginTop: '1rem'
-              }}
+              className={styles.blogSubmitBtn}
             >
               Create Post
             </button>

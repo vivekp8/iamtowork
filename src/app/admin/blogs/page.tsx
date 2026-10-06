@@ -15,7 +15,7 @@ export default async function AdminBlogsDashboard() {
   return (
     <div className={styles.page}>
       <div className="container">
-        <div className={styles.toolbar} style={{ justifyContent: 'flex-start' }}>
+        <div className={`${styles.toolbar} ${styles.flexStart}`}>
           <Link 
             href="/admin/blogs/new" 
             className={styles.primaryButton}
@@ -25,7 +25,7 @@ export default async function AdminBlogsDashboard() {
         </div>
 
         {error ? (
-          <div className={styles.error} style={{ marginTop: '2rem' }}>
+          <div className={`${styles.error} ${styles.mt2}`}>
             Failed to load blogs. Error details: {error.message}
           </div>
         ) : (!blogs || blogs.length === 0) ? (
@@ -38,7 +38,7 @@ export default async function AdminBlogsDashboard() {
               <div key={blog.id} className={styles.card}>
                 <div className={styles.cardHeader}>
                   <h3 className={styles.name}>{blog.title}</h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
+                  <div className={styles.flexColumnEnd}>
                     <span className={styles.date}>
                       {new Date(blog.created_at).toLocaleDateString()}
                     </span>
@@ -51,7 +51,7 @@ export default async function AdminBlogsDashboard() {
                 <div className={styles.details}>
                   <div className={styles.detailRow}>
                     <span className={styles.label}>Type:</span>
-                    <span className={styles.value} style={{ textTransform: 'capitalize' }}>
+                    <span className={`${styles.value} ${styles.capitalize}`}>
                       {blog.type.replace('_', ' ')}
                     </span>
                   </div>
@@ -61,7 +61,7 @@ export default async function AdminBlogsDashboard() {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                <div className={styles.flexGap1Mt1}>
                   <Link 
                     href={`/admin/blogs/${blog.id}`}
                     className={styles.secondaryButton}
@@ -72,6 +72,7 @@ export default async function AdminBlogsDashboard() {
                     <Link 
                       href={`/blogs/${blog.slug}`}
                       target="_blank"
+                      rel="noreferrer nofollow"
                       className={styles.secondaryButton}
                     >
                       View Live

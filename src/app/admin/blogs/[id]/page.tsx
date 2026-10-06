@@ -24,19 +24,19 @@ export default async function EditBlogPage(props: { params: Promise<{ id: string
 
   return (
     <div className={styles.page}>
-      <div className="container" style={{ marginTop: '2rem' }}>
-        <div style={{ marginBottom: '2rem' }}>
-          <Link href="/admin/blogs" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
+      <div className={`container ${styles.blogContainer}`}>
+        <div className={styles.blogHeader}>
+          <Link href="/admin/blogs" className={styles.blogBackLink}>
             &larr; Back to Blogs
           </Link>
-          <h1 className={styles.title} style={{ marginTop: '1rem' }}>Edit Post</h1>
+          <h1 className={`${styles.title} ${styles.blogTitle}`}>Edit Post</h1>
           <p className={styles.sub}>Editing: {blog.title}</p>
         </div>
 
-        <div className={styles.card} style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <form action={updateBlogWithId} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div className={`${styles.card} ${styles.blogCard}`}>
+          <form action={updateBlogWithId} className={styles.blogForm}>
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className={styles.blogFormGroup}>
               <label htmlFor="title" className={styles.label}>Title</label>
               <input 
                 type="text" 
@@ -44,11 +44,11 @@ export default async function EditBlogPage(props: { params: Promise<{ id: string
                 name="title" 
                 required
                 defaultValue={blog.title}
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem' }} 
+                className={styles.blogInput} 
               />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className={styles.blogFormGroup}>
               <label htmlFor="slug" className={styles.label}>Slug (URL-friendly)</label>
               <input 
                 type="text" 
@@ -56,24 +56,24 @@ export default async function EditBlogPage(props: { params: Promise<{ id: string
                 name="slug" 
                 required
                 defaultValue={blog.slug}
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem' }} 
+                className={styles.blogInput} 
               />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className={styles.blogFormGroup}>
               <label htmlFor="type" className={styles.label}>Type</label>
               <select 
                 id="type" 
                 name="type"
                 defaultValue={blog.type}
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem' }}
+                className={styles.blogInput}
               >
                 <option value="article">Article</option>
                 <option value="research_paper">Research Paper</option>
               </select>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className={styles.blogFormGroup}>
               <label htmlFor="content" className={styles.label}>Content (Markdown)</label>
               <textarea 
                 id="content" 
@@ -81,51 +81,32 @@ export default async function EditBlogPage(props: { params: Promise<{ id: string
                 rows={15}
                 required
                 defaultValue={blog.content}
-                style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem', fontFamily: 'monospace' }} 
+                className={styles.blogTextarea} 
               />
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div className={styles.blogCheckboxGroup}>
               <input 
                 type="checkbox" 
                 id="published" 
                 name="published"
                 defaultChecked={blog.published}
-                style={{ width: '1.25rem', height: '1.25rem' }} 
+                className={styles.blogCheckbox} 
               />
               <label htmlFor="published" className={styles.label}>Published</label>
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+            <div className={styles.flexGap1Mt1}>
               <button 
                 type="submit" 
-                style={{ 
-                  flex: 1,
-                  padding: '1rem', 
-                  background: 'var(--primary)', 
-                  color: '#000', 
-                  border: 'none', 
-                  borderRadius: '8px',
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  cursor: 'pointer'
-                }}
+                className={styles.blogSubmitBtnHalf}
               >
                 Save Changes
               </button>
               
               <button 
                 formAction={deleteBlogWithId}
-                style={{ 
-                  padding: '1rem', 
-                  background: 'transparent', 
-                  color: '#ef4444', 
-                  border: '1px solid #ef4444', 
-                  borderRadius: '8px',
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  cursor: 'pointer'
-                }}
+                className={styles.blogDeleteBtn}
                 onClick={(e) => {
                   if(!confirm('Are you sure you want to delete this post?')) e.preventDefault();
                 }}

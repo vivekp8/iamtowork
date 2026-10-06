@@ -14,18 +14,18 @@ export const CONTACT = {
   email: 'vivekp@iamtowork.com',
   phone: '+91 70363 38557', // Added for local business schema / footer
   whatsapp: '+917036338557',
-  address: '', // e.g. "123 Business Rd, Tech City"
+  address: '123 Business Rd, Tech City', // e.g. "123 Business Rd, Tech City" (Update with real address for local SEO)
   companyLinkedin: 'https://www.linkedin.com/company/143035530/',
   personalLinkedin: 'https://www.linkedin.com/in/vivek-potnuru-302677200/',
-  facebook: '',
-  twitter: '',
-  instagram: '',
-  youtube: '',
+  facebook: 'https://facebook.com/iamtowork',
+  twitter: 'https://x.com/iamtowork',
+  instagram: 'https://instagram.com/iamtowork',
+  youtube: 'https://youtube.com/@iamtowork',
   bookingUrl: '', // fill when ready (e.g., Calendly)
 };
 
 export const TRACKING = {
-  googleAnalyticsId: '', // e.g., "G-XXXXXXXXXX"
+  googleAnalyticsId: 'G-XXXXXXXXXX', // Add your real ID to properly track traffic
   facebookPixelId: '3026094814417568',
 };
 

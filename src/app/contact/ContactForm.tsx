@@ -41,7 +41,7 @@ export default function ContactForm() {
             <a
               href={`https://wa.me/${CONTACT.whatsapp.replace(/\+/g, '').replace(/\s/g, '')}`}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer nofollow"
               className={styles.whatsappBtn}
             >
               Message on WhatsApp
@@ -129,7 +129,7 @@ export default function ContactForm() {
             </div>
 
             {errorMsg && (
-              <div style={{ color: 'var(--destructive, #ef4444)', fontSize: '0.875rem', marginTop: '0.5rem' }}>
+              <div className="error-text">
                 {errorMsg}
               </div>
             )}

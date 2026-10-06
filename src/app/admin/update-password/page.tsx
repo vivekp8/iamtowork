@@ -66,7 +66,7 @@ export default function UpdatePasswordPage() {
           </div>
 
           {errorMsg && (
-            <div style={{ color: 'var(--destructive, #ef4444)', fontSize: '0.875rem' }}>
+            <div className="auth-error">
               {errorMsg}
             </div>
           )}

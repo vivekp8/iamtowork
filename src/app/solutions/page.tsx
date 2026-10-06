@@ -77,7 +77,7 @@ const GOAL_SOLUTIONS = [
     goalTitle: 'Save Time',
     desc: 'Automate repetitive tasks and free your team for higher-value work.',
     icon: Clock,
-    color: '#8B5CF6',
+    themeId: 'automate',
     items: [
       'Custom n8n and Make workflow automations',
       'Automated invoice and document extraction',
@@ -90,7 +90,7 @@ const GOAL_SOLUTIONS = [
     goalTitle: 'Get More Leads',
     desc: 'Websites + lead capture + automated follow-ups.',
     icon: Target,
-    color: '#2563EB',
+    themeId: 'build',
     items: [
       'High-converting Next.js website & landing pages',
       'Instant WhatsApp & SMS lead notification triggers',
@@ -103,7 +103,7 @@ const GOAL_SOLUTIONS = [
     goalTitle: 'Improve Operations',
     desc: 'Connect your tools and create smooth internal workflows.',
     icon: Settings,
-    color: '#06B6D4',
+    themeId: 'scale',
     items: [
       'Seamless SaaS tool & API integrations',
       'Automated onboarding & notification pipelines',
@@ -116,7 +116,7 @@ const GOAL_SOLUTIONS = [
     goalTitle: 'Scale Faster',
     desc: 'AI-powered systems that grow with your business.',
     icon: TrendingUp,
-    color: '#10B981',
+    themeId: 'grow',
     items: [
       'Multi-channel AI content creation engines',
       'Scalable inbound marketing and nurture funnels',
@@ -183,22 +183,22 @@ export default function SolutionsPage() {
                 return (
                   <div key={item.goalTitle} className={styles.card}>
                     <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                        <Icon size={24} style={{ color: item.color }} />
-                        <h3 className={styles.cardTitle} style={{ margin: 0 }}>{item.goalTitle}</h3>
+                      <div className="flex-center-gap">
+                        <Icon size={24} className={`theme-${item.themeId}`} />
+                        <h3 className={`${styles.cardTitle} m-0`}>{item.goalTitle}</h3>
                       </div>
                       <p className={styles.cardDesc}>{item.desc}</p>
                       
-                      <ul style={{ listStyle: 'none', padding: 0, margin: '1rem 0', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                      <ul className="pillar-list">
                         {item.items.map((it) => (
-                          <li key={it} style={{ fontSize: '0.8125rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <span style={{ color: item.color, fontWeight: 700 }}>✓</span> {it}
+                          <li key={it} className="pillar-list-item">
+                            <span className={`pillar-list-icon theme-${item.themeId}`}>✓</span> {it}
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <Link href={item.href} className={styles.cardLink} style={{ color: item.color }}>
+                    <Link href={item.href} className={`${styles.cardLink} theme-${item.themeId}`}>
                       {item.cta} <ArrowRight size={14} />
                     </Link>
                   </div>

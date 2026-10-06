@@ -136,3 +136,101 @@ button {
 .icon-margin-left {
   margin-left: 0.5rem !important;
 }
+
+/* Service Pillar Lists */
+.pillar-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pillar-list-item {
+  font-size: 0.8125rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pillar-list-icon {
+  font-weight: 700;
+}
+
+/* Theme Colors for Pillars (to remove inline styles) */
+.theme-build { color: var(--primary); }
+.theme-build-tag { color: var(--primary); background-color: #2563EB11; border-color: #2563EB33; }
+.theme-build-border { border-left-color: var(--primary); }
+
+.theme-automate { color: #8B5CF6; }
+.theme-automate-tag { color: #8B5CF6; background-color: #8B5CF611; border-color: #8B5CF633; }
+.theme-automate-border { border-left-color: #8B5CF6; }
+
+.theme-grow { color: #10B981; }
+.theme-grow-tag { color: #10B981; background-color: #10B98111; border-color: #10B98133; }
+.theme-grow-border { border-left-color: #10B981; }
+
+.theme-scale { color: #06B6D4; }
+.theme-scale-tag { color: #06B6D4; background-color: #06B6D411; border-color: #06B6D433; }
+.theme-scale-border { border-left-color: #06B6D4; }
+
+/* Helper classes to replace inline styles */
+.flex-center-gap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.m-0 { margin: 0; }
+.mb-1-75 { margin-bottom: 1.75rem; }
+.text-muted { color: var(--text-muted); }
+
+.capabilities-heading {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Auth classes */
+.auth-error {
+  color: var(--destructive, #ef4444);
+  font-size: 0.875rem;
+}
+
+.auth-success {
+  color: #10b981;
+  font-size: 0.875rem;
+}
+
+.auth-link-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.auth-link {
+  color: #a1a1aa;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.align-end-gap-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
