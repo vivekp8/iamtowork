@@ -1,23 +1,33 @@
-import { createClient } from '@/utils/supabase/server';
+'use client';
+
 import { createBlog } from '@/app/actions/blogs';
 import styles from '../../page.module.css';
 import Link from 'next/link';
+import { useActionState } from 'react';
+import { Loader2 } from 'lucide-react';
 
 export default function NewBlogPage() {
+  const [state, formAction, pending] = useActionState(createBlog, null);
 
   return (
     <div className={styles.page}>
       <div className={`container ${styles.blogContainer}`}>
         <div className={styles.blogHeader}>
-          <Link href="/admin/blogs" className={styles.blogBackLink}>
+          <Link href="/admin/blogs" className={styles.secondaryButton}>
             &larr; Back to Blogs
           </Link>
           <h1 className={`${styles.title} ${styles.blogTitle}`}>Create New Blog Post</h1>
         </div>
 
         <div className={`${styles.card} ${styles.blogCard}`}>
-          <form action={createBlog} className={styles.blogForm}>
+          <form action={formAction} className={styles.blogForm}>
             
+            {state?.error && (
+              <div className={styles.error}>
+                {state.error}
+              </div>
+            )}
+
             <div className={styles.blogFormGroup}>
               <label htmlFor="title" className={styles.label}>Title</label>
               <input 
@@ -26,6 +36,7 @@ export default function NewBlogPage() {
                 name="title" 
                 required
                 className={styles.blogInput} 
+                placeholder="Enter an engaging title..."
               />
             </div>
 
@@ -58,8 +69,9 @@ export default function NewBlogPage() {
               <textarea 
                 id="content" 
                 name="content" 
-                rows={8}
+                rows={12}
                 required
+                placeholder="Write your markdown content here..."
                 className={styles.blogTextarea} 
               />
             </div>
@@ -76,9 +88,16 @@ export default function NewBlogPage() {
 
             <button 
               type="submit" 
-              className={styles.blogSubmitBtn}
+              className={styles.primaryButton}
+              style={{ marginTop: '1rem' }}
+              disabled={pending}
             >
-              Create Post
+              {pending ? (
+                <>
+                  <Loader2 className="animate-spin inline-block mr-2" size={18} />
+                  Creating...
+                </>
+              ) : 'Create Post'}
             </button>
           </form>
         </div>

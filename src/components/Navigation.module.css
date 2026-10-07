@@ -76,13 +76,22 @@
   color: var(--text-main);
 }
 
-.navLink:hover::after,
-.active::after {
+.navLink:hover::after {
   width: 100%;
 }
 
 .active {
   color: var(--text-main);
+}
+
+.activeUnderline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background-color: var(--primary);
+  border-radius: 2px;
 }
 
 /* ── Desktop CTAs ── */
