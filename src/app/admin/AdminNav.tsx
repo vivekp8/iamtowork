@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { logout } from '@/app/actions/auth';
 import styles from './AdminNav.module.css';
 
@@ -20,18 +21,27 @@ export function AdminNav({ userEmail }: { userEmail?: string }) {
             IAW <span>Admin</span>
           </Link>
           <div className={styles.links}>
-            <Link 
-              href="/admin" 
-              className={`${styles.link} ${pathname === '/admin' ? styles.active : ''}`}
-            >
-              Submissions
-            </Link>
-            <Link 
-              href="/admin/blogs" 
-              className={`${styles.link} ${pathname.startsWith('/admin/blogs') ? styles.active : ''}`}
-            >
-              Blogs
-            </Link>
+            {['/admin', '/admin/blogs'].map((path) => {
+              const label = path === '/admin' ? 'Submissions' : 'Blogs';
+              const isActive = path === '/admin' ? pathname === path : pathname.startsWith(path);
+              return (
+                <Link 
+                  key={path}
+                  href={path} 
+                  className={`${styles.link} ${isActive ? styles.active : ''}`}
+                >
+                  {label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="adminNavUnderline"
+                      className={styles.activeUnderline}
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </div>
         

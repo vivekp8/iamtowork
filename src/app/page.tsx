@@ -8,11 +8,13 @@ import ProcessSection from '../components/sections/ProcessSection';
 import TestimonialsSection from '../components/sections/TestimonialsSection';
 import FAQSection from '../components/sections/FAQSection';
 import FinalCTA from '../components/sections/FinalCTA';
+import TechStackMarquee from '../components/TechStackMarquee';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <TechStackMarquee />
       <OutcomesSection />
       <ServicePillars />
       <ImpactSection />

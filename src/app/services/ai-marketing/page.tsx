@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CheckCircle2, TrendingUp, ArrowRight, Target, Share2, Users, BarChart3, Bot, Layers } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { AnimatedSection } from '@/components/AnimatedSection';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -145,7 +146,7 @@ export default function AIMarketingPage() {
       <div className={styles.page}>
         <div className="container">
           {/* Header */}
-          <header className={styles.header}>
+          <AnimatedSection className={styles.header}>
             <span className={styles.eyebrow}>GROW</span>
             <h1 className={styles.title}>AI-Powered Marketing Systems That Help You Grow</h1>
             <p className={styles.sub}>
@@ -159,10 +160,10 @@ export default function AIMarketingPage() {
                 Explore Services
               </Link>
             </div>
-          </header>
+          </AnimatedSection>
 
           {/* Problem Section */}
-          <section className={styles.problemSection} aria-labelledby="growth-problem-heading">
+          <AnimatedSection className={styles.problemSection} aria-labelledby="growth-problem-heading" delay={0.1}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionTag}>The Growth Bottleneck</span>
               <h2 id="growth-problem-heading" className={styles.sectionTitle}>
@@ -195,10 +196,10 @@ export default function AIMarketingPage() {
                 </p>
               </div>
             </div>
-          </section>
+          </AnimatedSection>
 
           {/* What We Offer Grid */}
-          <section id="capabilities" className={styles.capabilitiesSection} aria-labelledby="marketing-cap-heading">
+          <AnimatedSection id="capabilities" className={styles.capabilitiesSection} aria-labelledby="marketing-cap-heading" delay={0.1}>
             <div className={styles.sectionHeader}>
               <span className={`${styles.sectionTag} ${styles.sectionTagGreen}`}>Capabilities</span>
               <h2 id="marketing-cap-heading" className={styles.sectionTitle}>
@@ -222,10 +223,10 @@ export default function AIMarketingPage() {
                 );
               })}
             </div>
-          </section>
+          </AnimatedSection>
 
           {/* Benefits Section */}
-          <section className={styles.metricsSection} aria-labelledby="marketing-metrics-heading">
+          <AnimatedSection className={styles.metricsSection} aria-labelledby="marketing-metrics-heading" delay={0.1}>
             <span className={`${styles.sectionTag} ${styles.sectionTagGreen}`}>Core Benefits</span>
             <h2 id="marketing-metrics-heading" className={styles.sectionTitle}>
               Why Use AI in Your Marketing Strategy?
@@ -238,7 +239,7 @@ export default function AIMarketingPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </AnimatedSection>
 
           {/* Tech Bar */}
           <section className={styles.techBar} aria-labelledby="marketing-tech-heading">
@@ -257,7 +258,7 @@ export default function AIMarketingPage() {
           </section>
 
           {/* Process Section */}
-          <section className={styles.processSection} aria-labelledby="marketing-process-heading">
+          <AnimatedSection className={styles.processSection} aria-labelledby="marketing-process-heading" delay={0.1}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionTag}>Execution Roadmap</span>
               <h2 id="marketing-process-heading" className={styles.sectionTitle}>
@@ -276,7 +277,7 @@ export default function AIMarketingPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </AnimatedSection>
 
           {/* FAQs */}
           <section className={styles.faqSection} aria-labelledby="marketing-faq-heading">

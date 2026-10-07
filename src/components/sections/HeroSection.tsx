@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CONTACT } from '@/lib/config';
 import { ChevronRight } from 'lucide-react';
+import { AnimatedDiv } from '@/components/AnimatedSection';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
@@ -10,21 +11,23 @@ export default function HeroSection() {
       <div className={styles.bgGradient} aria-hidden="true" />
 
       <div className={`container ${styles.content}`}>
-        <div className={styles.badge}>
+        <AnimatedDiv delay={0.1} className={styles.badge}>
           <span className={styles.badgeDot} />
           AI Services for Modern Businesses
-        </div>
+        </AnimatedDiv>
 
-        <h1 className={styles.headline}>
+        <AnimatedDiv delay={0.2} className={styles.headline}>
           <span className={styles.headlineLine}>Reclaim Your Time.</span>
           <span className={styles.accent}>Automate the Busywork.</span>
-        </h1>
+        </AnimatedDiv>
 
-        <p className={styles.sub}>
-          We build <strong>custom AI websites</strong> and smart automations for <strong>lead capture</strong> that help your business run smoothly. Our goal is to provide <strong>practical solutions</strong> that drive <strong>real business outcomes</strong> for every <strong>client</strong> we partner with.
-        </p>
+        <AnimatedDiv delay={0.3}>
+          <p className={styles.sub}>
+            We build <strong>custom AI websites</strong> and smart automations for <strong>lead capture</strong> that help your business run smoothly. Our goal is to provide <strong>practical solutions</strong> that drive <strong>real business outcomes</strong> for every <strong>client</strong> we partner with.
+          </p>
+        </AnimatedDiv>
 
-        <div className={styles.actions}>
+        <AnimatedDiv delay={0.4} className={styles.actions}>
           <Link href="/contact" className={styles.primaryCta}>
             Book Free Consultation
           </Link>
@@ -32,22 +35,24 @@ export default function HeroSection() {
             View Services
             <ChevronRight size={16} aria-hidden="true" />
           </Link>
-        </div>
+        </AnimatedDiv>
 
-        <p className={styles.tertiary}>
-          Or{' '}
-          {CONTACT.bookingUrl ? (
-            <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer nofollow" className={styles.tertiaryLink}>
-              start a project enquiry
-            </a>
-          ) : (
-            <Link href="/contact" className={styles.tertiaryLink}>
-              start a project enquiry
-            </Link>
-          )}
-        </p>
+        <AnimatedDiv delay={0.5}>
+          <p className={styles.tertiary}>
+            Or{' '}
+            {CONTACT.bookingUrl ? (
+              <a href={CONTACT.bookingUrl} target="_blank" rel="noopener noreferrer nofollow" className={styles.tertiaryLink}>
+                start a project enquiry
+              </a>
+            ) : (
+              <Link href="/contact" className={styles.tertiaryLink}>
+                start a project enquiry
+              </Link>
+            )}
+          </p>
+        </AnimatedDiv>
 
-        <div className={styles.socials}>
+        <AnimatedDiv delay={0.6} className={styles.socials}>
           <a href={CONTACT.companyLinkedin} target="_blank" rel="noopener noreferrer nofollow" className={styles.socialLink} aria-label="Company LinkedIn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -62,7 +67,7 @@ export default function HeroSection() {
               <circle cx="4" cy="4" r="2" />
             </svg> Founder LinkedIn
           </a>
-        </div>
+        </AnimatedDiv>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CheckCircle2, ArrowRight, PenTool, Layout, Presentation, Video, Sparkles, FileText } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { AnimatedSection } from '@/components/AnimatedSection';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -135,7 +136,7 @@ export default function ContentDesignPage() {
       <div className={styles.page}>
         <div className="container">
           {/* Header */}
-          <header className={styles.header}>
+          <AnimatedSection className={styles.header}>
             <span className={styles.eyebrow}>CREATE</span>
             <h1 className={styles.title}>Professional Content Created with AI Intelligence</h1>
             <p className={styles.sub}>
@@ -150,10 +151,10 @@ export default function ContentDesignPage() {
                 Explore Capabilities
               </Link>
             </div>
-          </header>
+          </AnimatedSection>
 
           {/* Problem Section */}
-          <section className={styles.problemSection} aria-labelledby="content-problem-heading">
+          <AnimatedSection className={styles.problemSection} aria-labelledby="content-problem-heading" delay={0.1}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionTag}>The Creative Dilemma</span>
               <h2 id="content-problem-heading" className={styles.sectionTitle}>
@@ -186,10 +187,10 @@ export default function ContentDesignPage() {
                 </p>
               </div>
             </div>
-          </section>
+          </AnimatedSection>
 
           {/* Capabilities Grid */}
-          <section id="capabilities" className={styles.capabilitiesSection} aria-labelledby="content-cap-heading">
+          <AnimatedSection id="capabilities" className={styles.capabilitiesSection} aria-labelledby="content-cap-heading" delay={0.1}>
             <div className={styles.sectionHeader}>
               <span className={`${styles.sectionTag} ${styles.sectionTagCyan}`}>Creative Portfolio</span>
               <h2 id="content-cap-heading" className={styles.sectionTitle}>
@@ -221,10 +222,10 @@ export default function ContentDesignPage() {
                 );
               })}
             </div>
-          </section>
+          </AnimatedSection>
 
           {/* Measurable ROI */}
-          <section className={styles.metricsSection} aria-labelledby="content-metrics-heading">
+          <AnimatedSection className={styles.metricsSection} aria-labelledby="content-metrics-heading" delay={0.1}>
             <span className={`${styles.sectionTag} ${styles.sectionTagCyan}`}>Efficiency & Reach</span>
             <h2 id="content-metrics-heading" className={styles.sectionTitle}>
               Speed, Quality, and Engagement Combined
@@ -246,7 +247,7 @@ export default function ContentDesignPage() {
                 <p className={styles.metricDesc}>Higher retention and click-throughs on social & web</p>
               </div>
             </div>
-          </section>
+          </AnimatedSection>
 
           {/* Tech Bar */}
           <section className={styles.techBar} aria-labelledby="content-tech-heading">
@@ -265,7 +266,7 @@ export default function ContentDesignPage() {
           </section>
 
           {/* Process Section */}
-          <section className={styles.processSection} aria-labelledby="content-process-heading">
+          <AnimatedSection className={styles.processSection} aria-labelledby="content-process-heading" delay={0.1}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionTag}>How We Deliver</span>
               <h2 id="content-process-heading" className={styles.sectionTitle}>
@@ -284,7 +285,7 @@ export default function ContentDesignPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </AnimatedSection>
 
           {/* FAQs */}
           <section className={styles.faqSection} aria-labelledby="content-faq-heading">
