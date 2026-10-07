@@ -277,13 +277,48 @@
   font-weight: 600;
   text-align: left;
   cursor: pointer;
+  list-style: none; /* Hide default marker */
+}
+
+/* Hide default marker in webkit */
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.faqItem[open] .faqQuestion::after {
+  transform: rotate(45deg);
+}
+
+.faqItem[open] .faqQuestion {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
 }
 
 .faqAnswer {
   padding: 0 1.5rem 1.25rem;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.6;
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* CTA */
