@@ -18,7 +18,7 @@ export const CONTACT = {
   companyLinkedin: 'https://www.linkedin.com/company/143035530/',
   personalLinkedin: 'https://www.linkedin.com/in/vivek-potnuru-302677200/',
   facebook: 'https://facebook.com/iamtowork',
-  twitter: 'https://x.com/iamtowork',
+  twitter: '',
   instagram: 'https://instagram.com/iamtowork',
   youtube: 'https://youtube.com/@iamtowork',
   bookingUrl: '', // fill when ready (e.g., Calendly)
