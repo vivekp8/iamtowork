@@ -14,7 +14,7 @@ export const CONTACT = {
   email: 'vivekp@iamtowork.com',
   phone: '+91 70363 38557', // Added for local business schema / footer
   whatsapp: '+917036338557',
-  address: '123 Business Rd, Tech City', // e.g. "123 Business Rd, Tech City" (Update with real address for local SEO)
+  address: 'Srikakulam, Andhra Pradesh, India',
   companyLinkedin: 'https://www.linkedin.com/company/143035530/',
   personalLinkedin: 'https://www.linkedin.com/in/vivek-potnuru-302677200/',
   facebook: 'https://facebook.com/iamtowork',
