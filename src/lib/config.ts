@@ -19,7 +19,7 @@ export const CONTACT = {
   personalLinkedin: 'https://www.linkedin.com/in/vivek-potnuru-302677200/',
   facebook: 'https://facebook.com/iamtowork',
   twitter: '',
-  instagram: 'https://instagram.com/iamtowork',
+  instagram: 'https://www.instagram.com/iamtowork/',
   youtube: 'https://youtube.com/@iamtowork',
   bookingUrl: '', // fill when ready (e.g., Calendly)
 };
