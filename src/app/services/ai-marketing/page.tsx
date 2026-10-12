@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, TrendingUp, ArrowRight, Target, Share2, Users, BarChart3, Bot, Layers } from 'lucide-react';
+import { TrendingUp, ArrowRight, Target, Share2, Users, BarChart3, Layers } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import styles from './page.module.css';

@@ -15,8 +15,6 @@ export default async function AdminDashboard(
   const searchParams = await props.searchParams;
   const supabase = await createClient();
 
-  const { data: { user } } = await supabase.auth.getUser();
-
   const currentStatus = searchParams.status || 'active';
   const searchTerm = searchParams.search?.toLowerCase() || '';
 

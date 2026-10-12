@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { WHY_US, PROCESS_STEPS } from '@/lib/config';
+import { PROCESS_STEPS } from '@/lib/config';
 import TechSection from '@/components/sections/TechSection';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';

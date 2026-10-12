@@ -2,9 +2,9 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-    # Runs at 00:00 (midnight UTC) every 3 days
+    # Runs at 00:00 (midnight UTC) every 3 days to prevent auto-pause on free tier
     - cron: '0 0 */3 * *'
-  # Allows you to run this workflow manually from the Actions tab
+  # Allows manual testing from the Actions tab
   workflow_dispatch:
 
 jobs:
@@ -13,12 +13,30 @@ jobs:
     steps:
       - name: Ping Supabase REST API
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY || secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: |
-          echo "Pinging Supabase to prevent auto-pause..."
-          curl --fail --silent --show-error \
+          if [ -z "$SUPABASE_URL" ]; then
+            echo "Error: SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) secret is not configured in GitHub repository secrets."
+            exit 1
+          fi
+
+          if [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "Error: SUPABASE_ANON_KEY (or NEXT_PUBLIC_SUPABASE_ANON_KEY) secret is not configured in GitHub repository secrets."
+            exit 1
+          fi
+
+          echo "Pinging Supabase REST API to prevent inactivity pause..."
+          CLEAN_URL="${SUPABASE_URL%/}"
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
             -H "apikey: $SUPABASE_ANON_KEY" \
             -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
-            "$SUPABASE_URL/rest/v1/"
-          echo "Successfully pinged Supabase!"
+            "$CLEAN_URL/rest/v1/")
+
+          echo "Received HTTP status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 400 ]; then
+            echo "Successfully pinged Supabase! Project is active."
+          else
+            echo "Error: Received HTTP $HTTP_STATUS when pinging $CLEAN_URL/rest/v1/"
+            exit 1
+          fi

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, Zap, ArrowRight, Database, MessageSquare, Bot, FileText, Settings } from 'lucide-react';
+import { Zap, ArrowRight, Database, MessageSquare, Bot, FileText, Settings } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import styles from './page.module.css';
 
