@@ -4,7 +4,7 @@ import { createClient } from '@/utils/supabase/server';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-export async function createBlog(prevState: any, formData: FormData) {
+export async function createBlog(prevState: unknown, formData: FormData) {
   const supabase = await createClient();
   
   const title = formData.get('title') as string;
@@ -27,7 +27,7 @@ export async function createBlog(prevState: any, formData: FormData) {
   redirect('/admin/blogs');
 }
 
-export async function updateBlog(id: string, prevState: any, formData: FormData) {
+export async function updateBlog(id: string, prevState: unknown, formData: FormData) {
   const supabase = await createClient();
   
   const title = formData.get('title') as string;

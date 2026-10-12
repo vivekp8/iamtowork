@@ -54,12 +54,12 @@ export default async function AdminDashboard(
 
   // 2. Filter by Tab Status
   if (currentStatus === 'archived') {
-    filteredContacts = filteredContacts.filter(c => ['archived', 'spam'].includes(c.status));
+    filteredContacts = filteredContacts.filter(c => ['archived', 'spam'].includes(c.status ?? ''));
   } else if (currentStatus === 'closed') {
-    filteredContacts = filteredContacts.filter(c => ['won', 'lost'].includes(c.status));
+    filteredContacts = filteredContacts.filter(c => ['won', 'lost'].includes(c.status ?? ''));
   } else {
     // Active
-    filteredContacts = filteredContacts.filter(c => !['archived', 'spam', 'won', 'lost'].includes(c.status));
+    filteredContacts = filteredContacts.filter(c => !['archived', 'spam', 'won', 'lost'].includes(c.status ?? ''));
   }
 
   return (

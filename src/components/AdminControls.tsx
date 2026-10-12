@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { updateContactStatus, deleteContact, updateAdminNotes } from '@/app/actions/contact';
 import styles from './AdminControls.module.css';
 
@@ -11,11 +11,11 @@ export default function AdminControls({
 }: { 
   id: string, 
   currentStatus: string, 
-  initialNotes?: string 
+  initialNotes?: string | null 
 }) {
   const [isPending, setIsPending] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [notes, setNotes] = useState(initialNotes);
+  const [notes, setNotes] = useState(initialNotes || '');
   const [isSavingNotes, setIsSavingNotes] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
 

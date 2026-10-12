@@ -2,9 +2,10 @@
 
 import { useActionState } from 'react';
 import { updateBlog, deleteBlog } from '@/app/actions/blogs';
+import { Tables } from '@/types/database.types';
 import styles from '../../page.module.css';
 
-export function EditBlogForm({ blog }: { blog: any }) {
+export function EditBlogForm({ blog }: { blog: Tables<'blogs'> }) {
   const updateBlogWithId = updateBlog.bind(null, blog.id);
   const deleteBlogWithId = deleteBlog.bind(null, blog.id);
   const [state, formAction, isPending] = useActionState(updateBlogWithId, null);

@@ -2,12 +2,12 @@ import styles from './AnalyticsCards.module.css';
 
 interface ContactItem {
   id?: string;
-  status: string;
+  status: string | null;
 }
 
 export default function AnalyticsCards({ contacts }: { contacts: ContactItem[] }) {
   const totalLeads = contacts.length;
-  const activeDiscussions = contacts.filter(c => ['in_discussion', 'proposal_sent'].includes(c.status)).length;
+  const activeDiscussions = contacts.filter(c => ['in_discussion', 'proposal_sent'].includes(c.status ?? '')).length;
   const wonDeals = contacts.filter(c => c.status === 'won').length;
   const lostDeals = contacts.filter(c => c.status === 'lost').length;
   
