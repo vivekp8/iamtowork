@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     languages: {
       'en-US': '/',
       'en': '/',
+      'x-default': '/',
     },
   },
   openGraph: {
@@ -30,10 +31,17 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
+        alt: `${SITE.name} - Custom AI Websites & Business Automation`,
       },
     ],
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE.name} | AI Websites & Business Automation`,
+    description: SITE.description,
+    images: ['/og-image.jpg'],
   },
 };
 
@@ -90,7 +98,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        
+      </head>
+      <body>
+        <Navigation />
+        <main>{children}</main>
+        <Footer />
+
         {/* Google Analytics */}
         {TRACKING.googleAnalyticsId && (
           <>
@@ -118,7 +131,7 @@ export default function RootLayout({
           <>
             <Script
               id="facebook-pixel"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
               dangerouslySetInnerHTML={{
                 __html: `
                   !function(f,b,e,v,n,t,s)
@@ -145,11 +158,6 @@ export default function RootLayout({
             </noscript>
           </>
         )}
-      </head>
-      <body>
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );

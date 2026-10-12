@@ -7,7 +7,7 @@ export const SITE = {
   tagline: 'Build Faster. Automate Smarter. Grow with AI.',
   description:
     'I Am To Work helps clients build custom AI websites, automate workflows for lead capture, and deliver practical solutions that drive real business outcomes.',
-  url: 'https://iamtowork.com',
+  url: 'https://www.iamtowork.com',
 };
 
 export const CONTACT = {

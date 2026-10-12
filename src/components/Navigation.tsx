@@ -60,7 +60,7 @@ export function Navigation() {
         <div className={styles.logo}>
           <Link href="/">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="I Am To Work"
               width={170}
               height={48}

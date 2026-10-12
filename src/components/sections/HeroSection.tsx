@@ -16,9 +16,11 @@ export default function HeroSection() {
           AI Services for Modern Businesses
         </AnimatedDiv>
 
-        <AnimatedDiv delay={0.2} className={styles.headline}>
-          <span className={styles.headlineLine}>Reclaim Your Time.</span>
-          <span className={styles.accent}>Automate the Busywork.</span>
+        <AnimatedDiv delay={0.2}>
+          <h1 className={styles.headline}>
+            <span className={styles.headlineLine}>Reclaim Your Time.</span>
+            <span className={styles.accent}>Automate the Busywork.</span>
+          </h1>
         </AnimatedDiv>
 
         <AnimatedDiv delay={0.3}>
